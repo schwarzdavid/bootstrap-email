@@ -1,0 +1,10 @@
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{html,js,scss}]
+charset = utf-8
+
+[*.{html,js,scss}]
+indent_style = tab
+indent_size = 4

@@ -1,2 +1,2 @@
-/docs/_site
-/docs/.sass-cache
+.idea/
+node_modules/
