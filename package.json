@@ -23,6 +23,7 @@
     "cheerio": "^1.0.0-rc.3",
     "css-rules": "^1.0.4",
     "ejs": "^2.6.1",
+    "juice": "^5.2.0",
     "node-sass": "^4.11.0"
   },
   "devDependencies": {
