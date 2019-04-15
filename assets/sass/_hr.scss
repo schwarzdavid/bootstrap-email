@@ -1,14 +1,17 @@
-div.hr {
-  width: 100%;
-  border: 0;
-  margin: $font-size-base*1.25 0;
-  & > table {
-    width: 100%;
-    & > tbody > tr > td {
-      width: 100%;
-      border-top: 1px solid #dddddd;
-      height: 1px;
-      width: 100%;
-    }
-  }
+.hr {
+	width: 100%;
+	border: 0;
+	& > tbody > tr > td{
+		width: 100%;
+		padding: $font-size-base 0px;
+		& > table {
+			width:100%;
+			& > tbody > tr > td {
+				width:100%;
+				border-top: 1px solid #dddddd;
+				height: 1px;
+				width: 100%;
+			}
+		}
+	}
 }
