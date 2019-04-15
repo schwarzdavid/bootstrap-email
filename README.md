@@ -40,7 +40,7 @@ Install package with `npm i bootstrap-email -S`*
 
 To compile a default template:
 
-```html
+```javascript
 const BootstrapEmail = require('bootstrap-email');
 
 const template = new BootstrapEmail({
@@ -61,18 +61,52 @@ template.compileAndSave('<path-to-output>.html');
 
 ##### new BootstrapEmail(options)
 
-##### compile(): _string_
+##### compile(): _string | [{path: string, document: string}]_
 
-Basically its self explaining, but I will add a detailled description soon
+Performs a full compile and returns compiled document(s).
+
+If only one template is about to compile, returns the compiled template, otherwise an array containing objects with the path of the input-file and the compiled document.
+
+```javascript
+const singleTemplate = new BootstrapEmail({
+    template: '<path-to-template>.html'
+});
+
+// returns string
+singleTemplate.compile();
+
+
+const multipleTemplates = new BootstrapEmail({
+    templates: ['<path>', ...]
+});
+
+// returns [{path:'<path-to-source>', document: '...'}, ...]
+multipleTemplates.compile();
+```
 
 ##### compileAndSave(path): _void_
 
-Basically its self explaining, but I will add a detailled description soon
+Performs a full compile and saves compiled files into given path.
+
+If only one template is given, pass a full path including filename and extension. Otherwise pass only a directory name. The filenames will be used from the source files.
+
+```javascript
+const singleTemplate = new BootstrapEmail({
+    template: '<path-to-template>.html'
+});
+singleTemplate.compileAndSave('./out/compiled.html');
+
+
+const multipleTemplates = new BootstrapEmail({
+    templates: ['<path>', ...]
+});
+multipleTemplates.compileAndSave('./out/');
+```
 
 ## TODOS
 
 - [ ] Write useful tests
 - [ ] Update documentation
-- [ ] Write plugin
+- [ ] Write gulp plugin
 
 
