@@ -1,27 +1,26 @@
 {
   "name": "bootstrap-email",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Convert a bootstrap-like template into email-compatible table layout",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/schwarzdavid/bootstrap-email.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "David Schwarz <schwarz.david10@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/schwarzdavid/bootstrap-email/issues"
   },
   "homepage": "https://github.com/schwarzdavid/bootstrap-email#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "css-rules": "^1.0.4",
     "ejs": "^2.6.1",
     "juice": "^5.2.0",
     "node-sass": "^4.11.0"
