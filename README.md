@@ -44,7 +44,7 @@ To compile a default template:
 const BootstrapEmail = require('bootstrap-email');
 
 const template = new BootstrapEmail({
-    template: '<path-to-template>.html
+    template: '<path-to-template>.html'
 });
 
 template.compileAndSave('<path-to-output>.html');
