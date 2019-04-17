@@ -78,6 +78,13 @@ $theme-colors: (
   dark: $theme-dark
 ) !default;
 
+//
+// Grid settings
+//
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
 $spacer: $font-size-base;
 $spacers: (
   0: 0,

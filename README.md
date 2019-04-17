@@ -6,6 +6,10 @@
 
 <br>
 
+[![NPM](https://nodei.co/npm/bootstrap-email.png)](https://nodei.co/npm/bootstrap-email/)
+
+<br>
+
 Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/bootstrap-email), this library allows you to compile a regular HTML markdown with usual Bootstrap classes into cringy table-based email-layouts ... with **JAVASCRIPT 🎉🎊✨**.
 
 # Table of contents
