@@ -85,6 +85,8 @@ $theme-colors: (
 $grid-columns: 12 !default;
 $grid-gutter-width: 30px !default;
 
+$container-max-width: 600px;
+
 $spacer: $font-size-base;
 $spacers: (
   0: 0,

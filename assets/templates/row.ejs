@@ -1,13 +1,31 @@
-<!-- ROW -->
-<table class="<%= classes %>" width="100%">
-	<thead>
+<table class="row <%= classes %>">
+	<tbody>
 	<tr>
-		<!-- ROW CONTENT -->
-		
-		<%- content %>
+		<td align="center">
 
-		<!-- / ROW CONTENT -->
-		</tr>
-	</thead>
+			<!--[if (gte mso 9)|(IE)]>
+			<table align="center">
+				<tbody>
+				<tr>
+					<td class="row-container">
+			<![endif]-->
+
+			<table align="center" class="row-container">
+				<tbody>
+				<tr>
+					<%- content %>
+				</tr>
+				</tbody>
+			</table>
+
+			<!--[if (gte mso 9)|(IE)]>
+			</td>
+			</tr>
+			</tbody>
+			</table>
+			<![endif]-->
+			
+		</td>
+	</tr>
+	</tbody>
 </table>
-<!-- / ROW -->

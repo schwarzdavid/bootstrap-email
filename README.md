@@ -109,8 +109,7 @@ multipleTemplates.compileAndSave('./out/');
 
 ## TODOS
 
-- [ ] Write useful tests
-- [ ] Update documentation
+- [ ] Inherit tag attributes
 - [ ] Write gulp plugin
 
 

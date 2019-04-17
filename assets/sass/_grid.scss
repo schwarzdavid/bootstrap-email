@@ -1,8 +1,11 @@
-table.row {
-	margin-right: -$grid-gutter-width/2;
-	margin-left: -$grid-gutter-width/2;
+table.row,
+table.row-fluid {
 	table-layout: fixed;
-	width: auto;
+	width: 100%;
+}
+
+table.row .row-container {
+	width: $container-max-width;
 }
 
 // Create column classes
