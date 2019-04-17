@@ -9,6 +9,7 @@ const files = dir.map(filename => {
 });
 
 const bootstrapEmail = new BootstrapEmail({
-	templates: files
+	//templates: files
+	template: path.join(inputPath, 'integration.html')
 });
-bootstrapEmail.compileAndSave(path.join(__dirname, 'tests/output'));
+bootstrapEmail.compileAndSave(path.join(__dirname, 'tests/integration.html'));
