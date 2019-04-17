@@ -1,11 +1,13 @@
-table.row,
-table.row-fluid {
-	table-layout: fixed;
+.row,
+.row-fluid {
 	width: 100%;
+	table-layout: fixed;
+
 }
 
-table.row .row-container {
-	width: $container-max-width;
+.row > tbody > tr > td > table {
+	width: 100%;
+	max-width: $container-max-width + $grid-gutter-width;
 }
 
 // Create column classes
@@ -14,10 +16,9 @@ table.row .row-container {
 	th.col-lg-#{$i} {
 		width: 100% / $grid-columns * $i;
 		min-height: 1px;
-		padding-right: 15px;
-		padding-left: 15px;
+		padding-right: $grid-gutter-width / 2;
+		padding-left: $grid-gutter-width / 2;
 		font-weight: normal;
-		box-sizing: border-box;
 	}
 }
 

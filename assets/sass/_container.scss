@@ -1,16 +1,20 @@
 .container {
 	width: 100%;
-	& > tbody > tr > td {
-		padding: 0 $grid-gutter-width/2;
-		& > table {
+
+	& > tbody > tr > td > table {
+		width: 100%;
+		max-width: $container-max-width + $grid-gutter-width;
+
+		& > tbody > tr > td {
 			width: 100%;
-			max-width: 600px;
+			padding: 0 $grid-gutter-width/2;
 		}
 	}
 }
 
 .container-fluid {
 	width: 100%;
+
 	& > tbody > tr > td {
 		padding: 0 $grid-gutter-width/2;
 		width: 100%;
