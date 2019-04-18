@@ -5,11 +5,6 @@
 
 }
 
-.row > tbody > tr > td > table {
-	width: 100%;
-	max-width: $container-max-width + $grid-gutter-width;
-}
-
 // Create column classes
 @for $i from 1 through $grid-columns {
 	th.col-#{$i},
