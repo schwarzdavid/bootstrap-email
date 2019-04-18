@@ -1,31 +1,21 @@
-<table class="<%= classes %>">
+<% if(wrapper) { %>
+<table align="center">
 	<tbody>
 	<tr>
-		<td align="center">
+		<td>
+			<% } %>
 
-			<!--[if (gte mso 9)|(IE)]>
-			<table align="center">
-				<tbody>
-				<tr>
-					<td width="630">
-			<![endif]-->
-
-			<table align="center">
-				<tbody>
+			<table class="<%= classes %>">
+				<thead>
 				<tr>
 					<%- content %>
 				</tr>
-				</tbody>
+				</thead>
 			</table>
 
-			<!--[if (gte mso 9)|(IE)]>
-			</td>
-			</tr>
-			</tbody>
-			</table>
-			<![endif]-->
-
+			<% if(wrapper) { %>
 		</td>
 	</tr>
 	</tbody>
 </table>
+<% } %>

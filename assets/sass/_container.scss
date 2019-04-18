@@ -4,11 +4,11 @@
 	& > tbody > tr > td > table {
 		width: 100%;
 		max-width: $container-max-width + $grid-gutter-width;
+	}
 
-		& > tbody > tr > td {
-			width: 100%;
-			padding: 0 $grid-gutter-width/2;
-		}
+	.container-inner > tbody > tr > td {
+		width: 100%;
+		padding: 0 $grid-gutter-width/2;
 	}
 }
 

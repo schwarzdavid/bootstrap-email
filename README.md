@@ -19,6 +19,8 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 - [Installation and usage](#installation-and-usage)
 - [Options](#options)
 - [Methods](#methods)
+- [Todos](#todos)
+- [Known Bugs](#known-bugs)
 
 ## Supported Bootstrap Classes
 <small>{color} in these examples is `primary`, `secondary`, `success`, `warning`, `danger`, `light`, and `dark`</small>
@@ -107,9 +109,11 @@ const multipleTemplates = new BootstrapEmail({
 multipleTemplates.compileAndSave('./out/');
 ```
 
-## TODOS
+## Todos
 
 - [ ] Inherit tag attributes
 - [ ] Write gulp plugin
 
+# Known Bugs
 
+- Outlook 2013 on Windows 10 with 120DPI can't scale images properly
