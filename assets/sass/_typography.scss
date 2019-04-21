@@ -2,7 +2,6 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-top: 0;
 	margin-bottom: 0;
-	// margin-bottom: $font-size-base / 2;
 	font-weight: 500;
 	color: inherit;
 	text-align: left;
@@ -16,20 +15,32 @@ h1, h2, h3, h4, h5, h6,
 	}
 }
 
-.text-left {
+@for $n from 1 through 4 {
+	.display-#{$n} {
+		font-size: map-get($display-sizes, $n);
+		font-weight: $display-weight;
+		line-height: $display-line-height;
+	}
+}
+
+.text-left,
+.text-lg-left {
 	text-align: left !important;
 }
 
-.text-right {
+.text-right,
+.text-lg-right {
 	text-align: right !important;
 }
 
-.text-center {
+.text-center,
+.text-lg-center {
 	text-align: center !important;
 }
 
 p, .p {
 	width: 100%;
+
 	& > tbody > tr > td {
 		margin: 0;
 		padding: 0 0 $font-size-base * 1.25 0;
@@ -44,4 +55,15 @@ a {
 	color: $link-color;
 	text-decoration: $link-decoration;
 	background-color: transparent;
+}
+
+.lead {
+	font-size: $lead-font-size;
+	font-weight: $lead-font-weight;
+}
+
+small,
+.small {
+	font-size: $small-font-size;
+	font-weight: $small-font-weight;
 }

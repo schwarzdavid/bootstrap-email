@@ -35,7 +35,7 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 - [Hrs](https://bootstrapemail.com/docs/hr): `<hr>`
 - [Spacing](https://bootstrapemail.com/docs/spacing): `.p{tlbrxy}-{lg-}{0-5}`, `.m{tby}-{lg-}{0-5}`, `.s-{lg-}{0-5}`, `w-{lg-}{25,50,75,100}`, `mx-auto`
 - [Tables](https://bootstrapemail.com/docs/table): `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{color}`, `.table-dark`
-- [Typography](https://bootstrapemail.com/docs/typography): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-left`, `.text-center`, `.text-right`
+- [Typography](https://bootstrapemail.com/docs/typography): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-{sm|lg-}left`, `.text-{sm|lg-}center`, `.text-{sm|lg-}right`, `.display-{1-4}`, `.lead`, `.small`
 
 ## Additional Classes
 - [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
@@ -112,8 +112,9 @@ multipleTemplates.compileAndSave('./out/');
 
 ## Todos
 
-- [x] Inherit tag attributes
 - [ ] Write gulp plugin
+- [ ] Implement bootstrap-like vertical align classes
+- [x] Inherit tag attributes
 
 # Known Bugs
 

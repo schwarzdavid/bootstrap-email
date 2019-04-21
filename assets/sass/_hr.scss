@@ -1,14 +1,15 @@
 .hr {
 	width: 100%;
 	border: 0;
-	& > tbody > tr > td{
+	& > tbody > tr > td {
 		width: 100%;
-		padding: $font-size-base 0px;
+		padding: $hr-padding-y $hr-padding-x;
+
 		& > table {
-			width:100%;
+			width: 100%;
+
 			& > tbody > tr > td {
-				width:100%;
-				border-top: 1px solid #dddddd;
+				border-top: $hr-border-width $hr-border-style $hr-border-color;
 				height: 1px;
 				width: 100%;
 			}

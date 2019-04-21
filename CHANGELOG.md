@@ -1,9 +1,11 @@
 # 1.0.5 (coming soon)
 
-- `.row-inset`- and `.row-fluid`-class added
+- `.row-inset`- and `.row-fluid{-lg}`-class added
 - Better padding handling. Block-elements keep full width
 - Enhanced sass variables usage
 - Attribute inheriting
+- Add `text-{sm|lg}-{left|right|center}` classes for responsive text align
+- Typography extended
 - Other improvments
 
 # 1.0.4 (2019-04-20)

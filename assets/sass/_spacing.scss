@@ -2,7 +2,9 @@
 @each $size, $percentage in $sizes {
 	.w-#{$size} {
 		width: $percentage;
-		& > tbody > tr > td {
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
 			width: $percentage;
 		}
 	}
@@ -11,7 +13,9 @@
 @each $size, $percentage in $sizes {
 	.w-lg-#{$size} {
 		width: $percentage;
-		& > tbody > tr > td {
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
 			width: $percentage;
 		}
 	}
@@ -19,65 +23,67 @@
 
 // Padding Helper
 @each $size, $length in $spacers {
-	.p-#{$size} {
-		& > tbody > tr > td {
-			padding: $length;
+	.p-#{$size},
+	.p-lg-#{$size} {
+		&:not(table) {
+			padding: $length !important;
+		}
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
+			padding: $length !important;
 		}
 	}
 	.pt-#{$size},
-	.py-#{$size} {
-		& > tbody > tr > td {
-			padding-top: $length;
+	.py-#{$size},
+	.pt-lg-#{$size},
+	.py-lg-#{$size} {
+		&:not(table) {
+			padding-top: $length !important;
+		}
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
+			padding-top: $length !important;
 		}
 	}
 	.pr-#{$size},
-	.px-#{$size} {
-		& > tbody > tr > td {
-			padding-right: $length;
+	.px-#{$size},
+	.pr-lg-#{$size},
+	.px-lg-#{$size} {
+		&:not(table) {
+			padding-right: $length !important;
+		}
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
+			padding-right: $length !important;
 		}
 	}
 	.pb-#{$size},
-	.py-#{$size} {
-		& > tbody > tr > td {
-			padding-bottom: $length;
+	.py-#{$size},
+	.pb-lg-#{$size},
+	.py-lg-#{$size} {
+		&:not(table) {
+			padding-bottom: $length !important;
+		}
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
+			padding-bottom: $length !important;
 		}
 	}
 	.pl-#{$size},
-	.px-#{$size} {
-		& > tbody > tr > td {
-			padding-left: $length;
-		}
-	}
-}
-
-@each $size, $length in $spacers {
-	.p-lg-#{$size} {
-		& > tbody > tr > td {
-			padding: $length;
-		}
-	}
-	.pt-lg-#{$size},
-	.py-lg-#{$size} {
-		& > tbody > tr > td {
-			padding-top: $length;
-		}
-	}
-	.pr-lg-#{$size},
-	.px-lg-#{$size} {
-		& > tbody > tr > td {
-			padding-right: $length;
-		}
-	}
-	.pb-lg-#{$size},
-	.py-lg-#{$size} {
-		& > tbody > tr > td {
-			padding-bottom: $length;
-		}
-	}
+	.px-#{$size},
 	.pl-lg-#{$size},
 	.px-lg-#{$size} {
-		& > tbody > tr > td {
-			padding-left: $length;
+		&:not(table) {
+			padding-left: $length !important;
+		}
+
+		& > tbody > tr > td,
+		& > tbody > tr > th {
+			padding-left: $length !important;
 		}
 	}
 }

@@ -106,7 +106,7 @@ $line-height-sm: $line-height-base !default;
 $line-height-lg: $line-height-base !default;
 
 $border-width: 1px !default;
-$border-color: $gray-700 !default;
+$border-color: $gray-500 !default;
 $border-radius: 0.25 * $font-size-base !default;
 
 //
@@ -146,9 +146,10 @@ $display-weight: $font-weight-light !default;
 $display-line-height: $headings-line-height !default;
 
 $lead-font-size: $font-size-base * 1.25 !default;
-$lead-font-weight: $font-weight-light;
+$lead-font-weight: $font-weight-light !default;
 
-$small-font-size: $font-size-base * 0.8;
+$small-font-size: $font-size-base * 0.8 !default;
+$small-font-weight: $font-weight-base !default;
 
 $link-color: $theme-primary !default;
 $link-decoration: none !default;
@@ -203,6 +204,16 @@ $sizes: map-merge(
 			auto: auto
 		), $sizes
 );
+
+//
+// HR
+//
+
+$hr-padding-y: $font-size-base !default;
+$hr-padding-x: 0 !default;
+$hr-border-color: $border-color !default;
+$hr-border-width: $border-width !default;
+$hr-border-style: solid !default;
 
 //
 // Buttons

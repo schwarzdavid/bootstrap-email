@@ -1,6 +1,7 @@
 .row,
 .row-inset,
-.row-fluid {
+.row-fluid,
+.row-fluid-lg {
 	width: 100%;
 }
 
@@ -10,15 +11,19 @@
 }
 
 // Create column classes
+th.col {
+	min-height: 1px;
+	padding-right: $grid-gutter-width / 2;
+	padding-left: $grid-gutter-width / 2;
+	font-weight: normal;
+	box-sizing: border-box;
+}
+
 @for $i from 1 through $grid-columns {
 	th.col-#{$i},
 	th.col-lg-#{$i} {
+		@extend th.col;
 		width: 100% / $grid-columns * $i;
-		min-height: 1px;
-		padding-right: $grid-gutter-width / 2;
-		padding-left: $grid-gutter-width / 2;
-		font-weight: normal;
-		box-sizing: border-box;
 	}
 }
 
