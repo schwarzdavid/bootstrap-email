@@ -40,6 +40,7 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 ## Additional Classes
 - [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
 - Row-Handling: `.row-inset` prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...
+- Dynamic Rows: `.row-fluid` and `.row-fluid-lg` allows you to use columns with dynamic widths. Use `.col` or `.col-lg` without any size to make its size fit to the content.
 
 ## Installation and usage
 
@@ -57,12 +58,15 @@ const template = new BootstrapEmail({
 template.compileAndSave('<path-to-output>.html');
 ```
 
+Alternatively use the [Gulp plugin](https://github.com/schwarzdavid/gulp-bootstrap-email) to integrate Bootstrap Email into your templating workflow.
+
 ## Options
 
 - `style` _string_ (optional) - Path to css or scss file, which should be inlined. Default is `bootstrap-email.scss`
 - `head` _string_ (optional) - Path to css or scss file, which should be injected to `head`. Default is `head.scss`
 - `template` _string_ - Path to html file you want to compile. Use this option, if you only have one email template.
 - `templates` _array&lt;string&gt;_ - Array with paths to html files you want to compile.
+- `content` _string_ - Pass html template as string. By using this option, the `template` and `templates` option will be ignored
 
 ## Methods
 

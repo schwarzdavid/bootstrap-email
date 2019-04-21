@@ -1,3 +1,8 @@
+# 1.0.6 (2019-04-22)
+
+- Added `content` option to constructor
+- Documentation updated
+
 # 1.0.5 (2019-04-21)
 
 - `.row-inset`- and `.row-fluid{-lg}`-class added
