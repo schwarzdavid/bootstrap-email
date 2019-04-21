@@ -44,7 +44,7 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 
 ## Installation and usage
 
-Install package with `npm i bootstrap-email -S`*
+Install package with `npm i bootstrap-email -S`
 
 To compile a default template:
 
@@ -116,9 +116,9 @@ multipleTemplates.compileAndSave('./out/');
 
 ## Todos
 
-- [ ] Write gulp plugin
 - [ ] Implement bootstrap-like vertical align classes
 - [ ] Add container-width setting
+- [x] Write gulp plugin
 - [x] Inherit tag attributes
 
 # Known Bugs
