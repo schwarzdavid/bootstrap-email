@@ -114,6 +114,7 @@ multipleTemplates.compileAndSave('./out/');
 
 - [ ] Write gulp plugin
 - [ ] Implement bootstrap-like vertical align classes
+- [ ] Add container-width setting
 - [x] Inherit tag attributes
 
 # Known Bugs

@@ -1,4 +1,4 @@
-# 1.0.5 (coming soon)
+# 1.0.5 (2019-04-21)
 
 - `.row-inset`- and `.row-fluid{-lg}`-class added
 - Better padding handling. Block-elements keep full width

@@ -132,6 +132,7 @@ $headings-sizes: map-merge(
 );
 $headings-line-height: 1.2 !default;
 $headings-font-family: null !default;
+$headings-font-weight: $font-weight-base !default;
 
 $display-sizes: () !default;
 $display-sizes: map-merge(
