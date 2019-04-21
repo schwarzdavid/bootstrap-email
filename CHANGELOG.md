@@ -3,6 +3,7 @@
 - `.row-inset`- and `.row-fluid`-class added
 - Better padding handling. Block-elements keep full width
 - Enhanced sass variables usage
+- Attribute inheriting
 - Other improvments
 
 # 1.0.4 (2019-04-20)

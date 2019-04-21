@@ -112,7 +112,7 @@ multipleTemplates.compileAndSave('./out/');
 
 ## Todos
 
-- [ ] Inherit tag attributes
+- [x] Inherit tag attributes
 - [ ] Write gulp plugin
 
 # Known Bugs
