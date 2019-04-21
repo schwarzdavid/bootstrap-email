@@ -1,7 +1,7 @@
 .card {
-	background-color: $white;
-	border-radius: $font-size-base * .25;
-	border: 1px solid $gray-300;
+	background-color: $card-bg;
+	border-radius: $card-border-radius;
+	border: $card-border-color solid $card-border-width;
 	border-collapse: separate !important;
 	width: 100%;
 	overflow: hidden;
@@ -11,11 +11,11 @@
 	.card-body {
 		width: 100%;
 		& > tbody > tr > td {
-			padding: $font-size-base * 1.25;
+			padding: $card-spacer-y $card-spacer-x;
 			width: 100%;
 
 			.card-text {
-				padding-bottom: $font-size-base * 1.25;
+				padding-bottom: $card-spacer-y;
 			}
 		}
 	}

@@ -1,13 +1,8 @@
-$font-size-base: 16px !default; 
-$line-height-base: 1.5;
-$headings-line-height: 1.2;
-$headings-ratios: (1: 2.25, 2: 2, 3: 1.75, 4: 1.5, 5: 1.25, 6: 1);
-
 //
 // Color system
 //
 
-$white:  #ffffff !default;
+$white: #ffffff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -17,46 +12,52 @@ $gray-600: #868e96 !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:  #000000 !default;
+$black: #000000 !default;
 
-$grays: (
-  100: $gray-100,
-  200: $gray-200,
-  300: $gray-300,
-  400: $gray-400,
-  500: $gray-500,
-  600: $gray-600,
-  700: $gray-700,
-  800: $gray-800,
-  900: $gray-900
-) !default;
+$grays: () !default;
+$grays: map-merge(
+		(
+			100: $gray-100,
+			200: $gray-200,
+			300: $gray-300,
+			400: $gray-400,
+			500: $gray-500,
+			600: $gray-600,
+			700: $gray-700,
+			800: $gray-800,
+			900: $gray-900
+		), $grays
+);
 
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
 
-$colors: (
-  blue: $blue,
-  indigo: $indigo,
-  purple: $purple,
-  pink: $pink,
-  red: $red,
-  orange: $orange,
-  yellow: $yellow,
-  green: $green,
-  teal: $teal,
-  cyan: $cyan,
-  white: $white,
-  gray: $gray-600,
-  gray-dark: $gray-800
-) !default;
+$colors: () !default;
+$colors: map-merge(
+		(
+			blue: $blue,
+			indigo: $indigo,
+			purple: $purple,
+			pink: $pink,
+			red: $red,
+			orange: $orange,
+			yellow: $yellow,
+			green: $green,
+			teal: $teal,
+			cyan: $cyan,
+			white: $white,
+			gray: $gray-600,
+			gray-dark: $gray-800
+		), $colors
+);
 
 $theme-primary: $blue !default;
 $theme-secondary: $gray-600 !default;
@@ -67,50 +68,198 @@ $theme-info: $cyan !default;
 $theme-light: $gray-100 !default;
 $theme-dark: $gray-800 !default;
 
-$theme-colors: (
-  primary: $theme-primary,
-  secondary: $theme-secondary,
-  success: $theme-success,
-  danger: $theme-danger,
-  warning: $theme-warning,
-  info: $theme-info,
-  light: $theme-light,
-  dark: $theme-dark
-) !default;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+		(
+			primary: $theme-primary,
+			secondary: $theme-secondary,
+			success: $theme-success,
+			danger: $theme-danger,
+			warning: $theme-warning,
+			info: $theme-info,
+			light: $theme-light,
+			dark: $theme-dark
+		), $theme-colors
+);
+
+//
+// Components
+//
+
+$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+$font-family-monospace: "Courier New", Courier, monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 16px !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 1.5 !default;
+$line-height-sm: $line-height-base !default;
+$line-height-lg: $line-height-base !default;
+
+$border-width: 1px !default;
+$border-color: $gray-700 !default;
+$border-radius: 0.25 * $font-size-base !default;
+
+//
+// Body
+//
+
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+
+//
+// Typography
+//
+$headings-sizes: () !default;
+$headings-sizes: map-merge(
+		(
+			1: 2.25 * $font-size-base,
+			2: 2 * $font-size-base,
+			3: 1.75 * $font-size-base,
+			4: 1.5 * $font-size-base,
+			5: 1.25 * $font-size-base,
+			6: 1 * $font-size-base
+		), $headings-sizes
+);
+$headings-line-height: 1.2 !default;
+$headings-font-family: null !default;
+
+$display-sizes: () !default;
+$display-sizes: map-merge(
+		(
+			1: 6 * $font-size-base,
+			2: 5.5 * $font-size-base,
+			3: 4.5 * $font-size-base,
+			4: 3.5 * $font-size-base
+		), $display-sizes
+);
+$display-weight: $font-weight-light !default;
+$display-line-height: $headings-line-height !default;
+
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: $font-weight-light;
+
+$small-font-size: $font-size-base * 0.8;
+
+$link-color: $theme-primary !default;
+$link-decoration: none !default;
+
+$hr-border-color: $border-color !default;
+$hr-border-width: $border-width !default;
+
+//
+// Tables
+//
+
+$table-border-color: $border-color !default;
+$table-border-width: $border-width !default;
 
 //
 // Grid settings
 //
 
+$container-max-width: 600px !default;
+
 $grid-columns: 12 !default;
 $grid-gutter-width: 30px !default;
 
-$container-max-width: 600px;
+//
+// Spacing
+//
 
-$spacer: $font-size-base;
-$spacers: (
-  0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
-  3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3)
-) !default;
+$spacer: $font-size-base !default;
+$spacers: () !default;
+$spacers: map-merge(
+		(
+			0: 0,
+			1: ($spacer * .25),
+			2: ($spacer * .5),
+			3: $spacer,
+			4: ($spacer * 1.5),
+			5: ($spacer * 3)
+		), $spacers
+);
 
-$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+//
+// Sizes
+//
 
-$widths: (
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%,
-  auto: auto
-) !default;
+$sizes: () !default;
+$sizes: map-merge(
+		(
+			25: 25%,
+			50: 50%,
+			75: 75%,
+			100: 100%,
+			auto: auto
+		), $sizes
+);
 
-$table-border-color: $gray-200;
-$table-border-width: 1px;
+//
+// Buttons
+//
 
+$btn-padding-y: $font-size-base * 0.375 !default;
+$btn-padding-x: $font-size-base * 0.75 !default;
+$btn-font-size: $font-size-base !default;
+$btn-line-height: $line-height-base !default;
+
+$btn-padding-y-sm: $font-size-base * 0.2 !default;
+$btn-padding-x-sm: $font-size-base * 0.5 !default;
+$btn-font-size-sm: $font-size-sm !default;
+$btn-line-height-sm: $line-height-sm !default;
+
+$btn-padding-y-lg: $font-size-base * 0.5 !default;
+$btn-padding-x-lg: $font-size-base !default;
+$btn-font-size-lg: $font-size-lg !default;
+$btn-line-height-lg: $line-height-lg !default;
+
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-sm: $border-radius !default;
+$btn-border-radius-lg: $border-radius !default;
+$btn-border-width: $border-width !default;
+$btn-border-color: $theme-primary !default;
+
+//
+// Cards
+//
+
+$card-spacer-y: $font-size-base * 0.75 !default;
+$card-spacer-x: $font-size-base * 1.25 !default;
+$card-border-width: $border-width !default;
+$card-border-radius: $border-radius !default;
+$card-border-color: $border-color !default;
+$card-bg: $white;
+
+//
+// Badges
+//
+
+$badge-font-size: 75% !default;
+$badge-font-weight: $font-weight-bold !default;
+$badge-color: $white !default;
+$badge-padding-y: $font-size-base * 0.25 !default;
+$badge-padding-x: $font-size-base * 0.5 !default;
+$badge-border-radius: $border-radius !default;
+
+//
 // Utility functions
-@function heading-size($n) { @return map-get($headings-ratios, $n) * $font-size-base; }
-@function heading-line-height($n) { @return heading-size($n) * $headings-line-height; }
+//
+
+@function heading-size($n) {
+	@return map-get($headings-sizes, $n);
+}
+
+@function heading-line-height($n) {
+	@return heading-size($n) * $headings-line-height;
+}
 

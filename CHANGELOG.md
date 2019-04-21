@@ -1,3 +1,10 @@
+# 1.0.5 (coming soon)
+
+- `.row-inset`- and `.row-fluid`-class added
+- Better padding handling. Block-elements keep full width
+- Enhanced sass variables usage
+- Other improvments
+
 # 1.0.4 (2019-04-20)
 
 - Fixed bug caused by cheerio (https://github.com/cheeriojs/cheerio/issues/1301)

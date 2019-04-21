@@ -1,8 +1,12 @@
 .row,
+.row-inset,
 .row-fluid {
 	width: 100%;
-	table-layout: fixed;
+}
 
+.row,
+.row-inset {
+	table-layout: fixed;
 }
 
 // Create column classes
@@ -16,12 +20,6 @@
 		font-weight: normal;
 		box-sizing: border-box;
 	}
-}
-
-// Add classes for no gutter grids
-table.no-gutters {
-	margin-right: 0;
-	margin-left: 0;
 }
 
 .no-gutters > thead > tr {

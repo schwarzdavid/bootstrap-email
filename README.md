@@ -39,6 +39,7 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 
 ## Additional Classes
 - [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
+- Row-Handling: `.row-inset` prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...
 
 ## Installation and usage
 

@@ -1,41 +1,47 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-  // margin-bottom: $font-size-base / 2;
-  font-weight: 500;
-  color: inherit;
-  text-align: left;
-  vertical-align: baseline;
+	margin-top: 0;
+	margin-bottom: 0;
+	// margin-bottom: $font-size-base / 2;
+	font-weight: 500;
+	color: inherit;
+	text-align: left;
+	vertical-align: baseline;
 }
 
 @for $n from 1 through 6 {
-  h#{$n}, .h#{$n} {
-    font-size: heading-size($n);
-    line-height: heading-line-height($n);
-  }
+	h#{$n}, .h#{$n} {
+		font-size: heading-size($n);
+		line-height: heading-line-height($n);
+	}
 }
 
 .text-left {
-  text-align: left !important;
+	text-align: left !important;
 }
 
 .text-right {
-  text-align: right !important;
+	text-align: right !important;
 }
 
 .text-center {
-  text-align: center !important;
+	text-align: center !important;
 }
 
-.p {
-  width: 100%;
-  & > tbody > tr > td {
-    margin: 0;
-    padding: 0 0 $font-size-base * 1.25 0;
-    & > p {
-      margin: 0;
-      padding: 0;
-    }
-  }
+p, .p {
+	width: 100%;
+	& > tbody > tr > td {
+		margin: 0;
+		padding: 0 0 $font-size-base * 1.25 0;
+		& > p {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+a {
+	color: $link-color;
+	text-decoration: $link-decoration;
+	background-color: transparent;
 }
