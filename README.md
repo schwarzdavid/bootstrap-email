@@ -64,6 +64,7 @@ Alternatively use the [Gulp plugin](https://github.com/schwarzdavid/gulp-bootstr
 
 - `style` _string_ (optional) - Path to css or scss file, which should be inlined. Default is `bootstrap-email.scss`
 - `head` _string_ (optional) - Path to css or scss file, which should be injected to `head`. Default is `head.scss`
+- `containerWidthFallback` _bool_ (optional) - Set true to increase compatibility with older outlook versions by adding an conditional comment to the container template with a fixed width.
 - `template` _string_ - Path to html file you want to compile. Use this option, if you only have one email template.
 - `templates` _array&lt;string&gt;_ - Array with paths to html files you want to compile.
 - `content` _string_ - Pass html template as string. By using this option, the `template` and `templates` option will be ignored

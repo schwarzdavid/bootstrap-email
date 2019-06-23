@@ -1,3 +1,11 @@
+# 1.0.8 (2019-06-23)
+
+- Added `containerWidthFallback` setting to container template
+
+# 1.0.7 (2019-06-20)
+
+- Updated node-sass dependency
+
 # 1.0.6 (2019-04-22)
 
 - Added `content` option to constructor

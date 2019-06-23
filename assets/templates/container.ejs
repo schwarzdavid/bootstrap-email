@@ -3,7 +3,7 @@
 	<tr>
 		<td align="center">
 
-			<% if(classes.indexOf('container-fluid') < 0) { %>
+			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
 			<!--[if (gte mso 9)|(IE)]>
 			<table align="center">
 				<tbody>
@@ -22,7 +22,7 @@
 				</tbody>
 			</table>
 
-			<% if(classes.indexOf('container-fluid') < 0) { %>
+			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
 			<!--[if (gte mso 9)|(IE)]>
 			</td></tr></tbody></table>
 			<![endif]-->
