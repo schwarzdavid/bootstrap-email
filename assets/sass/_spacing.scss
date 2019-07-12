@@ -90,17 +90,13 @@
 
 // Spacing Helper
 @each $size, $length in $spacers {
-	.s-#{$size} > tbody > tr > td {
-		font-size: $length;
-		line-height: $length;
-		height: $length;
-	}
-}
-
-@each $size, $length in $spacers {
-	.s-lg-#{$size} > tbody > tr > td {
-		font-size: $length;
-		line-height: $length;
-		height: $length;
+	.s-#{$size},
+	.s-lg-#{$size} {
+		& > tbody > tr > td {
+			font-size: $length;
+			line-height: $length;
+			height: $length;
+			mso-line-height-rule: exactly;
+		}
 	}
 }

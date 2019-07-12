@@ -13,8 +13,12 @@
 .container {
 	width: 100%;
 
-	.container-inner > tbody > tr > td {
+	.container-inner {
 		width: 100%;
-		padding: 0 $grid-gutter-width/2;
+
+		& > tbody > tr > td {
+			width: 100%;
+			padding: 0 $grid-gutter-width/2;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-email",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Convert a bootstrap-like template into email-compatible table layout",
   "keywords": [
     "email",

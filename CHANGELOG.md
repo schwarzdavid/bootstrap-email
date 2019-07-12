@@ -1,3 +1,9 @@
+# 1.0.9 (2019-07-12)
+
+- Added border attributes to container IE/MSO fallback
+- Set `font-size` and `line-height` to zero on `hr`-tags
+- Outlook bugfix, causing random stripes to appear when using margins  
+
 # 1.0.8 (2019-06-23)
 
 - Added `containerWidthFallback` setting to container template
