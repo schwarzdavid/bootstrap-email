@@ -117,6 +117,7 @@ multipleTemplates.compileAndSave('./out/');
 
 ## Todos
 
+- [ ] Add Typescript typings
 - [ ] Implement bootstrap-like vertical align classes
 - [ ] Add container-width setting
 - [x] Write gulp plugin
