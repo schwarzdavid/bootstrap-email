@@ -1,34 +1,43 @@
+<!-- CONTAINER TEMPLATE -->
 <table <%- attributes %>>
 	<tbody>
 	<tr>
 		<td align="center">
 
 			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
-			<!--[if (gte mso 9)|(IE)]>
-			<table align="center" border="0" cellpadding="0" cellspacing="0">
-				<tbody>
-				<tr>
-					<td width="630">
-			<![endif]-->
+				<!--[if (gte mso 9)|(IE)]>
+				<table align="center" border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+					<tr>
+						<td width="630">
+				<![endif]-->
 			<% } %>
 
 			<table class="container-inner">
 				<tbody>
 				<tr>
 					<td>
+						<!-- CONTAINER CONTENT -->
+
 						<%- content %>
+
+						<!-- / CONTAINER CONTENT -->
 					</td>
 				</tr>
 				</tbody>
 			</table>
 
 			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
-			<!--[if (gte mso 9)|(IE)]>
-			</td></tr></tbody></table>
-			<![endif]-->
+				<!--[if (gte mso 9)|(IE)]>
+				</td>
+				</tr>
+				</tbody>
+				</table>
+				<![endif]-->
 			<% } %>
 
 		</td>
 	</tr>
 	</tbody>
 </table>
+<!-- / CONTAINER TEMPLATEA -->

@@ -117,6 +117,7 @@ multipleTemplates.compileAndSave('./out/');
 
 ## Todos
 
+- [ ] Support multiple CSS/SASS-files
 - [ ] Add Typescript typings
 - [ ] Implement bootstrap-like vertical align classes
 - [ ] Add container-width setting
