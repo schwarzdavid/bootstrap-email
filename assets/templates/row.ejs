@@ -1,21 +1,7 @@
-<% if(wrapper) { %>
-<table align="center" width="100%">
-	<tbody>
+<table>
+	<thead>
 	<tr>
-		<td>
-			<% } %>
-
-			<table <%- attributes %>>
-				<thead>
-				<tr>
-					<%- content %>
-				</tr>
-				</thead>
-			</table>
-
-			<% if(wrapper) { %>
-		</td>
+		<%- content %>
 	</tr>
-	</tbody>
+	</thead>
 </table>
-<% } %>

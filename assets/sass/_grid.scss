@@ -1,40 +1,27 @@
-.row,
-.row-inset,
 .row-fluid,
 .row-fluid-lg {
 	width: 100%;
 }
 
-.row,
-.row-inset {
+.row {
+	@extend .row-fluid;
 	table-layout: fixed;
 }
 
-// Create column classes
-th.col {
+.col {
 	min-height: 1px;
-	padding-right: $grid-gutter-width / 2;
-	padding-left: $grid-gutter-width / 2;
 	font-weight: normal;
 	box-sizing: border-box;
 
-
-}
-
-@for $i from 1 through $grid-columns {
-	th.col-#{$i},
-	th.col-lg-#{$i} {
-		@extend th.col;
-		width: 100% / $grid-columns * $i;
+	&-separator {
+		width: $grid-gutter-width;
 	}
-}
 
-.no-gutters > thead > tr {
 	@for $i from 1 through $grid-columns {
-		& > th.col-#{$i},
-		& > th.col-lg-#{$i} {
-			padding-right: 0;
-			padding-left: 0;
+		&-#{$i},
+		&-lg-#{$i} {
+			@extend .col;
+			width: 100% / $grid-columns * $i;
 		}
 	}
 }

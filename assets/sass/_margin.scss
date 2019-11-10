@@ -1,0 +1,62 @@
+// Spacing Helper
+@each $size, $length in $spacers {
+	.s-#{$size},
+	.s-lg-#{$size} {
+		& > tbody > tr > td {
+			font-size: $length;
+			line-height: $length;
+			height: $length;
+			mso-line-height-rule: exactly;
+		}
+	}
+
+	.m-#{$size},
+	.m-lg-#{$size},
+	.my-#{$size},
+	.my-lg-#{$size},
+	.mt-#{$size},
+	.mt-lg-#{$size} {
+		.space-top {
+			font-size: $length;
+			line-height: $length;
+			height: $length;
+			mso-line-height-rule: exactly;
+		}
+	}
+
+	.m-#{$size},
+	.m-lg-#{$size},
+	.my-#{$size},
+	.my-lg-#{$size},
+	.mb-#{$size},
+	.mb-lg-#{$size} {
+		.space-bottom {
+			font-size: $length;
+			line-height: $length;
+			height: $length;
+			mso-line-height-rule: exactly;
+		}
+	}
+
+	.m-#{$size},
+	.mx-lg-#{$size},
+	.mx-#{$size},
+	.mx-lg-#{$size},
+	.ml-#{$size},
+	.ml-lg-#{$size} {
+		.space-left {
+			width: $length;
+		}
+	}
+
+	.m-#{$size},
+	.m-lg-#{$size},
+	.mx-#{$size},
+	.mx-lg-#{$size},
+	.mr-#{$size},
+	.mr-lg-#{$size} {
+		.space-right {
+			width: $length;
+		}
+	}
+}

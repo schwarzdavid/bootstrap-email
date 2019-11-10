@@ -87,16 +87,3 @@
 		}
 	}
 }
-
-// Spacing Helper
-@each $size, $length in $spacers {
-	.s-#{$size},
-	.s-lg-#{$size} {
-		& > tbody > tr > td {
-			font-size: $length;
-			line-height: $length;
-			height: $length;
-			mso-line-height-rule: exactly;
-		}
-	}
-}

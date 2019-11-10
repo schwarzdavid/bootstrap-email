@@ -1,4 +1,4 @@
-<!-- CONTAINER TEMPLATE -->
+<!-- OUTER CONTAINER TEMPLATE -->
 <table>
 	<tbody>
 	<tr>
@@ -13,19 +13,9 @@
 				<![endif]-->
 			<% } %>
 
-			<table class="container-inner">
-				<tbody>
-				<tr>
-					<td>
-						<!-- CONTAINER CONTENT -->
-
-						<%- content %>
-
-						<!-- / CONTAINER CONTENT -->
-					</td>
-				</tr>
-				</tbody>
-			</table>
+			<!-- OUTER CONTAINER CONTENT -->
+			<%- content %>
+			<!-- / OUTER CONTAINER CONTENT -->
 
 			<% if(!variables.fluid && variables.containerWidthFallback) { %>
 				<!--[if (gte mso 9)|(IE)]>
@@ -40,4 +30,4 @@
 	</tr>
 	</tbody>
 </table>
-<!-- / CONTAINER TEMPLATEA -->
+<!-- / OUTER CONTAINER TEMPLATEA -->
