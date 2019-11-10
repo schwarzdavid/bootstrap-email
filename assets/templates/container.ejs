@@ -1,10 +1,10 @@
 <!-- CONTAINER TEMPLATE -->
-<table <%- attributes %>>
+<table>
 	<tbody>
 	<tr>
 		<td align="center">
 
-			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
+			<% if(!variables.fluid && variables.containerWidthFallback) { %>
 				<!--[if (gte mso 9)|(IE)]>
 				<table align="center" border="0" cellpadding="0" cellspacing="0">
 					<tbody>
@@ -27,7 +27,7 @@
 				</tbody>
 			</table>
 
-			<% if(classes.indexOf('container-fluid') < 0 && variables.containerWidthFallback) { %>
+			<% if(!variables.fluid && variables.containerWidthFallback) { %>
 				<!--[if (gte mso 9)|(IE)]>
 				</td>
 				</tr>

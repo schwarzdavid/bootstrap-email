@@ -17,6 +17,8 @@ th.col {
 	padding-left: $grid-gutter-width / 2;
 	font-weight: normal;
 	box-sizing: border-box;
+
+
 }
 
 @for $i from 1 through $grid-columns {
