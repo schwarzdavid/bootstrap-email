@@ -92,7 +92,7 @@ a {
 
 	// Spacing
 	// Reset large padding to 0 on small device
-	@each $size, $length in $spacers {
+	/*@each $size, $length in $spacers {
 		.p-lg-#{$size} {
 			& > tbody > tr > td {
 				padding: 0 !important;
@@ -174,7 +174,7 @@ a {
 			line-height: $length !important;
 			height: $length !important;
 		}
-	}
+	}*/
 
 
 	// Text align
@@ -219,7 +219,7 @@ a {
 
 	// Spacing
 	// Set proper spacing again on Yahoo
-	@each $size, $length in $spacers {
+	/*@each $size, $length in $spacers {
 		.p-lg-#{$size} {
 			& > tbody > tr > td {
 				padding: $length !important;
@@ -258,6 +258,6 @@ a {
 			line-height: $length !important;
 			height: $length !important;
 		}
-	}
+	}*/
 
 }

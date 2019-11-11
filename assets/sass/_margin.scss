@@ -1,21 +1,15 @@
-// Spacing Helper
+.spacing-container {
+	table-layout: fixed;
+}
+
+
 @each $size, $length in $spacers {
 	.s-#{$size},
-	.s-lg-#{$size} {
-		& > tbody > tr > td {
-			font-size: $length;
-			line-height: $length;
-			height: $length;
-			mso-line-height-rule: exactly;
-		}
-	}
-
-	.m-#{$size},
-	.m-lg-#{$size},
-	.my-#{$size},
-	.my-lg-#{$size},
-	.mt-#{$size},
-	.mt-lg-#{$size} {
+	.s-lg-#{$size},
+	.sy-#{$size},
+	.sy-lg-#{$size},
+	.st-#{$size},
+	.st-lg-#{$size} {
 		.space-top {
 			font-size: $length;
 			line-height: $length;
@@ -24,12 +18,12 @@
 		}
 	}
 
-	.m-#{$size},
-	.m-lg-#{$size},
-	.my-#{$size},
-	.my-lg-#{$size},
-	.mb-#{$size},
-	.mb-lg-#{$size} {
+	.s-#{$size},
+	.s-lg-#{$size},
+	.sy-#{$size},
+	.sy-lg-#{$size},
+	.sb-#{$size},
+	.sb-lg-#{$size} {
 		.space-bottom {
 			font-size: $length;
 			line-height: $length;
@@ -38,23 +32,23 @@
 		}
 	}
 
-	.m-#{$size},
-	.mx-lg-#{$size},
-	.mx-#{$size},
-	.mx-lg-#{$size},
-	.ml-#{$size},
-	.ml-lg-#{$size} {
+	.s-#{$size},
+	.sx-lg-#{$size},
+	.sx-#{$size},
+	.sx-lg-#{$size},
+	.sl-#{$size},
+	.sl-lg-#{$size} {
 		.space-left {
 			width: $length;
 		}
 	}
 
-	.m-#{$size},
-	.m-lg-#{$size},
-	.mx-#{$size},
-	.mx-lg-#{$size},
-	.mr-#{$size},
-	.mr-lg-#{$size} {
+	.s-#{$size},
+	.s-lg-#{$size},
+	.sx-#{$size},
+	.sx-lg-#{$size},
+	.sr-#{$size},
+	.sr-lg-#{$size} {
 		.space-right {
 			width: $length;
 		}

@@ -1,0 +1,6 @@
+@each $size, $percentage in $sizes {
+	.w-#{$size},
+	.w-lg-#{$size} {
+		width: $percentage;
+	}
+}
