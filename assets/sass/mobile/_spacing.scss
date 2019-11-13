@@ -1,0 +1,76 @@
+@include mobile() {
+	@each $size, $length in $spacers {
+		.s-#{$size},
+		.sy-#{$size},
+		.st-#{$size} {
+			.space-top {
+				font-size: $length !important;
+				line-height: $length !important;
+				height: $length !important;
+			}
+		}
+
+		.s-#{$size},
+		.sy-#{$size},
+		.sb-#{$size} {
+			.space-bottom {
+				font-size: $length !important;
+				line-height: $length !important;
+				height: $length !important;
+			}
+		}
+
+		.s-#{$size},
+		.sx-#{$size},
+		.sl-#{$size} {
+			.space-left {
+				width: $length !important;
+			}
+		}
+
+		.s-#{$size},
+		.sx-#{$size},
+		.sr-#{$size} {
+			.space-right {
+				width: $length !important;
+			}
+		}
+
+		.s-lg-#{$size},
+		.sy-lg-#{$size},
+		.st-lg-#{$size} {
+			.space-top {
+				font-size: 0 !important;
+				line-height: 0 !important;
+				height: 0 !important;
+			}
+		}
+
+		.s-lg-#{$size},
+		.sy-lg-#{$size},
+		.sb-lg-#{$size} {
+			.space-bottom {
+				font-size: 0 !important;
+				line-height: 0 !important;
+				height: 0 !important;
+			}
+		}
+
+		.s-lg-#{$size},
+		.sx-lg-#{$size},
+		.sl-lg-#{$size} {
+			.space-left {
+				width: 0 !important;
+			}
+		}
+
+		.s-lg-#{$size},
+		.sx-lg-#{$size},
+		.sr-lg-#{$size} {
+			.space-right {
+				width: 0 !important;
+			}
+		}
+	}
+
+}

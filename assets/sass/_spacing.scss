@@ -2,7 +2,6 @@
 	table-layout: fixed;
 }
 
-
 @each $size, $length in $spacers {
 	.s-#{$size},
 	.s-lg-#{$size},
@@ -33,7 +32,7 @@
 	}
 
 	.s-#{$size},
-	.sx-lg-#{$size},
+	.s-lg-#{$size},
 	.sx-#{$size},
 	.sx-lg-#{$size},
 	.sl-#{$size},
