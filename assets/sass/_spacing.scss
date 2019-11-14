@@ -1,55 +1,107 @@
 .spacing-container {
 	table-layout: fixed;
-}
 
-@each $size, $length in $spacers {
-	.s-#{$size},
-	.s-lg-#{$size},
-	.sy-#{$size},
-	.sy-lg-#{$size},
-	.st-#{$size},
-	.st-lg-#{$size} {
-		.space-top {
-			font-size: $length;
-			line-height: $length;
-			height: $length;
-			mso-line-height-rule: exactly;
+	// RESET SPACING CLASSES TO DEFAULT ZERO
+	//*****************************************
+	& > tbody > tr > td {
+		&.space-left,
+		&.space-right {
+			width: 0;
+		}
+
+		&.space-top,
+		&.space-bottom {
+			@include cellheight(0);
 		}
 	}
 
-	.s-#{$size},
-	.s-lg-#{$size},
-	.sy-#{$size},
-	.sy-lg-#{$size},
-	.sb-#{$size},
-	.sb-lg-#{$size} {
-		.space-bottom {
-			font-size: $length;
-			line-height: $length;
-			height: $length;
-			mso-line-height-rule: exactly;
-		}
-	}
+	@each $size, $length in $spacers {
 
-	.s-#{$size},
-	.s-lg-#{$size},
-	.sx-#{$size},
-	.sx-lg-#{$size},
-	.sl-#{$size},
-	.sl-lg-#{$size} {
-		.space-left {
-			width: $length;
-		}
-	}
+		// SET DEFAULT VALUES FOR ALL DEVICES
+		//*****************************************
+		&.s-#{$size} > tbody > tr > td {
+			&.space-top,
+			&.space-bottom {
+				@include cellheight($length);
+			}
 
-	.s-#{$size},
-	.s-lg-#{$size},
-	.sx-#{$size},
-	.sx-lg-#{$size},
-	.sr-#{$size},
-	.sr-lg-#{$size} {
-		.space-right {
-			width: $length;
+			&.space-left,
+			&.space-right {
+				width: $length;
+			}
+		}
+
+
+		&.sy-#{$size} > tbody > tr > td,
+		&.st-#{$size} > tbody > tr > td {
+			&.space-top {
+				@include cellheight($length);
+			}
+		}
+
+		&.sy-#{$size} > tbody > tr > td,
+		&.sb-#{$size} > tbody > tr > td {
+			&.space-bottom {
+				@include cellheight($length);
+			}
+		}
+
+		&.sx-#{$size} > tbody > tr > td,
+		&.sl-#{$size} > tbody > tr > td {
+			&.space-left {
+				width: $length;
+			}
+		}
+
+		&.sx-#{$size} > tbody > tr > td,
+		&.sr-#{$size} > tbody > tr > td {
+			&.space-right {
+				width: $length;
+			}
+		}
+
+		// SET VALUES FOR LARGE DEVICES
+		//*****************************************
+		&.important {
+			&.s-lg-#{$size} > tbody > tr > td {
+				&.space-top,
+				&.space-bottom {
+					@include cellheight($length);
+				}
+
+				&.space-left,
+				&.space-right {
+					width: $length;
+				}
+			}
+
+			&.sy-lg-#{$size} > tbody > tr > td,
+			&.st-lg-#{$size} > tbody > tr > td {
+				&.space-top {
+					@include cellheight($length);
+				}
+			}
+
+			&.sy-lg-#{$size} > tbody > tr > td,
+			&.sb-lg-#{$size} > tbody > tr > td {
+				&.space-bottom {
+					@include cellheight($length);
+				}
+			}
+
+			&.sx-lg-#{$size} > tbody > tr > td,
+			&.sl-lg-#{$size} > tbody > tr > td {
+				&.space-left {
+					width: $length;
+				}
+			}
+
+			&.sx-lg-#{$size} > tbody > tr > td,
+			&.sr-lg-#{$size} > tbody > tr > td {
+				&.space-right {
+					width: $length;
+				}
+			}
 		}
 	}
 }

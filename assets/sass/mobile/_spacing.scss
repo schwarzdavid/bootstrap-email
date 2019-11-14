@@ -1,76 +1,94 @@
 @include mobile() {
-	@each $size, $length in $spacers {
-		.s-#{$size},
-		.sy-#{$size},
-		.st-#{$size} {
-			.space-top {
-				font-size: $length !important;
-				line-height: $length !important;
-				height: $length !important;
-			}
-		}
+	.spacing-container {
+		@each $size, $length in $spacers {
 
-		.s-#{$size},
-		.sy-#{$size},
-		.sb-#{$size} {
-			.space-bottom {
-				font-size: $length !important;
-				line-height: $length !important;
-				height: $length !important;
-			}
-		}
+			// RESET LARGE SPACING TO 0 ON SMALL DEVICE
+			//*****************************************
+			&.s-lg-#{$size} > tbody > tr > td {
+				&.space-left,
+				&.space-right {
+					width: 0 !important;
+				}
 
-		.s-#{$size},
-		.sx-#{$size},
-		.sl-#{$size} {
-			.space-left {
-				width: $length !important;
+				&.space-top,
+				&.space-bottom {
+					@include cellheight(0 !important);
+				}
 			}
-		}
 
-		.s-#{$size},
-		.sx-#{$size},
-		.sr-#{$size} {
-			.space-right {
-				width: $length !important;
+
+			&.sy-lg-#{$size} > tbody > tr > td,
+			&.st-lg-#{$size} > tbody > tr > td {
+				&.space-top {
+					@include cellheight(0 !important);
+				}
 			}
-		}
 
-		.s-lg-#{$size},
-		.sy-lg-#{$size},
-		.st-lg-#{$size} {
-			.space-top {
-				font-size: 0 !important;
-				line-height: 0 !important;
-				height: 0 !important;
+			&.sy-lg-#{$size} > tbody > tr > td,
+			&.sb-lg-#{$size} > tbody > tr > td {
+				&.space-bottom {
+					@include cellheight(0 !important);
+				}
 			}
-		}
 
-		.s-lg-#{$size},
-		.sy-lg-#{$size},
-		.sb-lg-#{$size} {
-			.space-bottom {
-				font-size: 0 !important;
-				line-height: 0 !important;
-				height: 0 !important;
+			&.sx-lg-#{$size} > tbody > tr > td,
+			&.sl-lg-#{$size} > tbody > tr > td {
+				&.space-left {
+					width: 0 !important;
+				}
 			}
-		}
 
-		.s-lg-#{$size},
-		.sx-lg-#{$size},
-		.sl-lg-#{$size} {
-			.space-left {
-				width: 0 !important;
+			&.sx-lg-#{$size} > tbody > tr > td,
+			&.sr-lg-#{$size} > tbody > tr > td {
+				&.space-right {
+					width: 0 !important;
+				}
 			}
-		}
 
-		.s-lg-#{$size},
-		.sx-lg-#{$size},
-		.sr-lg-#{$size} {
-			.space-right {
-				width: 0 !important;
+
+			// SET PROPER PADDING ON SMALL DEVICES
+			//*****************************************
+			&.important {
+				&.s-#{$size} > tbody > tr > td {
+					&.space-left,
+					&.space-right {
+						width: $length !important;
+					}
+
+					&.space-top,
+					&.space-bottom {
+						@include cellheight($length !important);
+					}
+				}
+
+				&.sy-#{$size} > tbody > tr > td,
+				&.st-#{$size} > tbody > tr > td {
+					&.space-top {
+						@include cellheight($length !important);
+					}
+				}
+
+				&.sy-#{$size} > tbody > tr > td,
+				&.sb-#{$size} > tbody > tr > td {
+					&.space-bottom {
+						@include cellheight($length !important);
+					}
+				}
+
+				&.sx-#{$size} > tbody > tr > td,
+				&.sl-#{$size} > tbody > tr > td {
+					&.space-left {
+						width: $length !important;
+					}
+				}
+
+				&.sx-#{$size} > tbody > tr > td,
+				&.sr-#{$size} > tbody > tr > td {
+					&.space-right {
+						width: $length !important;
+					}
+				}
 			}
 		}
 	}
-
 }

@@ -1,0 +1,6 @@
+@mixin cellheight($value){
+	font-size: $value;
+	line-height: $value;
+	height: $value;
+	mso-line-height-rule: exactly;
+}

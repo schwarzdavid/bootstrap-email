@@ -1,49 +1,21 @@
-<table class="spacing-container">
+<table class="spacing-container important">
 	<tbody>
-
-	<% if(variables.spaceTop) { %>
-		<tr>
-
-			<% if(variables.spaceLeft) { %>
-				<td class="space-left">&nbsp;</td>
-			<% } %>
-
-			<td class="space-top">&nbsp;</td>
-
-			<% if(variables.spaceRight) { %>
-				<td class="space-right">&nbsp;</td>
-			<% } %>
-
-		</tr>
-	<% } %>
-
 	<tr>
-		<% if(variables.spaceLeft) { %>
-			<td class="space-left">&nbsp;</td>
-		<% } %>
-
+		<td class="space-top space-left">&nbsp;</td>
+		<td class="space-top">&nbsp;</td>
+		<td class="space-top space-right">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="space-left">&nbsp;</td>
 		<td class="w-100">
 			<%- content %>
 		</td>
-
-		<% if(variables.spaceRight) { %>
-			<td class="space-right">&nbsp;</td>
-		<% } %>
+		<td class="space-right">&nbsp;</td>
 	</tr>
-
-	<% if(variables.spaceBottom) { %>
-		<tr>
-			<% if(variables.spaceLeft) { %>
-				<td class="space-left">&nbsp;</td>
-			<% } %>
-
-			<td class="space-bottom">&nbsp;</td>
-
-			<% if(variables.spaceRight) { %>
-				<td class="space-right">&nbsp;</td>
-			<% } %>
-		</tr>
-	<% } %>
-
+	<tr>
+		<td class="space-bottom space-left">&nbsp;</td>
+		<td class="space-bottom">&nbsp;</td>
+		<td class="space-bottom space-right">&nbsp;</td>
+	</tr>
 	</tbody>
 </table>
