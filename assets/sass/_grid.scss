@@ -6,22 +6,22 @@
 .row {
 	@extend .row-fluid;
 	table-layout: fixed;
-}
 
-.col {
-	min-height: 1px;
-	font-weight: normal;
-	box-sizing: border-box;
+	.col {
+		min-height: 1px;
+		font-weight: normal;
+		box-sizing: border-box;
 
-	&-separator {
-		width: $grid-gutter-width;
-	}
+		&-separator {
+			width: $grid-gutter-width;
+		}
 
-	@for $i from 1 through $grid-columns {
-		&-#{$i},
-		&-lg-#{$i} {
-			@extend .col;
-			width: 100% / $grid-columns * $i;
+		@for $i from 1 through $grid-columns {
+			&-#{$i},
+			&-lg-#{$i} {
+				@extend .col;
+				width: 100% / $grid-columns * $i;
+			}
 		}
 	}
 }
