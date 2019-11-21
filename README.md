@@ -39,8 +39,8 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 
 ## Additional Classes
 - [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
-- Row-Handling: `.row-inset` prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...
-- Dynamic Rows: `.row-fluid` and `.row-fluid-lg` allows you to use columns with dynamic widths. Use `.col` or `.col-lg` without any size to make its size fit to the content.
+- (Row-Handling: `.row-inset` prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...)
+- (Dynamic Rows: `.row-fluid` and `.row-fluid-lg` allows you to use columns with dynamic widths. Use `.col` or `.col-lg` without any size to make its size fit to the content.)
 
 ## Installation and usage
 

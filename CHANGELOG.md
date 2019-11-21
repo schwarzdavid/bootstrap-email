@@ -1,3 +1,10 @@
+# Upcoming
+
+**BREAKING CHANGES:** `.row-fluid`, `.row-fluid-lg` and `.row-inset` removed
+- Margin- & Padding-logic updated
+- Grids logic updated. No spacing errors, when rows are used inside other elements
+- Bugfix: Preview tag can contain more than 100 characters now
+
 # 1.0.9 (2019-07-12)
 
 - Added border attributes to container IE/MSO fallback
