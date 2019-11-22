@@ -1,5 +1,5 @@
 @include mobile() {
-	.row-fluid-lg {
+	/*.row-fluid-lg {
 		table-layout: fixed !important;
 	}
 
@@ -20,6 +20,16 @@
 			.col-#{$i} {
 				width: 100% / $grid-columns * $i !important;
 			}
+		}
+	}*/
+
+	.grid {
+		&--mobile {
+			display: table !important;
+		}
+
+		&--desktop {
+			display: none !important;
 		}
 	}
 }
