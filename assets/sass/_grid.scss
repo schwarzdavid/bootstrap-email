@@ -15,10 +15,12 @@
 		min-height: 1px;
 		font-weight: normal;
 		box-sizing: border-box;
+		background: transparent;
 
 		&-separator {
 			width: 2px;
-			padding: 0 ($grid-gutter-width/2 - 1px) !important;
+			font-size: 0;
+			padding: 0 ($grid-gutter-width/2 - 1px);
 		}
 
 		@for $i from 1 through $grid-columns {
