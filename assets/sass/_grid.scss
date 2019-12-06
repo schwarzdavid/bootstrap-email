@@ -17,7 +17,8 @@
 		box-sizing: border-box;
 
 		&-separator {
-			width: $grid-gutter-width;
+			width: 2px;
+			padding: 0 ($grid-gutter-width/2 - 1px) !important;
 		}
 
 		@for $i from 1 through $grid-columns {
