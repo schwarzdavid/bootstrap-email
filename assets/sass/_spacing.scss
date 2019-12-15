@@ -1,5 +1,6 @@
 .spacing-container {
 	table-layout: fixed;
+	width: 100%;
 
 	// RESET SPACING CLASSES TO DEFAULT ZERO
 	//*****************************************
@@ -7,8 +8,8 @@
 		&.space-left,
 		&.space-right {
 			width: 0;
-			font-size: 0;
-			padding: 0;
+			font-size: 0 !important;
+			padding: 0 !important;
 		}
 
 		&.space-top,
