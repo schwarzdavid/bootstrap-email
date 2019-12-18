@@ -4,7 +4,7 @@
 		max-width: $container-max-width + $grid-gutter-width;
 	}
 
-	.container-inner {
+	#{$bte-cls-container-inner} {
 		text-align: center;
 	}
 }
@@ -12,15 +12,15 @@
 .container-fluid,
 .container {
 	width: 100%;
+}
 
-	.container-inner {
-		width: 100%;
-		padding: 0;
-		table-layout: fixed;
+#{$bte-cls-container-inner} {
+	width: 100%;
+	padding: 0;
+	table-layout: fixed;
+}
 
-		& > tbody > tr > td.container-content {
-			width: 100%;
-			padding: 0 $grid-gutter-width / 2;
-		}
-	}
+#{$bte-cls-container-content} {
+	width: 100%;
+	padding: 0 $grid-gutter-width / 2;
 }

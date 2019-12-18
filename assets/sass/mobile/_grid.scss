@@ -1,35 +1,9 @@
 @include mobile() {
-	/*.row-fluid-lg {
-		table-layout: fixed !important;
+	#{$bte-cls-grid--desktop} {
+		display: none !important;
 	}
 
-	.row,
-	.row-fluid,
-	.row-fluid-lg,
-	.row-inset {
-		@for $i from 1 through $grid-columns {
-			.col-#{$i},
-			.col-lg-#{$i} {
-				//display: inline-block;
-			}
-
-			.col-lg-#{$i} {
-				width: 100% !important;
-			}
-
-			.col-#{$i} {
-				width: 100% / $grid-columns * $i !important;
-			}
-		}
-	}*/
-
-	.grid {
-		&--mobile {
-			display: table !important;
-		}
-
-		&--desktop {
-			display: none !important;
-		}
+	#{$bte-cls-grid--desktop} {
+		display: table !important;
 	}
 }

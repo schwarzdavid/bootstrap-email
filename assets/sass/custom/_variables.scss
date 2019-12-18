@@ -1,0 +1,21 @@
+$bte-prefix: 'bte';
+$bte-cls: '.' + $bte-prefix + '-';
+
+$bte-cls-grid: $bte-cls + 'grid';
+$bte-cls-grid--mobile: $bte-cls-grid + '--mobile';
+$bte-cls-grid--desktop: $bte-cls-grid + '--desktop';
+$bte-cls-grid__inner: $bte-cls-grid + '__inner';
+
+$bte-cls-col: $bte-cls + 'col';
+$bte-cls-col-separator: $bte-cls + 'col-separator';
+
+$bte-cls-spacing-container: $bte-cls + 'spacing-container';
+$bte-cls-spacing-container--important: $bte-cls-spacing-container + '--important';
+$bte-cls-space-top: $bte-cls + 'space-left';
+$bte-cls-space-right: $bte-cls + 'space-right';
+$bte-cls-space-bottom: $bte-cls + 'space-bottom';
+$bte-cls-space-left: $bte-cls + 'space-left';
+
+$bte-cls-container: $bte-cls + 'container';
+$bte-cls-container-inner: $bte-cls-container + '-inner';
+$bte-cls-container-content: $bte-cls-container + '-content';

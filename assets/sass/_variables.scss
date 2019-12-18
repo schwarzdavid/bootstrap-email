@@ -286,4 +286,3 @@ $badge-border-radius: $border-radius !default;
 @function heading-line-height($n) {
 	@return heading-size($n) * $headings-line-height;
 }
-

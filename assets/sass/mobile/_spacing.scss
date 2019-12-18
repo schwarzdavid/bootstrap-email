@@ -1,17 +1,17 @@
 @include mobile() {
-	.spacing-container {
+	#{$bte-cls-spacing-container} {
 		@each $size, $length in $spacers {
 
 			// RESET LARGE SPACING TO 0 ON SMALL DEVICE
 			//*****************************************
 			&.s-lg-#{$size} > tbody > tr > td {
-				&.space-left,
-				&.space-right {
+				&#{$bte-cls-space-left},
+				&#{$bte-cls-space-right} {
 					width: 0 !important;
 				}
 
-				&.space-top,
-				&.space-bottom {
+				&#{$bte-cls-space-top},
+				&#{$bte-cls-space-bottom} {
 					@include cellheight(0 !important);
 				}
 			}
@@ -19,74 +19,73 @@
 
 			&.sy-lg-#{$size} > tbody > tr > td,
 			&.st-lg-#{$size} > tbody > tr > td {
-				&.space-top {
+				&#{$bte-cls-space-top} {
 					@include cellheight(0 !important);
 				}
 			}
 
 			&.sy-lg-#{$size} > tbody > tr > td,
 			&.sb-lg-#{$size} > tbody > tr > td {
-				&.space-bottom {
+				&#{$bte-cls-space-bottom} {
 					@include cellheight(0 !important);
 				}
 			}
 
 			&.sx-lg-#{$size} > tbody > tr > td,
 			&.sl-lg-#{$size} > tbody > tr > td {
-				&.space-left {
+				&#{$bte-cls-space-left} {
 					width: 0 !important;
 				}
 			}
 
 			&.sx-lg-#{$size} > tbody > tr > td,
 			&.sr-lg-#{$size} > tbody > tr > td {
-				&.space-right {
+				&#{$bte-cls-space-right} {
 					width: 0 !important;
 				}
 			}
+		}
 
-
-			// SET PROPER PADDING ON SMALL DEVICES
-			//*****************************************
-			&.important {
-				&.s-#{$size} > tbody > tr > td {
-					&.space-left,
-					&.space-right {
-						width: $length !important;
-					}
-
-					&.space-top,
-					&.space-bottom {
-						@include cellheight($length !important);
-					}
+		// SET PROPER PADDING ON SMALL DEVICES
+		//*****************************************
+		#{$bte-cls-spacing-container}#{$bte-cls-spacing-container--important} {
+			&.s-#{$size} > tbody > tr > td {
+				&#{$bte-cls-space-left},
+				&#{$bte-cls-space-right} {
+					width: $length !important;
 				}
 
-				&.sy-#{$size} > tbody > tr > td,
-				&.st-#{$size} > tbody > tr > td {
-					&.space-top {
-						@include cellheight($length !important);
-					}
+				&#{$bte-cls-space-top},
+				&#{$bte-cls-space-bottom} {
+					@include cellheight($length !important);
 				}
+			}
 
-				&.sy-#{$size} > tbody > tr > td,
-				&.sb-#{$size} > tbody > tr > td {
-					&.space-bottom {
-						@include cellheight($length !important);
-					}
+			&.sy-#{$size} > tbody > tr > td,
+			&.st-#{$size} > tbody > tr > td {
+				&#{$bte-cls-space-top} {
+					@include cellheight($length !important);
 				}
+			}
 
-				&.sx-#{$size} > tbody > tr > td,
-				&.sl-#{$size} > tbody > tr > td {
-					&.space-left {
-						width: $length !important;
-					}
+			&.sy-#{$size} > tbody > tr > td,
+			&.sb-#{$size} > tbody > tr > td {
+				&#{$bte-cls-space-bottom} {
+					@include cellheight($length !important);
 				}
+			}
 
-				&.sx-#{$size} > tbody > tr > td,
-				&.sr-#{$size} > tbody > tr > td {
-					&.space-right {
-						width: $length !important;
-					}
+			&.sx-#{$size} > tbody > tr > td,
+			&.sl-#{$size} > tbody > tr > td {
+				&#{$bte-cls-space-left} {
+					width: $length !important;
+				}
+			}
+
+			&.sx-#{$size} > tbody > tr > td,
+			&.sr-#{$size} > tbody > tr > td {
+				&#{$bte-cls-space-right} {
+					width: $length !important;
 				}
 			}
 		}

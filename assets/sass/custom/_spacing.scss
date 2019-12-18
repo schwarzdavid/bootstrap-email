@@ -1,0 +1,134 @@
+#{$bte-cls-spacing-container} {
+	table-layout: fixed;
+	width: 100%;
+}
+
+// RESET SPACING CLASSES TO DEFAULT ZERO
+//*****************************************
+#{$bte-cls-spacing-container} > tbody > tr > td {
+	&#{$bte-cls-space-left},
+	&#{$bte-cls-space-right} {
+		width: 0;
+		font-size: 0 !important;
+		padding: 0 !important;
+	}
+
+	&#{$bte-cls-space-top},
+	&#{$bte-cls-space-bottom} {
+		@include cellheight(0);
+	}
+}
+
+@each $size, $length in $spacers {
+
+	// SET DEFAULT VALUES FOR ALL DEVICES
+	//*****************************************
+	#{$bte-cls-spacing-container}.s-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top},
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+
+		&#{$bte-cls-space-left},
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+
+
+	#{$bte-cls-spacing-container}.sy-#{$size} > tbody > tr > td,
+	#{$bte-cls-spacing-container}.st-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top} {
+			@include cellheight($length);
+		}
+	}
+
+	#{$bte-cls-spacing-container}.sy-#{$size} > tbody > tr > td,
+	#{$bte-cls-spacing-container}.sb-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+	}
+
+	#{$bte-cls-spacing-container}.sx-#{$size} > tbody > tr > td,
+	#{$bte-cls-spacing-container}.sl-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-left} {
+			width: $length;
+		}
+	}
+
+	#{$bte-cls-spacing-container}.sx-#{$size} > tbody > tr > td,
+	#{$bte-cls-spacing-container}.sr-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+
+	// SET VALUES FOR LARGE DEVICES
+	//*****************************************
+	#{$bte-cls-spacing-container}#{$bte-cls-spacing-container--important} {
+		#{$bte-cls-spacing-container}.s-lg-#{$size} > tbody > tr > td {
+			&#{$bte-cls-space-top},
+			&#{$bte-cls-space-bottom} {
+				@include cellheight($length);
+
+				@include mobile(){
+					@include cellheight(0 !important);
+				}
+			}
+
+			&#{$bte-cls-space-left},
+			&#{$bte-cls-space-right} {
+				width: $length;
+
+				@include mobile(){
+					width: 0 !important;
+				}
+			}
+		}
+
+		#{$bte-cls-spacing-container}.sy-lg-#{$size} > tbody > tr > td,
+		#{$bte-cls-spacing-container}.st-lg-#{$size} > tbody > tr > td {
+			&#{$bte-cls-space-top} {
+				@include cellheight($length);
+
+				@include mobile(){
+					@include cellheight(0 !important);
+				}
+			}
+		}
+
+		#{$bte-cls-spacing-container}.sy-lg-#{$size} > tbody > tr > td,
+		#{$bte-cls-spacing-container}.sb-lg-#{$size} > tbody > tr > td {
+			&#{$bte-cls-space-bottom} {
+				@include cellheight($length);
+
+				@include mobile(){
+					@include cellheight(0 !important);
+				}
+			}
+		}
+
+		#{$bte-cls-spacing-container}.sx-lg-#{$size} > tbody > tr > td,
+		#{$bte-cls-spacing-container}.sl-lg-#{$size} > tbody > tr > td {
+			&#{$bte-cls-space-left} {
+				width: $length;
+
+				@include mobile(){
+					width: 0 !important;
+				}
+			}
+		}
+
+		#{$bte-cls-spacing-container}.sx-lg-#{$size} > tbody > tr > td,
+		#{$bte-cls-spacing-container}.sr-lg-#{$size} > tbody > tr > td {
+			&#{$bte-cls-space-right} {
+				width: $length;
+
+				@include mobile(){
+					width: 0 !important;
+				}
+			}
+		}
+	}
+}

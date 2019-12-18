@@ -4,7 +4,7 @@
 	<tr>
 		<td align="center">
 
-			<% if(!variables.fluid && variables.containerWidthFallback) { %>
+			<% if(variables.containerWidthFallback) { %>
 				<!--[if (gte mso 9)|(IE)]>
 				<table align="center" border="0" cellpadding="0" cellspacing="0">
 					<tbody>
@@ -17,7 +17,7 @@
 			<%- content %>
 			<!-- / OUTER CONTAINER CONTENT -->
 
-			<% if(!variables.fluid && variables.containerWidthFallback) { %>
+			<% if(variables.containerWidthFallback) { %>
 				<!--[if (gte mso 9)|(IE)]>
 				</td>
 				</tr>
