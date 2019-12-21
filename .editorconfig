@@ -2,7 +2,7 @@
 end_of_line = lf
 insert_final_newline = true
 
-[*.{html,js,scss,ejs}]
+[*.{html,js,scss,ejs,json}]
 charset = utf-8
 indent_style = tab
 indent_size = 4

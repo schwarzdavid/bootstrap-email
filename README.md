@@ -121,8 +121,7 @@ multipleTemplates.compileAndSave('./out/');
 - [ ] Add Typescript typings
 - [ ] Implement bootstrap-like vertical align classes
 - [ ] Add container-width setting
-- [x] Write gulp plugin
-- [x] Inherit tag attributes
+- [ ] Extract automatically CSS that cannot be inlined (`:hover`, `:focus`, ...)
 
 # Known Bugs
 

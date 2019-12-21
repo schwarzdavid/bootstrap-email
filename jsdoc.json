@@ -1,0 +1,70 @@
+{
+	"source": {
+		"include": [
+			"src",
+			"package.json",
+			"README.md"
+		],
+		"exclude": [
+			"src/assets"
+		],
+		"includePattern": ".js$",
+		"excludePattern": "(node_modules/|docs/)"
+	},
+	"opts": {
+		"template": "node_modules/jsdoc-chameleon-template",
+		"destination": "./docs/",
+		"encoding": "utf8",
+		"private": true,
+		"recurse": true
+	},
+	"template": {
+		"title": "Bootstrap Email Api Reference",
+		"shortTitle": "Bootstrap Email",
+		"logo": "https://github.com/schwarzdavid/bootstrap-email/raw/master/icon.png",
+		"links": [
+			{
+				"github": "https://github.com/schwarzdavid/bootstrap-email/",
+				"title": "View it on Github"
+			},
+			{
+				"npm": "https://www.npmjs.com/package/bootstrap-email",
+				"title": "View it on NPM",
+				"size": 19
+			}
+		],
+		"scheme": "0",
+		"disableSort": false,
+		"font": {
+			"titleFont": "Roboto",
+			"textFont": "Roboto",
+			"codeFont": "Roboto Mono"
+		}
+	},
+	"styleSwitcher": false,
+	"colors": [
+		{
+			"text": {
+				"primary": "#dcdcdc",
+				"contrast": "#f78200"
+			},
+			"background": {
+				"primary": "#282c34",
+				"contrast": "#1d2027"
+			}
+		}
+	],
+	"fonts": {
+		"text": "Roboto",
+		"code": "Source+Code+Pro|Ubuntu+Mono"
+	},
+	"plugins": [
+		"plugins/markdown"
+	],
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": [
+			"jsdoc"
+		]
+	}
+}

@@ -22,13 +22,36 @@ const blockElements = [
 	'table'
 ];
 
-const unsupportedPaddingElements = [
-	'p',
-	'div'
+const voidElements = [
+	'area',
+	'base',
+	'br',
+	'col',
+	'embed',
+	'hr',
+	'img',
+	'input',
+	'keygen',
+	'link',
+	'menuitem',
+	'meta',
+	'param',
+	'source',
+	'track',
+	'wbr',
+	'basefont',
+	'bgsound',
+	'frame',
+	'isindex'
 ];
+
+const defaultVariables = {
+	'$grid-columns': 12
+};
 
 module.exports = {
 	doctype,
 	blockElements,
-	unsupportedPaddingElements
+	voidElements,
+	defaultVariables
 };

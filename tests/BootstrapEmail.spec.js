@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const BootstrapEmail = require('./BootstrapEmail');
+const BootstrapEmail = require('../src/BootstrapEmail');
 const cheerio = require('cheerio');
 const chai = require('chai');
 const chaiThings = require('chai-things');
