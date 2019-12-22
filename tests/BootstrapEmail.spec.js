@@ -1,3 +1,5 @@
+// TODO: rewrite this from scratch
+
 const path = require('path');
 const fs = require('fs');
 const BootstrapEmail = require('../src/BootstrapEmail');

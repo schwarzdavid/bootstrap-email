@@ -20,7 +20,7 @@ class TemplateLoader {
 				continue;
 			}
 
-			const name = path.basename(file.name, __extname);
+			const name = path.basename(file.name, TemplateLoader.extname);
 
 			output[name] = fs.readFileSync(path.join(dirPath, file.name), TemplateLoader.encoding);
 		}
@@ -32,7 +32,7 @@ class TemplateLoader {
 /**
  * Path to templates
  * @memberOf TemplateLoader
- * @default <path-to-module>/src/assets/templates
+ * @default path-to-module/src/assets/templates
  * @type {string}
  */
 TemplateLoader.templatesPath = path.join(__dirname, '../assets/templates');

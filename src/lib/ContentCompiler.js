@@ -232,6 +232,13 @@ class ContentCompiler {
 		});
 	}
 
+	/**
+	 * Wraps body-content
+	 */
+	body() {
+		ElementHelper.wrapContent(this._$('body'), 'body');
+	}
+
 
 	//*****************************************
 	// PRIVATE METHODS

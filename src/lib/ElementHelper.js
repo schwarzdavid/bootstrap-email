@@ -1,4 +1,5 @@
 const cheerio = require('cheerio');
+const ejs = require('ejs');
 const TemplateLoader = require('./TemplateLoader');
 
 const DEBUG_ATTRIBUTES = {
@@ -19,27 +20,14 @@ class ElementHelper {
 	 * Replaces one element with given template
 	 * @param {cheerio} el - Element to be replaced
 	 * @param {string} tplName - Name of the template to use
-	 * @param {object} [assets] - Additional options for replacing elements
-	 * @param {string | string[]} [assets.classes] - Add additional classes to template
-	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
-	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
+	 * @param {object} [variables] - Additional variables which will be passed to the template
 	 * @private
 	 */
-	static replace(el, tplName, {classes = [], attributes = {}, variables = {}} = {}) {
-		classes = ElementHelper._ensureArray(classes);
-		attributes = ElementHelper._concatAttributes(el, attributes);
-
-		if (attributes.class) {
-			classes.push(...attributes.class.split(' '));
-			delete attributes.class;
-		}
-
+	static replace(el, tplName, variables = {}) {
 		const content = el.html();
 		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {variables, content}));
 
-		template.attr(attributes);
-		template.addClass(classes.join(' '));
-
+		template.attr(el.attr());
 		el.replaceWith(template);
 	}
 
@@ -74,9 +62,10 @@ class ElementHelper {
 	 * @param {string | string[]} [assets.classes] - Add additional classes to template
 	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
 	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
+	 * @param {boolean} [transcludeClasses=true] - Should be classes moved from source element to template
 	 * @private
 	 */
-	static wrap(el, tplName, {classes = [], attributes = {}, variables = {}} = {}) {
+	static wrap(el, tplName, {classes = [], attributes = {}, variables = {}} = {}, transcludeClasses = true) {
 		classes = ElementHelper._ensureArray(classes);
 		attributes = ElementHelper._concatAttributes(attributes);
 
@@ -85,23 +74,39 @@ class ElementHelper {
 			delete attributes.class;
 		}
 
+		if (transcludeClasses) {
+			const srcClassString = el.attr('class');
+			classes.push(...srcClassString.split(' '));
+			ElementHelper.removeClass(el, srcClassString);
+		}
+
 		const content = cheerio.html(el);
 		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {content, variables}));
 
 		template.attr(attributes);
-		template.addClass(classes.join(' '));
+		ElementHelper.addClass(template, classes.join(' '));
 
 		el.replaceWith(template);
 
 		return el;
 	}
 
-	static addClass() {
-		this._appendToAttribute(el, classname, DEBUG_ATTRIBUTES.CLASS_ADDED).addClass(classname);
+	/**
+	 * Adds class to element and sets data-attributes for debugging reasons
+	 * @param {cheerio} el
+	 * @param {string} classname
+	 */
+	static addClass(el, classname) {
+		this._appendToAttribute(el, DEBUG_ATTRIBUTES.CLASS_ADDED, classname).addClass(classname);
 	}
 
+	/**
+	 * Removes class to element and sets data-attributes for debugging reasons
+	 * @param {cheerio} el
+	 * @param {string} classname
+	 */
 	static removeClass(el, classname) {
-		this._appendToAttribute(el, classname, DEBUG_ATTRIBUTES.CLASS_REMOVED).removeClass(classname);
+		this._appendToAttribute(el, DEBUG_ATTRIBUTES.CLASS_REMOVED, classname).removeClass(classname);
 	}
 
 
@@ -109,6 +114,14 @@ class ElementHelper {
 	// PRIVATE METHODS
 	//*****************************************
 
+	/**
+	 * Appends value to attribute
+	 * @param {cheerio} el
+	 * @param {string} attr
+	 * @param {any} val
+	 * @return {string}
+	 * @private
+	 */
 	static _appendToAttribute(el, attr, val) {
 		const currVal = el.attr(attr) || '';
 		const newVal = (currVal + ' ' + val).trim();
@@ -141,6 +154,12 @@ class ElementHelper {
 		return output;
 	}
 
+	/**
+	 * Makes sure, given variable is an array. If not, it will be splitted into an array
+	 * @param {string | string[]} arr
+	 * @return {string[]}
+	 * @private
+	 */
 	static _ensureArray(arr) {
 		if (['string', 'number'].includes(typeof arr)) {
 			arr = arr.toString().split(' ');
@@ -161,5 +180,7 @@ class ElementHelper {
  * @private
  */
 ElementHelper.templates = Object.freeze(TemplateLoader.load());
+
+ElementHelper.DEBUG_ATTRIBUTES = DEBUG_ATTRIBUTES;
 
 module.exports = ElementHelper;

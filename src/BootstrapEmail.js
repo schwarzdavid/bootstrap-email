@@ -5,7 +5,6 @@ const sass = require('sass-extract');
 const postcss = require('postcss');
 const extractMQ = require('postcss-extract-media-query');
 const bunyan = require('bunyan');
-const ejs = require('ejs');
 const juice = require('juice');
 const tmp = require('tmp');
 const ContentCompiler = require('./lib/ContentCompiler');
@@ -54,7 +53,7 @@ const __styleVariables = {
 	[STYLE_VARIABLES.COLUMNS]: 12
 };
 
-// TODO: adopt $container-max-width setting
+// TODO: test $container-max-width setting
 class BootstrapEmail {
 
 	//*****************************************
@@ -233,7 +232,7 @@ class BootstrapEmail {
 
 			// WRAP BODY
 			//*****************************************
-			//BootstrapEmail._wrapContents($, 'body', 'body', {classes: 'body'}, true);
+			compiler.body();
 
 			// COMPILE SPACINGS
 			//*****************************************
@@ -243,12 +242,6 @@ class BootstrapEmail {
 			// COMPILE CONTAINERS AND GRIDS
 			//*****************************************
 			compiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
-			BootstrapEmail._replaceElements($, '.container', 'container-inner');
-			BootstrapEmail._wrapElements($, '.container', 'container');
-
-			BootstrapEmail._replaceElements($, '.container-fluid', 'container-inner');
-			BootstrapEmail._wrapElements($, '.container-fluid', 'container', {variables: {containerWidthFallback: false}});
-
 			compiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
 
 			// COMPILE ALIGNMENT CLASSES
@@ -259,12 +252,13 @@ class BootstrapEmail {
 
 			// COMPILE BOOTSTRAP COMPONENTS
 			//*****************************************
-			BootstrapEmail._replaceElements($, 'hr', 'hr');
-			BootstrapEmail._wrapElements($, '.card', 'table');
-			BootstrapEmail._wrapElements($, '.card-body', 'table');
-			BootstrapEmail._wrapElements($, '.btn', 'table');
-			BootstrapEmail._wrapElements($, '.badge', 'table-left', {attributes: {align: 'left'}});
-			BootstrapEmail._wrapElements($, '.alert', 'table');
+			// TODO: enable this
+			//BootstrapEmail._replaceElements($, 'hr', 'hr');
+			//BootstrapEmail._wrapElements($, '.card', 'table');
+			//BootstrapEmail._wrapElements($, '.card-body', 'table');
+			//BootstrapEmail._wrapElements($, '.btn', 'table');
+			//BootstrapEmail._wrapElements($, '.badge', 'table-left', {attributes: {align: 'left'}});
+			//BootstrapEmail._wrapElements($, '.alert', 'table');
 
 			// REPLACE DIVS
 			//*****************************************
@@ -416,73 +410,6 @@ class BootstrapEmail {
 			this._logger.debug(stylePath + ' read successfully');
 			return {css};
 		}
-	}
-
-
-	//*****************************************
-	// STATIC HTML HELPER METHODS
-	//*****************************************
-
-	/**
-	 * Replaces selected elements with given template
-	 * @param {cheerio} $ - Template
-	 * @param {string} selector - Items to compile
-	 * @param {string} tplName - Name of the template to use
-	 * @param {object} [assets] - Additional options for replacing elements
-	 * @param {string | string[]} [assets.classes] - Add additional classes to template
-	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
-	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
-	 * @private
-	 */
-	static _replaceElements($, selector, tplName, {classes, attributes, variables} = {}) {
-		$(selector).each((i, _el) => {
-			BootstrapEmail._replaceElement($(_el), tplName, {classes, attributes, variables});
-		});
-	}
-
-
-	/**
-	 * Wraps the content of selected elements with given template
-	 * @param {cheerio} $ - Template
-	 * @param {string} selector - Items to compile
-	 * @param {string} tplName - Name of the template to use
-	 * @param {object} [assets] - Additional options for replacing elements
-	 * @param {string | string[]} [assets.classes] - Add additional classes to template
-	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
-	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
-	 * @private
-	 */
-	static _wrapContents($, selector, tplName, {classes, attributes, variables} = {}) {
-		$(selector).each((i, _el) => {
-			BootstrapEmail._wrapContent($(_el), tplName, {classes, attributes, variables});
-		});
-	}
-
-
-	/**
-	 * Wraps selected elements with given template
-	 * @param {cheerio} $
-	 * @param {string} selector
-	 * @param {string} tplName
-	 * @param {object} [assets]
-	 * @param {object} [assets.attributes] - Attributes which should be inherited to template
-	 * @private
-	 */
-	static _wrapElements($, selector, tplName, {classes = [], attributes, variables} = {}) {
-		classes = BootstrapEmail._ensureArray(classes);
-
-		$(selector).each((i, _el) => {
-			const el = $(_el);
-
-			if (selector.charAt(0) === '.') {
-				const classname = selector.substr(1);
-
-				el.removeClass(classname);
-				classes.push(classname);
-			}
-
-			BootstrapEmail._wrapElement(el, tplName, {classes, attributes, variables});
-		});
 	}
 }
 

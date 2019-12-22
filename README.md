@@ -120,8 +120,8 @@ multipleTemplates.compileAndSave('./out/');
 - [ ] Support multiple CSS/SASS-files
 - [ ] Add Typescript typings
 - [ ] Implement bootstrap-like vertical align classes
-- [ ] Add container-width setting
 - [ ] Extract automatically CSS that cannot be inlined (`:hover`, `:focus`, ...)
+- [ ] Add option for output formatting (minimized, formatted, ...)
 
 # Known Bugs
 
