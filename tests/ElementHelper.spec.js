@@ -124,10 +124,11 @@ describe('ElementHandler', function () {
 	});
 
 	describe('replace', function () {
-		const el = cheerio('<div class="container" data-test="hello-world"><p>lorem ipsum</p></div>');
-		ElementHelper.replace(el, 'table');
+		const dom = cheerio.load('<div class="container" data-test="hello-world"><p class="lead">lorem ipsum</p></div>');
+		ElementHelper.replace(dom('.container'), 'table');
+		const el = dom('.container');
 
-		it('should be replace root element', function () {
+		it('should replace root element', function () {
 			expect(el[0].tagName).to.equal('table');
 		});
 
@@ -140,8 +141,9 @@ describe('ElementHandler', function () {
 		it('should keep content', function () {
 			const p = el.find('p');
 
-			expect(p).not.to.be.null();
-			expect(p).to.contain('lorem ipsum');
+			expect(p).to.exist;
+			expect(p.length).to.be.equal(1);
+			expect(p).to.have.text('lorem ipsum');
 		});
 	});
 
