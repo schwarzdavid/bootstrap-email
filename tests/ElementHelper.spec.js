@@ -148,10 +148,51 @@ describe('ElementHandler', function () {
 	});
 
 	describe('wrapContent', function () {
+		const dom = cheerio.load('<div class="container" data-test="hallo"><h1>Heading</h1><p class="lead">Hello World</p></div>')
+		ElementHelper.wrapContent(dom('.container'), 'table', {classes: ['table'], attributes: {'data-foo': 'bar'}});
+		const el = dom('.container');
 
+		it('should keep parent element', function () {
+			expect(el[0].tagName).to.equal('div');
+			expect(el).to.have.class('container');
+			expect(el).to.have.data('test', 'hallo');
+		});
+
+		it('should have table as only child', function () {
+			const table = el.children().first();
+			expect(el.children()).to.have.lengthOf(1);
+			expect(table[0].tagName).to.equal('table');
+			expect(table).to.have.class('table');
+			expect(table).to.have.data('foo', 'bar');
+		});
+
+		it('should keep content inside template', function () {
+			const td = el.find('td').first();
+			expect(td.children()).to.have.lengthOf(2);
+			expect(td.children().get(0).tagName).to.equal('h1');
+			expect(td.children().get(1).tagName).to.equal('p');
+		});
 	});
 
 	describe('wrap', function () {
+		const dom = cheerio.load('<div class="container" data-origin>Hallo Welt</div>');
+		ElementHelper.wrap(dom('.container'), 'table', {classes: 'table'});
+		const el = dom('[data-origin]');
 
+		it('should keep original content', function () {
+			expect(el.get(0).tagName).to.equal('div');
+			expect(el).not.to.have.class('container');
+			expect(el).not.to.have.class('table');
+			expect(el).to.have.text('Hallo Welt');
+		});
+
+		it('should have wrapped elements', function () {
+			expect(el.parent().get(0).tagName).to.equal('td');
+			expect(el.closest('table')).to.exist;
+
+			const table = el.closest('table');
+			expect(table).to.have.class('table');
+			expect(table).to.have.class('container');
+		});
 	});
 });
