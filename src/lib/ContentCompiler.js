@@ -1,4 +1,5 @@
 const ElementHelper = require('./ElementHelper');
+const {VOID_ELEMENTS, BLOCK_ELEMENTS} = require('../constants');
 
 /**
  * @enum {string}
@@ -80,8 +81,8 @@ class ContentCompiler {
 			const el = $(_el);
 			const cssDisplay = el.css('display');
 
-			if ((cssDisplay === undefined && !helper.blockElements.includes(_el.name)) || cssDisplay === 'inline') {
-				console.warn('Inline-Elements does not support margins. Got ' + _el.name);
+			if ((cssDisplay === undefined && !BLOCK_ELEMENTS.includes(_el.name)) || cssDisplay === 'inline') {
+				this._logger.warn('Inline-Elements does not support margins. Got ' + _el.name);
 				return;
 			}
 
@@ -92,10 +93,10 @@ class ContentCompiler {
 			const appendClasses = marginClasses.map(classname => 's' + classname.substr(1));
 			appendClasses.push('w-100');
 
-			BootstrapEmail._wrapElement(el, 'spacing', {
+			ElementHelper.wrap(el, 'spacing', {
 				classes: appendClasses,
 				attributes: {'data-src': 'margin'}
-			});
+			}, false);
 		});
 	}
 
@@ -117,17 +118,17 @@ class ContentCompiler {
 			const cssDisplay = el.css('display');
 			const appendClasses = paddingClasses.map(classname => 's' + classname.substr(1));
 
-			if ((helper.blockElements.includes(_el.name) && cssDisplay === undefined) || cssDisplay === 'block') {
+			if ((BLOCK_ELEMENTS.includes(_el.name) && cssDisplay === undefined) || cssDisplay === 'block') {
 				appendClasses.push('w-100');
 			}
 
-			if (helper.voidElements.includes(_el.tagName)) {
-				BootstrapEmail._wrapElement(el, 'spacing', {
+			if (VOID_ELEMENTS.includes(_el.tagName)) {
+				ElementHelper.wrap(el, 'spacing', {
 					classes: appendClasses,
 					attributes: {'data-src': 'padding'}
 				});
 			} else {
-				BootstrapEmail._wrapContent(el, 'spacing', {
+				ElementHelper.wrapContent(el, 'spacing', {
 					classes: appendClasses,
 					attributes: {'data-src': 'padding'}
 				});
@@ -141,21 +142,32 @@ class ContentCompiler {
 	 * @private
 	 */
 	align(direction) {
+		if (!(Object.values(ALIGNMENT).includes(direction))) {
+			this._logger.warn(`Unknown direction ${direction}. Will be ignored`);
+			return;
+		}
+
 		const $ = this._$;
-		$(selector).each((i, _el) => {
+		$(direction).each((i, _el) => {
 			const el = $(_el);
 
-			if (direction === 'center') {
-				BootstrapEmail._wrapElement(el, 'center');
+			if (direction === ALIGNMENT.CENTER) {
+				ElementHelper.wrap(el, 'center');
 			} else {
+				const alignValue = Object.keys(ALIGNMENT).find(key => ALIGNMENT[key] === direction).toLowerCase();
+
 				if (_el.name === 'table') {
-					el.attr('align', direction);
-				} else {
-					BootstrapEmail._wrapElement(el, 'table', {
-						attributes: {
-							align: direction
-						}
+					el.attr({
+						'align': alignValue,
+						'data-bte-added-attribute': 'align'
 					});
+				} else {
+					ElementHelper.wrap(el, 'table', {
+						attributes: {
+							align: alignValue,
+							'data-bte-added-attribute': 'align'
+						}
+					}, false);
 				}
 			}
 		});
@@ -167,9 +179,7 @@ class ContentCompiler {
 	 */
 	table() {
 		const $ = this._$;
-		const tables = $('table');
-
-		tables.each((i, _el) => {
+		$('table').each((i, _el) => {
 			$(_el).attr({
 				border: 0,
 				cellpadding: 0,
@@ -204,8 +214,8 @@ class ContentCompiler {
 		$('.row').each((rowIndex, _row) => {
 			const row = $(_row);
 
-			const desktopGrid = BootstrapEmail._generateGrid($, row.clone(), columns, true);
-			const mobileGrid = BootstrapEmail._generateGrid($, row, columns, false);
+			const desktopGrid = this._generateGrid(row.clone(), columns, true);
+			const mobileGrid = this._generateGrid(row, columns, false);
 
 			row.empty().append(desktopGrid).append(mobileGrid);
 
@@ -222,8 +232,8 @@ class ContentCompiler {
 
 		$('.container, .container-fluid').each((i, _el) => {
 			const el = $(_el);
-			ElementHelper.replace(_el, 'container-inner');
-			ElementHelper.wrap(_el, 'container', {
+			ElementHelper.replace(el, 'container-inner');
+			ElementHelper.wrap(el, 'container', {
 				variables: {
 					containerWidthFallback: el.hasClass('container-fluid'),
 					width
@@ -237,6 +247,29 @@ class ContentCompiler {
 	 */
 	body() {
 		ElementHelper.wrapContent(this._$('body'), 'body');
+	}
+
+	/**
+	 * Replaces all hr tags with the according hr-template
+	 */
+	hr() {
+		this._$('hr').each((i, _el) => {
+			ElementHelper.replace($(_el), 'hr');
+		});
+	}
+
+	/**
+	 * Ensures that all components with given selector (class in most cases) are tables
+	 * @param {string} selector
+	 * @param {object} [addons] {@link ElementHelper.wrap}
+	 */
+	component(selector, addons) {
+		const $ = this._$;
+		$(selector).each((i, _el) => {
+			if (_el.name !== 'table') {
+				ElementHelper.wrap($(_el), 'table', addons);
+			}
+		});
 	}
 
 
@@ -271,7 +304,6 @@ class ContentCompiler {
 			const gridCell = $('<td>').append(rowTable);
 			const gridRow = $('<tr>').append(gridCell);
 
-			// TODO: add support for different col amounts
 			for (let rowCols = 0; colIndex < cols.length; colIndex++) {
 				const col = $(cols[colIndex]);
 
@@ -285,8 +317,7 @@ class ContentCompiler {
 						const isColLG = !!match.pop();
 
 						if (isNaN(size)) {
-							// TODO: Implement better error message
-							console.warn('Malformed column name. Ignored');
+							this._logger.warn('Malformed column name. Ignored');
 						} else if (isColLG === isLG || (isLG && !colSize)) {
 							colSize = size;
 						}
@@ -313,7 +344,7 @@ class ContentCompiler {
 
 				col.attr('class').split(' ').forEach(classname => {
 					if (regex.test(classname)) {
-						BootstrapEmail._removeClass(col, classname);
+						ElementHelper.removeClass(col, classname);
 					}
 				});
 

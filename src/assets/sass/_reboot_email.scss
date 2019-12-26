@@ -42,6 +42,7 @@ table {
 table {
 	border-spacing: 0px;
 	border-collapse: collapse;
+
 	td {
 		border-spacing: 0px;
 		border-collapse: collapse;
@@ -56,8 +57,7 @@ table[align=center] {
 th,
 td,
 p {
-	// TODO: uncomment this
-	//text-align: left;
+	text-align: left;
 	line-height: $line-height-base * $font-size-base;
 	font-size: $font-size-base;
 	margin: 0;

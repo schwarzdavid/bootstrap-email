@@ -122,6 +122,8 @@ multipleTemplates.compileAndSave('./out/');
 - [ ] Implement bootstrap-like vertical align classes
 - [ ] Extract automatically CSS that cannot be inlined (`:hover`, `:focus`, ...)
 - [ ] Add option for output formatting (minimized, formatted, ...)
+- [ ] Write better docs & examples
+- [ ] Improve debug-logging
 
 # Known Bugs
 

@@ -1,6 +1,6 @@
-const doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+const DOCTYPE = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 
-const blockElements = [
+const BLOCK_ELEMENTS = [
 	'p',
 	'h1',
 	'h2',
@@ -22,7 +22,7 @@ const blockElements = [
 	'table'
 ];
 
-const voidElements = [
+const VOID_ELEMENTS = [
 	'area',
 	'base',
 	'br',
@@ -45,13 +45,13 @@ const voidElements = [
 	'isindex'
 ];
 
-const defaultVariables = {
+const DEFAULT_VARIABLES = {
 	'$grid-columns': 12
 };
 
 module.exports = {
-	doctype,
-	blockElements,
-	voidElements,
-	defaultVariables
+	DOCTYPE,
+	BLOCK_ELEMENTS,
+	VOID_ELEMENTS,
+	DEFAULT_VARIABLES
 };

@@ -8,6 +8,7 @@ const bunyan = require('bunyan');
 const juice = require('juice');
 const tmp = require('tmp');
 const ContentCompiler = require('./lib/ContentCompiler');
+const ElementHelper = require('./lib/ElementHelper');
 const constants = require('./constants');
 
 
@@ -44,8 +45,8 @@ const LOG_LEVEL = {
 
 
 const __defaultConfig = {
-	style: path.join(__dirname, '../assets/bootstrap-email.scss'),
-	head: path.join(__dirname, '../assets/head.scss'),
+	style: path.join(__dirname, './assets/bootstrap-email.scss'),
+	head: path.join(__dirname, './assets/head.scss'),
 	containerWidthFallback: true
 };
 
@@ -53,7 +54,6 @@ const __styleVariables = {
 	[STYLE_VARIABLES.COLUMNS]: 12
 };
 
-// TODO: test $container-max-width setting
 class BootstrapEmail {
 
 	//*****************************************
@@ -244,29 +244,31 @@ class BootstrapEmail {
 			compiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
 			compiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
 
-			// COMPILE ALIGNMENT CLASSES
+			// COMPILE NECESSARY ELEMENTS
 			//*****************************************
-			compiler.align(ContentCompiler.ALIGNMENT.LEFT);
-			compiler.align(ContentCompiler.ALIGNMENT.RIGHT);
-			compiler.align(ContentCompiler.ALIGNMENT.CENTER);
-
-			// COMPILE BOOTSTRAP COMPONENTS
-			//*****************************************
-			// TODO: enable this
-			//BootstrapEmail._replaceElements($, 'hr', 'hr');
-			//BootstrapEmail._wrapElements($, '.card', 'table');
-			//BootstrapEmail._wrapElements($, '.card-body', 'table');
-			//BootstrapEmail._wrapElements($, '.btn', 'table');
-			//BootstrapEmail._wrapElements($, '.badge', 'table-left', {attributes: {align: 'left'}});
-			//BootstrapEmail._wrapElements($, '.alert', 'table');
+			compiler.hr();
 
 			// REPLACE DIVS
 			//*****************************************
 			compiler.div();
 
+			// COMPILE BOOTSTRAP COMPONENTS
+			//*****************************************
+			compiler.component('.card');
+			compiler.component('.card-body');
+			compiler.component('.btn');
+			compiler.component('.badge', {attributes: {align: 'left'}});
+			compiler.component('.alert');
+
 			// ADD ATTRIBUTES TO TABLES
 			//*****************************************
 			compiler.table();
+
+			// COMPILE ALIGNMENT CLASSES
+			//*****************************************
+			compiler.align(ContentCompiler.ALIGNMENT.LEFT);
+			compiler.align(ContentCompiler.ALIGNMENT.RIGHT);
+			compiler.align(ContentCompiler.ALIGNMENT.CENTER);
 		}
 	}
 
@@ -289,7 +291,7 @@ class BootstrapEmail {
 	 * @private
 	 */
 	_injectHead() {
-		const headCss = BootstrapEmail._processStyle(this._headPath).css;
+		const headCss = this._processStyle(this._headPath).css;
 
 		for (let template of this._templates) {
 			const headStyle = template.$('<style>')
@@ -349,7 +351,7 @@ class BootstrapEmail {
 	 * @private
 	 */
 	_processStyle(stylePath) {
-		const style = BootstrapEmail._loadStyle(stylePath);
+		const style = this._loadStyle(stylePath);
 
 		this._logger.debug('Extract media queries from style');
 		const tmpDir = tmp.dirSync();
