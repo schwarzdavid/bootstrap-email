@@ -168,7 +168,7 @@ class BootstrapEmail {
 		//*****************************************
 		const {css, vars, queries} = this._processStyle(this._stylePath);
 		this._inlineStyles = css;
-		this._queryStyles = queries;
+		this._mobileStyles = queries;
 
 		for (let i in this._vars) {
 			if (vars.hasOwnProperty(i)) {
@@ -313,10 +313,10 @@ class BootstrapEmail {
 				.append(viewport)
 				.append(headStyle);
 
-			if (this._queryStyles) {
+			if (this._mobileStyles) {
 				const queryStyles = template.$('<style>')
 					.attr('type', 'text/css')
-					.text(this._queryStyles);
+					.text(this._mobileStyles);
 				head.append(queryStyles);
 			}
 		}
@@ -334,7 +334,7 @@ class BootstrapEmail {
 		for (let template of this._templates) {
 			out.push({
 				name: template.name,
-				document: constants.doctype + template.$.html()
+				document: constants.DOCTYPE + template.$.html()
 			});
 		}
 
@@ -441,6 +441,6 @@ BootstrapEmail.voidElements = constants.voidElements;
  * Doctype which will be used for parsed templates
  * @type {string}
  */
-BootstrapEmail.doctype = constants.doctype;
+BootstrapEmail.DOCTYPE = constants.DOCTYPE;
 
 module.exports = BootstrapEmail;

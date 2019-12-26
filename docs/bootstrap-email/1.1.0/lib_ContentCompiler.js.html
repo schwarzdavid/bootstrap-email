@@ -356,13 +356,13 @@ class ContentCompiler {
 
 		$('.container, .container-fluid').each((i, _el) => {
 			const el = $(_el);
-			ElementHelper.replace(el, 'container-inner');
 			ElementHelper.wrap(el, 'container', {
 				variables: {
 					containerWidthFallback: el.hasClass('container-fluid'),
 					width
 				}
 			});
+			ElementHelper.replace(el, 'container-inner');
 		});
 	}
 
@@ -377,7 +377,8 @@ class ContentCompiler {
 	 * Replaces all hr tags with the according hr-template
 	 */
 	hr() {
-		this._$('hr').each((i, _el) => {
+		const $ = this._$;
+		$('hr').each((i, _el) => {
 			ElementHelper.replace($(_el), 'hr');
 		});
 	}

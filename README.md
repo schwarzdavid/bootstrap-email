@@ -33,14 +33,13 @@ Based on the original [Bootstrap Email by stuyam](https://github.com/stuyam/boot
 - [Floats](https://bootstrapemail.com/docs/float): `.float-left`, `.float-right`
 - [Grid](https://bootstrapemail.com/docs/grid): `.row`, `.col-{1-12}`, `.col-lg-{1-12}`
 - [Hrs](https://bootstrapemail.com/docs/hr): `<hr>`
-- [Spacing](https://bootstrapemail.com/docs/spacing): `.p{tlbrxy}-{lg-}{0-5}`, `.m{tby}-{lg-}{0-5}`, `.s-{lg-}{0-5}`, `w-{lg-}{25,50,75,100}`, `mx-auto`
+- [Spacing](https://bootstrapemail.com/docs/spacing): `.p{tlbrxy}-{lg-}{0-5}`, `.m{tby}-{lg-}{0-5}`, `mx-auto`
+- [Width](): `w-{lg-}{25,50,75,100}`
 - [Tables](https://bootstrapemail.com/docs/table): `.table`, `.table-striped`,`.table-bordered`, `.thead-light`, `.thead-dark`, `.table-{color}`, `.table-dark`
 - [Typography](https://bootstrapemail.com/docs/typography): `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<strong>`, `<u>`, `<em>`, `<s>`, `.text-{sm|lg-}left`, `.text-{sm|lg-}center`, `.text-{sm|lg-}right`, `.display-{1-4}`, `.lead`, `.small`
 
 ## Additional Classes
 - [Visibility](https://bootstrapemail.com/docs/visibility): `.d-desktop`, `.d-mobile`
-- (Row-Handling: `.row-inset` prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...)
-- (Dynamic Rows: `.row-fluid` and `.row-fluid-lg` allows you to use columns with dynamic widths. Use `.col` or `.col-lg` without any size to make its size fit to the content.)
 
 ## Installation and usage
 
@@ -51,9 +50,14 @@ To compile a default template:
 ```javascript
 const BootstrapEmail = require('bootstrap-email');
 
-const template = new BootstrapEmail({
-    template: '<path-to-template>.html'
-});
+const template = new BootstrapEmail('<path-to-template>.html');
+
+// const template = new BootstrapEmail([
+//     '<path-to-first-template>.html',
+//     '<path-to-second-template>.html',
+// ]);
+//
+// const template = new BootstrapEmail('<div class="container">...</div>'); 
 
 template.compileAndSave('<path-to-output>.html');
 ```
@@ -64,14 +68,12 @@ Alternatively use the [Gulp plugin](https://github.com/schwarzdavid/gulp-bootstr
 
 - `style` _string_ (optional) - Path to css or scss file, which should be inlined. Default is `bootstrap-email.scss`
 - `head` _string_ (optional) - Path to css or scss file, which should be injected to `head`. Default is `head.scss`
-- `containerWidthFallback` _bool_ (optional) - Set true to increase compatibility with older outlook versions by adding an conditional comment to the container template with a fixed width.
-- `template` _string_ - Path to html file you want to compile. Use this option, if you only have one email template.
 - `templates` _array&lt;string&gt;_ - Array with paths to html files you want to compile.
-- `content` _string_ - Pass html template as string. By using this option, the `template` and `templates` option will be ignored
+- `logLevel`
 
 ## Methods
 
-##### new BootstrapEmail(options)
+##### new BootstrapEmail(templates, options)
 
 ##### compile(): _string | [{path: string, document: string}]_
 
@@ -80,17 +82,13 @@ Performs a full compile and returns compiled document(s).
 If only one template is about to compile, returns the compiled template, otherwise an array containing objects with the path of the input-file and the compiled document.
 
 ```javascript
-const singleTemplate = new BootstrapEmail({
-    template: '<path-to-template>.html'
-});
+const singleTemplate = new BootstrapEmail('<path-to-template>.html');
 
 // returns string
 singleTemplate.compile();
 
 
-const multipleTemplates = new BootstrapEmail({
-    templates: ['<path>', ...]
-});
+const multipleTemplates = new BootstrapEmail(['<path>', ...]);
 
 // returns [{path:'<path-to-source>', document: '...'}, ...]
 multipleTemplates.compile();
@@ -103,15 +101,11 @@ Performs a full compile and saves compiled files into given path.
 If only one template is given, pass a full path including filename and extension. Otherwise pass only a directory name. The filenames will be used from the source files.
 
 ```javascript
-const singleTemplate = new BootstrapEmail({
-    template: '<path-to-template>.html'
-});
+const singleTemplate = new BootstrapEmail('<path-to-template>.html');
 singleTemplate.compileAndSave('./out/compiled.html');
 
 
-const multipleTemplates = new BootstrapEmail({
-    templates: ['<path>', ...]
-});
+const multipleTemplates = new BootstrapEmail(['<path>', ...]);
 multipleTemplates.compileAndSave('./out/');
 ```
 

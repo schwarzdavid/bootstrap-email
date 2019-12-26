@@ -292,7 +292,7 @@ class BootstrapEmail {
 		//*****************************************
 		const {css, vars, queries} = this._processStyle(this._stylePath);
 		this._inlineStyles = css;
-		this._queryStyles = queries;
+		this._mobileStyles = queries;
 
 		for (let i in this._vars) {
 			if (vars.hasOwnProperty(i)) {
@@ -368,19 +368,21 @@ class BootstrapEmail {
 			compiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
 			compiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
 
+			// COMPILE NECESSARY ELEMENTS
+			//*****************************************
+			compiler.hr();
+
 			// REPLACE DIVS
 			//*****************************************
 			compiler.div();
 
 			// COMPILE BOOTSTRAP COMPONENTS
 			//*****************************************
-			ElementHelper.replace(template.$, 'hr', 'hr');
-			// TODO: add check if elements are already tables
-			ElementHelper.wrap(template.$, '.card', 'table');
-			ElementHelper.wrap(template.$, '.card-body', 'table');
-			ElementHelper.wrap(template.$, '.btn', 'table');
-			ElementHelper.wrap(template.$, '.badge', 'table', {attributes: {align: 'left'}});
-			ElementHelper.wrap(template.$, '.alert', 'table');
+			compiler.component('.card');
+			compiler.component('.card-body');
+			compiler.component('.btn');
+			compiler.component('.badge', {attributes: {align: 'left'}});
+			compiler.component('.alert');
 
 			// ADD ATTRIBUTES TO TABLES
 			//*****************************************
@@ -435,10 +437,10 @@ class BootstrapEmail {
 				.append(viewport)
 				.append(headStyle);
 
-			if (this._queryStyles) {
+			if (this._mobileStyles) {
 				const queryStyles = template.$('&lt;style>')
 					.attr('type', 'text/css')
-					.text(this._queryStyles);
+					.text(this._mobileStyles);
 				head.append(queryStyles);
 			}
 		}
@@ -456,7 +458,7 @@ class BootstrapEmail {
 		for (let template of this._templates) {
 			out.push({
 				name: template.name,
-				document: constants.doctype + template.$.html()
+				document: constants.DOCTYPE + template.$.html()
 			});
 		}
 
@@ -563,7 +565,7 @@ BootstrapEmail.voidElements = constants.voidElements;
  * Doctype which will be used for parsed templates
  * @type {string}
  */
-BootstrapEmail.doctype = constants.doctype;
+BootstrapEmail.DOCTYPE = constants.DOCTYPE;
 
 module.exports = BootstrapEmail;
 </code></pre>

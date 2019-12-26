@@ -174,7 +174,7 @@ describe('ContentCompiler', function () {
 		});
 
 		it('should create center-tag for tables', function () {
-			const $ = cheerio.load('<table class="mx-auto" data-origin"><tbody><tr><td>Hello World</td></tr></tbody></table>')
+			const $ = cheerio.load('<table class="mx-auto" data-origin><tbody><tr><td>Hello World</td></tr></tbody></table>')
 			new ContentCompiler($, logger).align(ContentCompiler.ALIGNMENT.CENTER);
 			const el = $('[data-origin]');
 

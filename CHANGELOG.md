@@ -1,4 +1,4 @@
-# Upcoming
+# 1.1.0 (2019-12-27)
 
 - **BREAKING CHANGES:** `.row-fluid`, `.row-fluid-lg` and `.row-inset` removed
 - Grids logic updated. No spacing errors, when rows are used inside other elements

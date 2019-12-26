@@ -154,24 +154,28 @@
 <li><a href="https://bootstrapemail.com/docs/float">Floats</a>: <code>.float-left</code>, <code>.float-right</code></li>
 <li><a href="https://bootstrapemail.com/docs/grid">Grid</a>: <code>.row</code>, <code>.col-{1-12}</code>, <code>.col-lg-{1-12}</code></li>
 <li><a href="https://bootstrapemail.com/docs/hr">Hrs</a>: <code>&lt;hr&gt;</code></li>
-<li><a href="https://bootstrapemail.com/docs/spacing">Spacing</a>: <code>.p{tlbrxy}-{lg-}{0-5}</code>, <code>.m{tby}-{lg-}{0-5}</code>, <code>.s-{lg-}{0-5}</code>, <code>w-{lg-}{25,50,75,100}</code>, <code>mx-auto</code></li>
+<li><a href="https://bootstrapemail.com/docs/spacing">Spacing</a>: <code>.p{tlbrxy}-{lg-}{0-5}</code>, <code>.m{tby}-{lg-}{0-5}</code>, <code>mx-auto</code></li>
+<li><a href="">Width</a>: <code>w-{lg-}{25,50,75,100}</code></li>
 <li><a href="https://bootstrapemail.com/docs/table">Tables</a>: <code>.table</code>, <code>.table-striped</code>,<code>.table-bordered</code>, <code>.thead-light</code>, <code>.thead-dark</code>, <code>.table-{color}</code>, <code>.table-dark</code></li>
 <li><a href="https://bootstrapemail.com/docs/typography">Typography</a>: <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;s&gt;</code>, <code>.text-{sm|lg-}left</code>, <code>.text-{sm|lg-}center</code>, <code>.text-{sm|lg-}right</code>, <code>.display-{1-4}</code>, <code>.lead</code>, <code>.small</code></li>
 </ul>
 <h2>Additional Classes</h2>
 <ul>
 <li><a href="https://bootstrapemail.com/docs/visibility">Visibility</a>: <code>.d-desktop</code>, <code>.d-mobile</code></li>
-<li>(Row-Handling: <code>.row-inset</code> prevents grid-handling and keeps row inside of the container. Better documentation hopefully coming soon...)</li>
-<li>(Dynamic Rows: <code>.row-fluid</code> and <code>.row-fluid-lg</code> allows you to use columns with dynamic widths. Use <code>.col</code> or <code>.col-lg</code> without any size to make its size fit to the content.)</li>
 </ul>
 <h2>Installation and usage</h2>
 <p>Install package with <code>npm i bootstrap-email -S</code></p>
 <p>To compile a default template:</p>
 <pre class="prettyprint source lang-javascript"><code>const BootstrapEmail = require('bootstrap-email');
 
-const template = new BootstrapEmail({
-    template: '&lt;path-to-template>.html'
-});
+const template = new BootstrapEmail('&lt;path-to-template>.html');
+
+// const template = new BootstrapEmail([
+//     '&lt;path-to-first-template>.html',
+//     '&lt;path-to-second-template>.html',
+// ]);
+//
+// const template = new BootstrapEmail('&lt;div class=&quot;container&quot;>...&lt;/div>'); 
 
 template.compileAndSave('&lt;path-to-output>.html');
 </code></pre>
@@ -180,27 +184,21 @@ template.compileAndSave('&lt;path-to-output>.html');
 <ul>
 <li><code>style</code> <em>string</em> (optional) - Path to css or scss file, which should be inlined. Default is <code>bootstrap-email.scss</code></li>
 <li><code>head</code> <em>string</em> (optional) - Path to css or scss file, which should be injected to <code>head</code>. Default is <code>head.scss</code></li>
-<li><code>containerWidthFallback</code> <em>bool</em> (optional) - Set true to increase compatibility with older outlook versions by adding an conditional comment to the container template with a fixed width.</li>
-<li><code>template</code> <em>string</em> - Path to html file you want to compile. Use this option, if you only have one email template.</li>
 <li><code>templates</code> <em>array&lt;string&gt;</em> - Array with paths to html files you want to compile.</li>
-<li><code>content</code> <em>string</em> - Pass html template as string. By using this option, the <code>template</code> and <code>templates</code> option will be ignored</li>
+<li><code>logLevel</code></li>
 </ul>
 <h2>Methods</h2>
-<h5>new BootstrapEmail(options)</h5>
+<h5>new BootstrapEmail(templates, options)</h5>
 <h5>compile(): <em>string | [{path: string, document: string}]</em></h5>
 <p>Performs a full compile and returns compiled document(s).</p>
 <p>If only one template is about to compile, returns the compiled template, otherwise an array containing objects with the path of the input-file and the compiled document.</p>
-<pre class="prettyprint source lang-javascript"><code>const singleTemplate = new BootstrapEmail({
-    template: '&lt;path-to-template>.html'
-});
+<pre class="prettyprint source lang-javascript"><code>const singleTemplate = new BootstrapEmail('&lt;path-to-template>.html');
 
 // returns string
 singleTemplate.compile();
 
 
-const multipleTemplates = new BootstrapEmail({
-    templates: ['&lt;path>', ...]
-});
+const multipleTemplates = new BootstrapEmail(['&lt;path>', ...]);
 
 // returns [{path:'&lt;path-to-source>', document: '...'}, ...]
 multipleTemplates.compile();
@@ -208,15 +206,11 @@ multipleTemplates.compile();
 <h5>compileAndSave(path): <em>void</em></h5>
 <p>Performs a full compile and saves compiled files into given path.</p>
 <p>If only one template is given, pass a full path including filename and extension. Otherwise pass only a directory name. The filenames will be used from the source files.</p>
-<pre class="prettyprint source lang-javascript"><code>const singleTemplate = new BootstrapEmail({
-    template: '&lt;path-to-template>.html'
-});
+<pre class="prettyprint source lang-javascript"><code>const singleTemplate = new BootstrapEmail('&lt;path-to-template>.html');
 singleTemplate.compileAndSave('./out/compiled.html');
 
 
-const multipleTemplates = new BootstrapEmail({
-    templates: ['&lt;path>', ...]
-});
+const multipleTemplates = new BootstrapEmail(['&lt;path>', ...]);
 multipleTemplates.compileAndSave('./out/');
 </code></pre>
 <h2>Todos</h2>
@@ -226,6 +220,8 @@ multipleTemplates.compileAndSave('./out/');
 <li>[ ] Implement bootstrap-like vertical align classes</li>
 <li>[ ] Extract automatically CSS that cannot be inlined (<code>:hover</code>, <code>:focus</code>, ...)</li>
 <li>[ ] Add option for output formatting (minimized, formatted, ...)</li>
+<li>[ ] Write better docs &amp; examples</li>
+<li>[ ] Improve debug-logging</li>
 </ul>
 <h1>Known Bugs</h1>
 <ul>
