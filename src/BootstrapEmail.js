@@ -3,7 +3,7 @@ const path = require('path');
 const cheerio = require('cheerio');
 const sass = require('sass-extract');
 const postcss = require('postcss');
-const extractMQ = require('postcss-extract-media-query');
+const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');
 const bunyan = require('bunyan');
 const juice = require('juice');
 const tmp = require('tmp');
@@ -352,36 +352,23 @@ class BootstrapEmail {
 	 */
 	_processStyle(stylePath) {
 		const style = this._loadStyle(stylePath);
+		let headerCss = '';
 
 		this._logger.debug('Extract media queries from style');
-		const tmpDir = tmp.dirSync();
 
 		const postcssPlugins = [
-			extractMQ({
-				output: {
-					path: tmpDir.name
-				},
-				stats: false
-			})
+			extractHeaderCss({output: css => headerCss = css})
 		];
-
 		const mainCss = postcss(postcssPlugins).process(style.css).css;
 
+		console.log(headerCss);
+
 		this._logger.debug('Media queries extracted successfully. Reading tmp files now...');
-
-		const queryCss = fs.readdirSync(tmpDir.name).reduce((output, file) => {
-			return output + fs.readFileSync(path.join(tmpDir.name, file), 'utf8');
-		}, '');
-
-		this._logger.debug('Tmp files read');
-
-		tmpDir.removeCallback();
-
 
 		return {
 			vars: style.vars,
 			css: mainCss,
-			queries: queryCss
+			queries: headerCss
 		};
 	}
 
