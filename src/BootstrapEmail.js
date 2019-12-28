@@ -6,8 +6,8 @@ const postcss = require('postcss');
 const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');
 const bunyan = require('bunyan');
 const juice = require('juice');
-const tmp = require('tmp');
 const ContentCompiler = require('./lib/ContentCompiler');
+const ComponentCompiler = require('./lib/ComponentCompiler');
 const constants = require('./constants');
 
 
@@ -223,51 +223,52 @@ class BootstrapEmail {
 	_compileHtml() {
 		for (let template of this._templates) {
 			this._logger.debug('Start compiling ' + template.path);
-			const compiler = new ContentCompiler(template.$, this._logger);
+			const contentCompiler = new ContentCompiler(template.$, this._logger);
+			const componentCompiler = new ComponentCompiler(template.$, this._logger);
 
 			// HIDE PREVIEW TEXT
 			//*****************************************
-			compiler.preview();
+			contentCompiler.preview();
 
 			// WRAP BODY
 			//*****************************************
-			compiler.body();
+			contentCompiler.body();
 
 			// COMPILE SPACINGS
 			//*****************************************
-			compiler.padding();
-			compiler.margin();
+			contentCompiler.padding();
+			contentCompiler.margin();
 
 			// COMPILE CONTAINERS AND GRIDS
 			//*****************************************
-			compiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
-			compiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
+			contentCompiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
+			contentCompiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
 
 			// COMPILE NECESSARY ELEMENTS
 			//*****************************************
-			compiler.hr();
+			contentCompiler.hr();
 
 			// COMPILE ALIGNMENT CLASSES
 			//*****************************************
-			compiler.align(ContentCompiler.ALIGNMENT.LEFT);
-			compiler.align(ContentCompiler.ALIGNMENT.RIGHT);
-			compiler.align(ContentCompiler.ALIGNMENT.CENTER);
-
-			// REPLACE DIVS
-			//*****************************************
-			compiler.div();
+			contentCompiler.align(ContentCompiler.ALIGNMENT.LEFT);
+			contentCompiler.align(ContentCompiler.ALIGNMENT.RIGHT);
+			contentCompiler.align(ContentCompiler.ALIGNMENT.CENTER);
 
 			// COMPILE BOOTSTRAP COMPONENTS
 			//*****************************************
-			compiler.component('.card');
-			compiler.component('.card-body');
-			compiler.component('.btn');
-			//compiler.component('.badge');
-			compiler.component('.alert');
+			contentCompiler.component('.card');
+			contentCompiler.component('.card-body');
+			contentCompiler.component('.btn');
+			componentCompiler.badge();
+			contentCompiler.component('.alert');
+
+			// REPLACE DIVS
+			//*****************************************
+			contentCompiler.div();
 
 			// ADD ATTRIBUTES TO TABLES
 			//*****************************************
-			compiler.table();
+			contentCompiler.table();
 		}
 	}
 

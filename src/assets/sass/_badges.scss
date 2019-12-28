@@ -1,0 +1,47 @@
+//*****************************************
+// Base Class
+//*****************************************
+
+.badge {
+	display: inline;
+	border: 0 solid transparent;
+	// Horizontal Padding is added with whitespaces in the ComponentCompiler
+	padding-top: $badge-padding-y;
+	padding-bottom: $badge-padding-y;
+	font-size: $badge-font-size;
+	font-weight: $badge-font-weight;
+	line-height: 1.33;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: $badge-border-radius;
+	transition: $badge-transition;
+
+	&:empty {
+		display: none;
+	}
+
+	@at-root a#{&} {
+		text-decoration: none;
+	}
+}
+
+//*****************************************
+// Pill Badges
+//*****************************************
+
+.badge-pill {
+	padding-left: 2px;
+	padding-right: 2px;
+	border-radius: 160px;
+}
+
+//*****************************************
+// Color Variations
+//*****************************************
+
+@each $color, $value in $theme-colors {
+	.badge-#{$color} {
+		@include badge-variant($value);
+	}
+}
