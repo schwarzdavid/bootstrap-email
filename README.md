@@ -122,3 +122,4 @@ multipleTemplates.compileAndSave('./out/');
 # Known Bugs
 
 - Outlook 2013 on Windows 10 with 120DPI can't scale images properly
+- Badges don't have correct paddings on Outlook (Windows ofc)

@@ -8,7 +8,6 @@ const bunyan = require('bunyan');
 const juice = require('juice');
 const tmp = require('tmp');
 const ContentCompiler = require('./lib/ContentCompiler');
-const ElementHelper = require('./lib/ElementHelper');
 const constants = require('./constants');
 
 
@@ -248,6 +247,12 @@ class BootstrapEmail {
 			//*****************************************
 			compiler.hr();
 
+			// COMPILE ALIGNMENT CLASSES
+			//*****************************************
+			compiler.align(ContentCompiler.ALIGNMENT.LEFT);
+			compiler.align(ContentCompiler.ALIGNMENT.RIGHT);
+			compiler.align(ContentCompiler.ALIGNMENT.CENTER);
+
 			// REPLACE DIVS
 			//*****************************************
 			compiler.div();
@@ -257,18 +262,12 @@ class BootstrapEmail {
 			compiler.component('.card');
 			compiler.component('.card-body');
 			compiler.component('.btn');
-			compiler.component('.badge', {attributes: {align: 'left'}});
+			//compiler.component('.badge');
 			compiler.component('.alert');
 
 			// ADD ATTRIBUTES TO TABLES
 			//*****************************************
 			compiler.table();
-
-			// COMPILE ALIGNMENT CLASSES
-			//*****************************************
-			compiler.align(ContentCompiler.ALIGNMENT.LEFT);
-			compiler.align(ContentCompiler.ALIGNMENT.RIGHT);
-			compiler.align(ContentCompiler.ALIGNMENT.CENTER);
 		}
 	}
 
@@ -354,16 +353,14 @@ class BootstrapEmail {
 		const style = this._loadStyle(stylePath);
 		let headerCss = '';
 
-		this._logger.debug('Extract media queries from style');
+		this._logger.debug('Extract not inlineable css from style');
 
 		const postcssPlugins = [
 			extractHeaderCss({output: css => headerCss = css})
 		];
 		const mainCss = postcss(postcssPlugins).process(style.css).css;
 
-		console.log(headerCss);
-
-		this._logger.debug('Media queries extracted successfully. Reading tmp files now...');
+		this._logger.debug('Styles extracted successfully.');
 
 		return {
 			vars: style.vars,

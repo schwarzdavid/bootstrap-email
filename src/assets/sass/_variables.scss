@@ -82,8 +82,8 @@ $theme-colors: map-merge(
 		), $theme-colors
 );
 
+$theme-color-interval: 8% !default;
 $yiq-contrasted-threshold: 150 !default;
-$yiq-color-interval: 8% !default;
 $yiq-text-dark: $gray-900 !default;
 $yiq-text-light: $white !default;
 
@@ -152,7 +152,13 @@ $line-height-lg: $line-height-base !default;
 
 $border-width: 1px !default;
 $border-color: $gray-500 !default;
-$border-radius: 0.25 * $font-size-base !default;
+
+$border-radius:  $font-size-base * 0.25 !default;
+$border-radius-lg:  $font-size-base * 0.3 !default;
+$border-radius-sm:  $font-size-base * 0.2 !default;
+
+$component-active-color: $white !default;
+$component-active-bg: $primary !default;
 
 //*****************************************
 // HEADINGS AND TYPOGRAPHY
@@ -192,6 +198,8 @@ $small-font-weight: $font-weight-base !default;
 
 $link-color: $primary !default;
 $link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
 
 $hr-border-color: $border-color !default;
 $hr-border-width: $border-width !default;
@@ -232,26 +240,32 @@ $hr-border-style: solid !default;
 // Buttons
 //*****************************************
 
-$btn-padding-y: $font-size-base * 0.375 !default;
-$btn-padding-x: $font-size-base * 0.75 !default;
+$btn-padding-y:  $font-size-base * 0.375 !default;
+$btn-padding-x:  $font-size-base * 0.75 !default;
 $btn-font-size: $font-size-base !default;
 $btn-line-height: $line-height-base !default;
+$btn-white-space: null !default; // Set to `nowrap` to prevent text wrapping
 
-$btn-padding-y-sm: $font-size-base * 0.2 !default;
-$btn-padding-x-sm: $font-size-base * 0.5 !default;
+$btn-padding-y-sm:  $font-size-base * 0.25 !default;
+$btn-padding-x-sm:  $font-size-base * 0.5 !default;
 $btn-font-size-sm: $font-size-sm !default;
-$btn-line-height-sm: $line-height-sm !default;
 
-$btn-padding-y-lg: $font-size-base * 0.5 !default;
-$btn-padding-x-lg: $font-size-base !default;
+$btn-padding-y-lg:  $font-size-base * 0.5 !default;
+$btn-padding-x-lg:  $font-size-base * 1 !default;
 $btn-font-size-lg: $font-size-lg !default;
-$btn-line-height-lg: $line-height-lg !default;
+
+$btn-border-width: $border-width !default;
+
+$btn-font-weight: $font-weight-normal !default;
+$btn-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-disabled-opacity: .65 !default;
 
 $btn-border-radius: $border-radius !default;
-$btn-border-radius-sm: $border-radius !default;
-$btn-border-radius-lg: $border-radius !default;
-$btn-border-width: $border-width !default;
-$btn-border-color: $primary !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
 
 //*****************************************
 // Cards
@@ -274,6 +288,20 @@ $badge-color: $white !default;
 $badge-padding-y: $font-size-base * 0.25 !default;
 $badge-padding-x: $font-size-base * 0.5 !default;
 $badge-border-radius: $border-radius !default;
+
+//*****************************************
+// Alerts
+//*****************************************
+
+$alert-padding-y: $font-size-base * 0.75 !default;
+$alert-padding-x: $font-size-base * 1.25 !default;
+$alert-border-radius: $border-radius !default;
+$alert-link-font-weight: $font-weight-bold !default;
+$alert-border-width: $border-width !default;
+
+$alert-bg-level: -10 !default;
+$alert-border-level: -9 !default;
+$alert-color-level: 6 !default;
 
 //*****************************************
 // Utility functions

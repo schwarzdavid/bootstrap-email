@@ -1,21 +1,41 @@
-table.alert {
-  border-collapse: separate !important;
-  border: 0;
-  width: 100%;
-  & > tbody > tr > td {
-    padding: 0.75 * $font-size-base 1.25 * $font-size-base;
-    border: 1px solid transparent;
-    border-radius: 0.25 * $font-size-base;
-  }
+//*****************************************
+// Base Styles
+//*****************************************
+
+.alert {
+	border-collapse: separate !important;
+	border: 0;
+	width: 100%;
+
+	& > tbody > tr > td {
+		padding: $alert-padding-y $alert-padding-x;
+		border: $alert-border-width solid transparent;
+		border-radius: $alert-border-radius;
+	}
 }
 
+.alert-heading {
+	color: inherit;
+}
+
+.alert-link {
+	font-weight: $alert-link-font-weight;
+}
+
+//*****************************************
+// Alternate Styles
+//*****************************************
+
 @each $color, $value in $theme-colors {
-  .alert-#{$color} td {
-    background-color: lighten($value, 40%);
-    border-color: lighten($value, 35%);
-    color: darken($value, 30%);
-    .hr > table > tbody > tr > td {
-      border-top: 1px solid lighten($value, 35%);
-    }
-  }
+	.alert-#{$color} > tbody > tr > td {
+		$background: color-level($value, $alert-bg-level);
+		$border: color-level($value, $alert-border-level);
+		$color: color-level($value, $alert-color-level);
+
+		@include alert-variant($background, $border, $color);
+
+		.hr td {
+			border-color: $border;
+		}
+	}
 }

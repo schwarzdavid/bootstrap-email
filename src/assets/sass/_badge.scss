@@ -1,6 +1,10 @@
-.badge > tbody > tr > td {
-	display: inline-block;
-	padding: $badge-padding-y $badge-padding-x;
+// TODO: check this, especially pills and color variants
+
+.badge {
+	display: inline;
+	border: $badge-padding-x solid transparent;
+	border-top-width: $badge-padding-y;
+	border-bottom-width: $badge-padding-y;
 	font-size: $badge-font-size;
 	font-weight: $badge-font-weight;
 	line-height: 1;
@@ -8,10 +12,14 @@
 	white-space: nowrap;
 	vertical-align: baseline;
 	border-radius: $badge-border-radius;
+
+	&:empty {
+		display: none;
+	}
 }
 
 // Pill badges
-.badge-pill > tbody > tr > td {
+.badge-pill {
 	padding-right: .6 * $font-size-base;
 	padding-left: .6 * $font-size-base;
 	border-radius: 10 * $font-size-base;
@@ -19,9 +27,10 @@
 
 // Colors
 @each $color, $value in $theme-colors {
-	.badge-#{$color} > tbody > tr > td {
-		@include color-yiq($value);
+	.badge-#{$color} {
+		color: color-yiq($value);
 		background-color: $value;
+		border-color: $value;
 	}
 }
 

@@ -1,59 +1,82 @@
+//*****************************************
+// Base Styles
+//*****************************************
+
 .btn {
-  border-radius: $border-radius;
-  border-collapse: separate !important;
+	border-radius: $border-radius;
+	border-collapse: separate !important;
+
+	& > tbody > tr > td {
+		display: inline-block;
+		font-weight: $btn-font-weight;
+		line-height: $btn-line-height;
+		color: $body-color;
+		text-align: center;
+		white-space: $btn-white-space;
+		vertical-align: middle;
+		cursor: pointer;
+		user-select: none;
+		background-color: transparent;
+		border: $btn-border-width solid transparent;
+		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+		transition: $btn-transition;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			color: $body-color;
+			text-decoration: none;
+		}
+	}
+
+	&.disabled > tbody > tr > td {
+		pointer-events: none;
+		opacity: $btn-disabled-opacity;
+		box-shadow: none;
+	}
 }
 
-.btn td {
-  border-radius: $border-radius;
-  text-align: center;
-}
 
-.btn td a {
-  font-size: $font-size-base;
-  font-family: Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  border-radius: $btn-border-radius;
-  padding: $btn-padding-y $btn-padding-x;
-  line-height: $btn-line-height;
-  border: $btn-border-width solid $btn-border-color;
-  display: inline-block;
-  font-weight: normal;
-  white-space: nowrap;
-}
+//*****************************************
+// Alternate Buttons
+//*****************************************
 
 @each $color, $value in $theme-colors {
-  .btn-#{$color} td {
-    background-color: $value;
-  }
-  .btn-#{$color} td a {
-    background-color: $value;
-    @include color-yiq($value);
-    border-color: $value;
-  }
+	.btn-#{$color} > tbody > tr > td {
+		@include button-variant($value, $value);
+	}
+
+	.btn-outline-#{$color} {
+		@include button-outline-variant($value);
+	}
 }
 
-@each $color, $value in $theme-colors {
-  .btn-outline-#{$color} td {
-    background-color: transparent;
-    border-color: $value;
-  }
-  .btn-outline-#{$color} td a {
-    background-color: transparent;
-    border-color: $value;
-    color: $value;
-  }
+
+//*****************************************
+// Button Sizes
+//*****************************************
+
+.btn-lg {
+	@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }
 
-.btn-sm td a {
-  font-size: $btn-font-size-sm;
-  padding: $btn-padding-y-sm $btn-padding-x-sm;
-  line-height: $btn-line-height-sm;
-  border-radius: $btn-border-radius-sm;
+.btn-sm {
+	@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
 }
 
-.btn-lg td a {
-  font-size: $btn-font-size-lg;
-  padding: $btn-padding-y-lg $btn-padding-x-lg;
-  line-height: $btn-line-height-lg;
-  border-radius: $btn-border-radius-lg;
+
+//*****************************************
+// Block Buttons
+//*****************************************
+
+.btn-block {
+	width: 100%;
 }

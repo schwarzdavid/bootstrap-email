@@ -1,0 +1,56 @@
+@mixin button-variant(
+	$background,
+	$border,
+	$color: color-yiq($background),
+	$hover-background: darken($background, 7.5%),
+	$hover-border: darken($border, 10%),
+	$hover-color: color-yiq($hover-background)
+) {
+	& > tbody > tr > td {
+		color: $color;
+		background-color: $background;
+		border-color: $border;
+		box-shadow: $btn-box-shadow;
+
+		&:hover {
+			color: $hover-color;
+			background-color: $hover-background;
+			border-color: $hover-border;
+		}
+	}
+
+	&.disabled > tbody > tr > td {
+		color: $color;
+		background-color: $background;
+		border-color: $border;
+	}
+}
+
+@mixin button-outline-variant(
+	$color,
+	$color-hover: color-yiq($color),
+	$active-background: $color,
+	$active-border: $color
+) {
+	& > tbody > tr > td {
+		color: $color;
+		border-color: $color;
+
+		&:hover {
+			color: $color-hover;
+			background-color: $active-background;
+			border-color: $active-border;
+		}
+	}
+
+	&.disabled > tbody > tr > td {
+		color: $color;
+		background-color: transparent;
+	}
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+	padding: $padding-y $padding-x;
+	font-size: $font-size;
+	border-radius: $border-radius;
+}

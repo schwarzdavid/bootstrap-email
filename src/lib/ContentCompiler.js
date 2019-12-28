@@ -61,7 +61,10 @@ class ContentCompiler {
 			const {td, table} = this._createTable();
 
 			table.attr(el.attr());
-			table.addClass('w-100');
+			const hasWidth = el.attr('class').split(' ').find(cls => cls.startsWith('w-'));
+			if(!hasWidth) {
+				table.addClass('w-100');
+			}
 			td.html(el.html());
 
 			el.replaceWith(table);
@@ -152,7 +155,7 @@ class ContentCompiler {
 			const el = $(_el);
 
 			if (direction === ALIGNMENT.CENTER) {
-				ElementHelper.wrap(el, 'center');
+				ElementHelper.wrap(el, 'center', {}, false);
 			} else {
 				const alignValue = Object.keys(ALIGNMENT).find(key => ALIGNMENT[key] === direction).toLowerCase();
 
