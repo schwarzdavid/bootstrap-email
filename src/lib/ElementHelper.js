@@ -58,7 +58,7 @@ class ElementHelper {
 	 * @param {cheerio} el - Element to be replaced
 	 * @param {string} tplName - Name of the template to use
 	 * @param {object} [assets] - Additional options for replacing elements
-	 * @param {string | string[]} [assets.classes] - Add additional classes to template
+	 * @param {string | string[]} [assets.classes] - Add additional classes to append to the template root element
 	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
 	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
 	 * @param {boolean} [transcludeClasses=true] - Should be classes moved from source element to template

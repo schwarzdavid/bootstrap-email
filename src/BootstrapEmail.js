@@ -259,6 +259,8 @@ class BootstrapEmail {
 			contentCompiler.component('.card');
 			contentCompiler.component('.card-body');
 			contentCompiler.component('.btn');
+			// TODO: replace button replacer
+			//componentCompiler.button();
 			componentCompiler.badge();
 			contentCompiler.component('.alert');
 

@@ -1,0 +1,8 @@
+@include mobile() {
+	.d-mobile {
+		display: block !important;
+	}
+	.d-desktop {
+		display: none !important;
+	}
+}

@@ -15,6 +15,15 @@ class ComponentCompiler {
 			el.html(text);
 		});
 	}
+
+	button() {
+		const $ = this._$;
+		$('.btn').each((i, _el) => {
+			if (_el.name !== 'table') {
+				ElementHelper.wrapContent($(_el), 'table');
+			}
+		});
+	}
 }
 
 module.exports = ComponentCompiler;

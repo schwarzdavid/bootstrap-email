@@ -77,8 +77,8 @@ class ContentCompiler {
 	 */
 	margin() {
 		const $ = this._$;
-		const elements = $('*[class*=my-], *[class*=mx-], *[class*=mt-], *[class*=mb-], *[class*=ml-], *[class*=mr-]').not('.mx-auto');
-		const regex = /m[btylrx]{1}-(lg-)?(\d)/i;
+		const elements = $('*[class*=m-], *[class*=my-], *[class*=mx-], *[class*=mt-], *[class*=mb-], *[class*=ml-], *[class*=mr-]').not('.mx-auto');
+		const regex = /m[btylrx]?-(lg-)?(\d)/i;
 
 		elements.each((i, _el) => {
 			const el = $(_el);
@@ -91,7 +91,7 @@ class ContentCompiler {
 
 			const marginClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
 
-			el.removeClass(marginClasses.join(' '));
+			ElementHelper.removeClass(el, marginClasses.join(' '));
 
 			const appendClasses = marginClasses.map(classname => 's' + classname.substr(1));
 			appendClasses.push('w-100');
@@ -110,18 +110,23 @@ class ContentCompiler {
 	padding() {
 		const $ = this._$;
 		const elements = $('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]');
-		const regex = /p[btylrx]{1}-(lg-)?(\d)/i;
+		const regex = /p[btylrx]?-(lg-)?(\d)/i;
 
 		elements.each((i, _el) => {
 			const el = $(_el);
 			const paddingClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
 
-			el.removeClass(paddingClasses.join(' '));
+			ElementHelper.removeClass(el, paddingClasses.join(' '));
 
 			const cssDisplay = el.css('display');
 			const appendClasses = paddingClasses.map(classname => 's' + classname.substr(1));
 
-			if ((BLOCK_ELEMENTS.includes(_el.name) && cssDisplay === undefined) || cssDisplay === 'block') {
+			if (
+				(BLOCK_ELEMENTS.includes(_el.name) && cssDisplay === undefined)
+				|| cssDisplay === 'block'
+				|| el.hasClass('d-block')
+				|| el.hasClass('btn-block')
+			) {
 				appendClasses.push('w-100');
 			}
 
@@ -129,7 +134,7 @@ class ContentCompiler {
 				ElementHelper.wrap(el, 'spacing', {
 					classes: appendClasses,
 					attributes: {'data-src': 'padding'}
-				});
+				}, false);
 			} else {
 				ElementHelper.wrapContent(el, 'spacing', {
 					classes: appendClasses,

@@ -1,7 +1,15 @@
 .d-mobile {
 	display: none;
+
+	@include mobile() {
+		display: block !important;
+	}
 }
 
 .d-desktop {
 	display: block;
+
+	@include mobile(){
+		display: none !important;
+	}
 }

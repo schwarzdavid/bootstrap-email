@@ -1,0 +1,83 @@
+@mixin generate_spacings($size, $length) {
+	&.s-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top},
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+
+		&#{$bte-cls-space-left},
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+
+	&.sy-#{$size} > tbody > tr > td,
+	&.st-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top} {
+			@include cellheight($length);
+		}
+	}
+
+	&.sy-#{$size} > tbody > tr > td,
+	&.sb-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+	}
+
+	&.sx-#{$size} > tbody > tr > td,
+	&.sl-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-left} {
+			width: $length;
+		}
+	}
+
+	&.sx-#{$size} > tbody > tr > td,
+	&.sr-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+}
+
+@mixin generate_xl_spacing($size, $length) {
+	&.s-lg-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top},
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+
+		&#{$bte-cls-space-left},
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+
+	&.sy-lg-#{$size} > tbody > tr > td,
+	&.st-lg-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-top} {
+			@include cellheight($length);
+		}
+	}
+
+	&.sy-lg-#{$size} > tbody > tr > td,
+	&.sb-lg-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-bottom} {
+			@include cellheight($length);
+		}
+	}
+
+	&.sx-lg-#{$size} > tbody > tr > td,
+	&.sl-lg-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-left} {
+			width: $length;
+		}
+	}
+
+	&.sx-lg-#{$size} > tbody > tr > td,
+	&.sr-lg-#{$size} > tbody > tr > td {
+		&#{$bte-cls-space-right} {
+			width: $length;
+		}
+	}
+}

@@ -26,15 +26,6 @@ a {
 
 @include mobile() {
 
-
-	// Display
-	.d-mobile {
-		display: block !important;
-	}
-	.d-desktop {
-		display: none !important;
-	}
-
 	// Width
 	/*@each $size, $percentage in $sizes {
 		.w-lg-#{$size} {
@@ -71,69 +62,4 @@ a {
 	.text-lg-right {
 		text-align: initial !important;
 	}
-}
-
-// Yahoo specific media query to revert above
-@media yahoo {
-	// Display
-	.d-mobile {
-		display: none !important;
-	}
-	.d-desktop {
-		display: block !important;
-	}
-
-	// Width
-	/*@each $size, $percentage in $sizes {
-		.w-lg-#{$size} {
-			width: $percentage !important;
-			& > tbody > tr > td {
-				width: $percentage !important;
-			}
-		}
-	}*/
-
-	// Spacing
-	// Set proper spacing again on Yahoo
-	/*@each $size, $length in $spacers {
-		.p-lg-#{$size} {
-			& > tbody > tr > td {
-				padding: $length !important;
-			}
-		}
-		.pt-lg-#{$size},
-		.py-lg-#{$size} {
-			& > tbody > tr > td {
-				padding-top: $length !important;
-			}
-		}
-		.pr-lg-#{$size},
-		.px-lg-#{$size} {
-			& > tbody > tr > td {
-				padding-right: $length !important;
-			}
-		}
-		.pb-lg-#{$size},
-		.py-lg-#{$size} {
-			& > tbody > tr > td {
-				padding-bottom: $length !important;
-			}
-		}
-		.pl-lg-#{$size},
-		.px-lg-#{$size} {
-			& > tbody > tr > td {
-				padding-left: $length !important;
-			}
-		}
-	}
-
-	// Spacing
-	@each $size, $length in $spacers {
-		.s-lg-#{$size} > tbody > tr > td {
-			font-size: $length !important;
-			line-height: $length !important;
-			height: $length !important;
-		}
-	}*/
-
 }
