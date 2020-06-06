@@ -1,3 +1,27 @@
+@mixin generate_spacing_reset($length) {
+	& > tbody > tr > td {
+		&#{$bte-cls-space-left},
+		&#{$bte-cls-space-right},
+		&#{$bte-cls-space-top},
+		&#{$bte-cls-space-bottom} {
+			font-size: 0 !important;
+		}
+
+		&#{$bte-cls-space-left},
+		&#{$bte-cls-space-right} {
+			width: $length;
+			padding: 0 !important;
+			@include cellheight(0);
+		}
+
+		&#{$bte-cls-space-top},
+		&#{$bte-cls-space-bottom} {
+			padding: 0 !important;
+			@include cellheight($length);
+		}
+	}
+}
+
 @mixin generate_spacings($size, $length) {
 	&.s-#{$size} > tbody > tr > td {
 		&#{$bte-cls-space-top},

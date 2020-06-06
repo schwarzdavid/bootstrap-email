@@ -4,19 +4,8 @@
 
 // RESET SPACING CLASSES TO DEFAULT ZERO
 //*****************************************
-#{$bte-cls-spacing-container} > tbody > tr > td {
-	&#{$bte-cls-space-left},
-	&#{$bte-cls-space-right} {
-		width: 0;
-		padding: 0 !important;
-		@include cellheight(0 !important);
-	}
-
-	&#{$bte-cls-space-top},
-	&#{$bte-cls-space-bottom} {
-		padding: 0 !important;
-		@include cellheight(0);
-	}
+#{$bte-cls-spacing-container} {
+	@include generate_spacing_reset(0);
 }
 
 @each $size, $length in $spacers {
@@ -32,11 +21,9 @@
 	//*****************************************
 	@include mobile() {
 		#{$bte-cls-spacing-container} {
-			@include generate_xl_spacing($size, 0 !important);
-
-			&#{$bte-cls-spacing-container--important} {
-				@include generate_spacings($size, $length !important);
-			}
+			@include generate_spacing_reset(0 !important);
+			@include generate_xl_spacing($size, 0);
+			@include generate_spacings($size, $length !important);
 		}
 	}
 }
