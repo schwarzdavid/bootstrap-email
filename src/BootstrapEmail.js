@@ -222,7 +222,7 @@ class BootstrapEmail {
 	 */
 	_compileHtml() {
 		for (let template of this._templates) {
-			this._logger.debug('Start compiling ' + template.path);
+			this._logger.debug('Start compiling ' + template.name);
 			const contentCompiler = new ContentCompiler(template.$, this._logger);
 			const componentCompiler = new ComponentCompiler(template.$, this._logger);
 

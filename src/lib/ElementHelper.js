@@ -25,8 +25,7 @@ class ElementHelper {
 	 */
 	static replace(el, tplName, variables = {}) {
 		const content = el.html();
-		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {variables, content}));
-
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {content, variables}));
 		template.attr(el.attr());
 		el.replaceWith(template);
 	}

@@ -61,8 +61,8 @@ class ContentCompiler {
 			const {td, table} = this._createTable();
 
 			table.attr(el.attr());
-			const hasWidth = el.attr('class').split(' ').find(cls => cls.startsWith('w-'));
-			if(!hasWidth) {
+			const hasWidth = (el.attr('class') || '').split(' ').find(cls => cls.startsWith('w-'));
+			if (!hasWidth) {
 				table.addClass('w-100');
 			}
 			td.html(el.html());
@@ -237,10 +237,13 @@ class ContentCompiler {
 			const el = $(_el);
 			ElementHelper.wrap(el, 'container', {
 				variables: {
-					containerWidthFallback: el.hasClass('container-fluid'),
+					containerWidthFallback: !el.hasClass('container-fluid'),
 					width
 				}
 			});
+		});
+		$('[data-bte-removed-class="container"], [data-bte-removed-class="container-fluid"]').each((i, _el) => {
+			const el = $(_el);
 			ElementHelper.replace(el, 'container-inner');
 		});
 	}

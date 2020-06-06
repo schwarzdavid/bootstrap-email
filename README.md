@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./icon.png" alt="Bootstrap Email for NodeJS" width="72" height="72">
+    <img src="https://github.com/schwarzdavid/bootstrap-email/raw/master/icon.png" alt="Bootstrap Email for NodeJS" width="72" height="72">
     <h3 align="center">Bootstrap Email for NodeJS</h3>
     <p align="center">If you know Bootstrap, you know Bootstrap Email.</cite>
 </p>
@@ -118,6 +118,7 @@ multipleTemplates.compileAndSave('./out/');
 - [ ] Add option for output formatting (minimized, formatted, ...)
 - [ ] Write better docs & examples
 - [ ] Improve debug-logging
+- [ ] Write cli script
 
 # Known Bugs
 

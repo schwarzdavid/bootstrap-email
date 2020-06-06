@@ -22,7 +22,7 @@
 		transition: $btn-transition;
 
 		a {
-			color: inherit;
+			color: $body-color;
 			text-decoration: none;
 
 			&:hover {
@@ -50,7 +50,7 @@
 //*****************************************
 
 @each $color, $value in $theme-colors {
-	.btn-#{$color} > tbody > tr > td {
+	.btn-#{$color} {
 		@include button-variant($value, $value);
 	}
 

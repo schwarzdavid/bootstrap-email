@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-email",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Convert a bootstrap-like template into email-compatible table layout",
 	"keywords": [
 		"email",
@@ -18,7 +18,8 @@
 	"scripts": {
 		"prepublish": "npm test && npm run generate-docs",
 		"test": "node_modules/.bin/mocha ./test/**/*.spec.js",
-		"generate-docs": "node_modules/.bin/jsdoc --configure jsdoc.json --verbose"
+		"generate-docs": "node_modules/.bin/jsdoc --configure jsdoc.json --verbose",
+		"examples": "node examples/index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -35,7 +36,7 @@
 		"cheerio": "^1.0.0-rc.3",
 		"ejs": "^2.6.1",
 		"juice": "^5.2.0",
-		"node-sass": "^4.13.0",
+		"node-sass": "^4.14.1",
 		"postcss": "^7.0.25",
 		"sass-extract": "^2.1.0"
 	},

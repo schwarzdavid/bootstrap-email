@@ -12,6 +12,10 @@
 		border-color: $border;
 		box-shadow: $btn-box-shadow;
 
+		a {
+			color: $color;
+		}
+
 		&:hover {
 			color: $hover-color;
 			background-color: $hover-background;
@@ -35,6 +39,10 @@
 	& > tbody > tr > td {
 		color: $color;
 		border-color: $color;
+
+		a {
+			color: $color;
+		}
 
 		&:hover {
 			color: $color-hover;
