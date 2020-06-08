@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      Bootstrap Email Api Reference - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link id="google-font" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Cutive+Mono|Roboto:300,400,700" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="styles/highlight-themes/current.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <link type="text/css" rel="stylesheet" href="styles/collapsible.css">
+  <link type="text/css" rel="stylesheet" href="styles/style-switcher.css">
+  <link type="text/css" rel="stylesheet" href="styles/selectric.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="https://embed.runkit.com"></script>
+  <style id="style-switcher-styles">
+    nav {
+        background: #282c34;
+    }
+    .hljs {
+        background: #1d2027;
+    }
+    .nav-container > ul > li.active a {
+        color: #dcdcdc;
+    }
+    .nav-container > ul > li.active a:hover {
+        color: #f78200;
+    }
+    .nav-container > ul > li.active ul {
+        border-color: #f78200;
+    }
+    h4.name {
+        color: #f78200;
+    }
+    .params > div > code, .params > div > em {
+        color: #f78200;
+    }
+    a, a:active {
+        color: #f78200;
+    }
+    .hljs-doctag, .hljs-keyword, .hljs-formula {
+        color: #f78200;
+    }
+    nav ul a:hover, nav ul a:active {
+        color: #f78200;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header-fixed">
+      <h1>
+        <a href="index.html" title="modernTemplate.title">
+            
+                <img alt="Bootstrap Email" src="https://github.com/schwarzdavid/bootstrap-email/raw/master/icon.png" />
+            
+            Bootstrap Email
+        </a>
+      </h1>
+      <div class="center-header">
+          <ul>
+            
+          </ul>
+      </div>
+      <div class="right-header">
+           
+                <a href="https://github.com/schwarzdavid/bootstrap-email/" title="View it on Github" style="">
+                    <i class="fab fa-github-alt"></i>
+                </a>
+           
+                <a href="https://www.npmjs.com/package/bootstrap-email" title="View it on NPM" style="font-size: 19px">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </a>
+           
+      </div>
+  </header>
+
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <nav>
+    <div id="menu-container" class="scrollbar-inner">
+        <div class="nav-container">
+            <h3>Classes</h3><ul><li id="BootstrapEmail-nav"><a href="BootstrapEmail.html">BootstrapEmail</a><ul class='methods'><li data-type="method" id="BootstrapEmail-_compileHtml-nav"><a href="BootstrapEmail.html#_compileHtml">_compileHtml</a></li><li data-type="method" id="BootstrapEmail-_injectHead-nav"><a href="BootstrapEmail.html#_injectHead">_injectHead</a></li><li data-type="method" id="BootstrapEmail-_inlineCss-nav"><a href="BootstrapEmail.html#_inlineCss">_inlineCss</a></li><li data-type="method" id="BootstrapEmail-_loadStyle-nav"><a href="BootstrapEmail.html#_loadStyle">_loadStyle</a></li><li data-type="method" id="BootstrapEmail-_output-nav"><a href="BootstrapEmail.html#_output">_output</a></li><li data-type="method" id="BootstrapEmail-_processStyle-nav"><a href="BootstrapEmail.html#_processStyle">_processStyle</a></li><li data-type="method" id="BootstrapEmail-compile-nav"><a href="BootstrapEmail.html#compile">compile</a></li><li data-type="method" id="BootstrapEmail-compileAndSave-nav"><a href="BootstrapEmail.html#compileAndSave">compileAndSave</a></li></ul></li><li id="ContentCompiler-nav"><a href="ContentCompiler.html">ContentCompiler</a><ul class='methods'><li data-type="method" id="ContentCompiler-_createTable-nav"><a href="ContentCompiler.html#_createTable">_createTable</a></li><li data-type="method" id="ContentCompiler-_generateGrid-nav"><a href="ContentCompiler.html#_generateGrid">_generateGrid</a></li><li data-type="method" id="ContentCompiler-align-nav"><a href="ContentCompiler.html#align">align</a></li><li data-type="method" id="ContentCompiler-body-nav"><a href="ContentCompiler.html#body">body</a></li><li data-type="method" id="ContentCompiler-component-nav"><a href="ContentCompiler.html#component">component</a></li><li data-type="method" id="ContentCompiler-container-nav"><a href="ContentCompiler.html#container">container</a></li><li data-type="method" id="ContentCompiler-div-nav"><a href="ContentCompiler.html#div">div</a></li><li data-type="method" id="ContentCompiler-grid-nav"><a href="ContentCompiler.html#grid">grid</a></li><li data-type="method" id="ContentCompiler-hr-nav"><a href="ContentCompiler.html#hr">hr</a></li><li data-type="method" id="ContentCompiler-margin-nav"><a href="ContentCompiler.html#margin">margin</a></li><li data-type="method" id="ContentCompiler-padding-nav"><a href="ContentCompiler.html#padding">padding</a></li><li data-type="method" id="ContentCompiler-preview-nav"><a href="ContentCompiler.html#preview">preview</a></li><li data-type="method" id="ContentCompiler-table-nav"><a href="ContentCompiler.html#table">table</a></li></ul></li><li id="ElementHelper-nav"><a href="ElementHelper.html">ElementHelper</a><ul class='methods'><li data-type="method" id="ElementHelper-_appendToAttribute-nav"><a href="ElementHelper.html#._appendToAttribute">_appendToAttribute</a></li><li data-type="method" id="ElementHelper-_concatAttributes-nav"><a href="ElementHelper.html#._concatAttributes">_concatAttributes</a></li><li data-type="method" id="ElementHelper-_ensureArray-nav"><a href="ElementHelper.html#._ensureArray">_ensureArray</a></li><li data-type="method" id="ElementHelper-addClass-nav"><a href="ElementHelper.html#.addClass">addClass</a></li><li data-type="method" id="ElementHelper-removeClass-nav"><a href="ElementHelper.html#.removeClass">removeClass</a></li><li data-type="method" id="ElementHelper-replace-nav"><a href="ElementHelper.html#.replace">replace</a></li><li data-type="method" id="ElementHelper-unwrap-nav"><a href="ElementHelper.html#.unwrap">unwrap</a></li><li data-type="method" id="ElementHelper-wrap-nav"><a href="ElementHelper.html#.wrap">wrap</a></li><li data-type="method" id="ElementHelper-wrapContent-nav"><a href="ElementHelper.html#.wrapContent">wrapContent</a></li></ul></li><li id="TemplateLoader-nav"><a href="TemplateLoader.html">TemplateLoader</a><ul class='methods'><li data-type="method" id="TemplateLoader-load-nav"><a href="TemplateLoader.html#.load">load</a></li></ul></li></ul>
+        </div>
+    </div>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        BootstrapEmail.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>const fs = require('fs');
+const path = require('path');
+const cheerio = require('cheerio');
+const sass = require('sass-extract');
+const postcss = require('postcss');
+const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');
+const bunyan = require('bunyan');
+const juice = require('juice');
+const ContentCompiler = require('./lib/ContentCompiler');
+const ComponentCompiler = require('./lib/ComponentCompiler');
+const constants = require('./constants');
+
+
+/**
+ * @readonly
+ * @enum {string}
+ * @memberOf BootstrapEmail
+ */
+const STYLE_VARIABLES = {
+	/** $grid-columns */
+	COLUMNS: '$grid-columns',
+	/** $container-max-width */
+	CONTAINER_WIDTH: '$container-max-width'
+};
+
+/**
+ * @readonly
+ * @enum {number}
+ * @memberOf BootstrapEmail
+ * @see https://www.npmjs.com/package/bunyan#levels
+ */
+const LOG_LEVEL = {
+	/** 20 */
+	DEBUG: 20,
+	/** 30 */
+	INFO: 30,
+	/** 40 */
+	WARN: 40,
+	/** 50 */
+	ERROR: 50,
+	/** 60 */
+	FATAL: 60
+};
+
+
+const __defaultConfig = {
+	style: path.join(__dirname, './assets/bootstrap-email.scss'),
+	head: path.join(__dirname, './assets/head.scss'),
+	containerWidthFallback: true
+};
+
+const __styleVariables = {
+	[STYLE_VARIABLES.COLUMNS]: 12
+};
+
+class BootstrapEmail {
+
+	//*****************************************
+	// CONSTRUCTOR
+	//*****************************************
+
+	/**
+	 * Creates a new BootstrapEmail instance
+	 *
+	 * @constructor
+	 * @param {string|string[]} templates Path to file, string containing HTML code or array of filepaths
+	 * @param {Object} [options]
+	 * @param {string} [options.style] Path to .css or .scss file that should be inlined
+	 * @param {string} [options.head] Path to .css or .scss file taht should be injected into header
+	 * @param {LOG_LEVEL} [options.logLevel] Defaults to LOG_LEVEL.INFO
+	 * @param {Object} [options.variables] Sets default SASS-Variables if not defined otherwise in SCSS-file
+	 */
+	constructor(templates, {
+		style = __defaultConfig.style,
+		head = __defaultConfig.head,
+		logLevel = LOG_LEVEL.INFO,
+		variables = {}
+	} = {}) {
+
+		/**
+		 * Path to main (s)css file
+		 * @type {string}
+		 * @private
+		 */
+		this._stylePath = style;
+
+		/**
+		 * Path to (s)css file which should be injected to &lt;head>
+		 * @type {string}
+		 * @private
+		 */
+		this._headPath = head;
+
+		/**
+		 * Merged object containing default styling variables
+		 * @type {Object}
+		 * @private
+		 */
+		this._vars = {...__styleVariables, ...variables};
+
+		/**
+		 * "Bunyan"-Instance for loggin
+		 * @type {Logger}
+		 * @private
+		 */
+		this._logger = bunyan.createLogger({
+			name: 'Bootstrap Email',
+			level: logLevel
+		});
+
+		/**
+		 * Contains parsed html-templates which will be compiled
+		 * @type {Array.&lt;{$:cheerio,path:string}>}
+		 * @private
+		 */
+		this._templates = [];
+
+		// HANDLE TEMPLATES-PARAMETER
+		//*****************************************
+		const templatePaths = [];
+		if (Array.isArray(templates)) {
+			templates.forEach(templatePath => {
+				if (typeof templatePath !== 'string') {
+					this._logger.error(`Template paths must be strings. Value ${templatePath} is a ${typeof templatePath} and will be ignored.`);
+					return;
+				}
+				templatePaths.push(templatePath);
+			});
+		} else {
+			if (typeof templates === 'string') {
+				templatePaths.push(templates);
+			} else {
+				this._logger.fatal(`Parameter 'templates' must be a string or string[]. Got: ${typeof templates}`);
+				return;
+			}
+		}
+
+		// LOAD ALL TEMPLATE PATHS
+		//*****************************************
+		templatePaths.forEach(filePath => {
+			if (fs.existsSync(filePath)) {
+				try {
+					const data = fs.readFileSync(filePath, 'utf8');
+					this._templates.push({
+						$: cheerio.load(data),
+						name: path.basename(filePath)
+					});
+					this._logger.debug(filePath + ' successfully loaded');
+				} catch (err) {
+					this._logger.error(err, 'Cannot read ' + filePath);
+				}
+			} else {
+				if (filePath.trim().charAt(0) !== '&lt;') {
+					this._logger.error('Given template is not valid html or the file does not exist. Got: ' + filePath);
+					return;
+				}
+
+				this._templates.push({
+					$: cheerio.load(filePath),
+					name: null
+				});
+				this._logger.debug('HTML template successfully loaded');
+			}
+		});
+
+		// LOAD STYLES
+		//*****************************************
+		const {css, vars, queries} = this._processStyle(this._stylePath);
+		this._inlineStyles = css;
+		this._mobileStyles = queries;
+
+		for (let i in this._vars) {
+			if (vars.hasOwnProperty(i)) {
+				this._vars[i] = parseInt(vars[i].value);
+			}
+		}
+	}
+
+
+	//*****************************************
+	// PUBLIC METHODS
+	//*****************************************
+
+	/**
+	 * Performs a full compile and returns compiled templates
+	 * @return {string} If only one templates has been compiled, returns the compiled html code
+	 * @return {Array.&lt;{path: string, document: string}>} If multiple templates have been compiled, returns an array containing the path and compiled document
+	 */
+	compile() {
+		this._compileHtml();
+		this._inlineCss();
+		this._injectHead();
+
+		return this._output();
+	}
+
+	/**
+	 * Performs a full compile and saves documents to given destination
+	 * @param {string} filePath - If only one template is compiled, filePath takes a full path including filename and extension. Otherwise it takes only the directory name and uses the filename from inputfiles
+	 * @returns void
+	 */
+	compileAndSave(filePath) {
+		const outputs = this.compile();
+
+		if (typeof outputs === 'string') {
+			fs.writeFileSync(filePath, outputs);
+		} else {
+			for (let output of outputs) {
+				fs.writeFileSync(path.join(filePath, output.name), output.document);
+			}
+		}
+	}
+
+
+	//*****************************************
+	// PRIVATE METHODS
+	//*****************************************
+
+	/**
+	 * Replaces bootstrap classes with saved workarounds
+	 * @private
+	 */
+	_compileHtml() {
+		for (let template of this._templates) {
+			this._logger.debug('Start compiling ' + template.name);
+			const contentCompiler = new ContentCompiler(template.$, this._logger);
+			const componentCompiler = new ComponentCompiler(template.$, this._logger);
+
+			// HIDE PREVIEW TEXT
+			//*****************************************
+			contentCompiler.preview();
+
+			// WRAP BODY
+			//*****************************************
+			contentCompiler.body();
+
+			// COMPILE SPACINGS
+			//*****************************************
+			contentCompiler.padding();
+			contentCompiler.margin();
+
+			// COMPILE CONTAINERS AND GRIDS
+			//*****************************************
+			contentCompiler.container(this._vars[BootstrapEmail.STYLE_VARIABLES.CONTAINER_WIDTH]);
+			contentCompiler.grid(this._vars[BootstrapEmail.STYLE_VARIABLES.COLUMNS]);
+
+			// COMPILE NECESSARY ELEMENTS
+			//*****************************************
+			contentCompiler.hr();
+
+			// COMPILE ALIGNMENT CLASSES
+			//*****************************************
+			contentCompiler.align(ContentCompiler.ALIGNMENT.LEFT);
+			contentCompiler.align(ContentCompiler.ALIGNMENT.RIGHT);
+			contentCompiler.align(ContentCompiler.ALIGNMENT.CENTER);
+
+			// COMPILE BOOTSTRAP COMPONENTS
+			//*****************************************
+			contentCompiler.component('.card');
+			contentCompiler.component('.card-body');
+			contentCompiler.component('.btn');
+			// TODO: replace button replacer
+			//componentCompiler.button();
+			componentCompiler.badge();
+			contentCompiler.component('.alert');
+
+			// REPLACE DIVS
+			//*****************************************
+			contentCompiler.div();
+
+			// ADD ATTRIBUTES TO TABLES
+			//*****************************************
+			contentCompiler.table();
+		}
+	}
+
+	/**
+	 * Inlines all css classes into style attributes
+	 * @private
+	 */
+	_inlineCss() {
+		for (let template of this._templates) {
+			juice.inlineDocument(template.$, this._inlineStyles, {
+				applyAttributesTableElements: true,
+				applyHeightAttributes: true,
+				applyWidthAttributes: true
+			});
+		}
+	}
+
+	/**
+	 * Injects content of given head-file into the head of each template
+	 * @private
+	 */
+	_injectHead() {
+		const headCss = this._processStyle(this._headPath).css;
+
+		for (let template of this._templates) {
+			const headStyle = template.$('&lt;style>')
+				.attr('type', 'text/css')
+				.text(headCss);
+
+			const charset = template.$('&lt;meta>').attr({
+				'http-equiv': 'Content-Type',
+				'content': 'text/html; charset=utf-8'
+			});
+
+			const viewport = template.$('&lt;meta>').attr({
+				'name': 'viewport',
+				'content': 'width=device-width, initial-scale=1'
+			});
+
+			const head = template.$('head')
+				.append(charset)
+				.append(viewport)
+				.append(headStyle);
+
+			if (this._mobileStyles) {
+				const queryStyles = template.$('&lt;style>')
+					.attr('type', 'text/css')
+					.text(this._mobileStyles);
+				head.append(queryStyles);
+			}
+		}
+	}
+
+	/**
+	 * Prepares user-friendly output structure
+	 * @return {(string)}
+	 * @returns {Array.&lt;{path:string,document:string}>}
+	 * @private
+	 */
+	_output() {
+		const out = [];
+
+		for (let template of this._templates) {
+			out.push({
+				name: template.name,
+				document: constants.DOCTYPE + template.$.html()
+			});
+		}
+
+		if (out.length === 1) {
+			return out[0].document;
+		}
+		return out;
+	}
+
+	/**
+	 * Loads style and extracts all media queries
+	 * @param {string} stylePath
+	 * @return {{css: string, vars: Object, queries: string}}|{css: string}}
+	 * @private
+	 */
+	_processStyle(stylePath) {
+		const style = this._loadStyle(stylePath);
+		let headerCss = '';
+
+		this._logger.debug('Extract not inlineable css from style');
+
+		const postcssPlugins = [
+			extractHeaderCss({output: css => headerCss = css})
+		];
+		const mainCss = postcss(postcssPlugins).process(style.css).css;
+
+		this._logger.debug('Styles extracted successfully.');
+
+		return {
+			vars: style.vars,
+			css: mainCss,
+			queries: headerCss
+		};
+	}
+
+	/**
+	 * Loads file from given sourcepath. If file is scss or sass, it will be compiled into css
+	 * @static
+	 * @param stylePath
+	 * @return {{css: string, vars: Object}|{css: string}}
+	 * @private
+	 */
+	_loadStyle(stylePath) {
+		if (['.scss', '.sass'].includes(path.extname(stylePath))) {
+			this._logger.debug(stylePath + ' detected as sass-file');
+
+			const rendered = sass.renderSync({
+				file: stylePath,
+				outputStyle: 'compressed'
+			});
+
+			this._logger.debug(stylePath + ' read and parsed successfully');
+
+			return {
+				css: rendered.css.toString(),
+				vars: rendered.vars.global
+			}
+		} else {
+			const css = fs.readFileSync(stylePath, 'utf8');
+			this._logger.debug(stylePath + ' read successfully');
+			return {css};
+		}
+	}
+}
+
+BootstrapEmail.LOG_LEVEL = Object.freeze(LOG_LEVEL);
+BootstrapEmail.STYLE_VARIABLES = Object.freeze(STYLE_VARIABLES);
+
+/**
+ * Default variables. Can be overwritten in the constructor
+ * @readonly
+ * @type {Object}
+ */
+BootstrapEmail.defaultVariables = Object.freeze(constants.defaultVariables);
+
+/**
+ * Array containing all tagnames of block-elements. Block-elements will be compiled differently
+ * @type {string[]}
+ */
+BootstrapEmail.blockElements = constants.blockElements;
+
+/**
+ * Array containing all tagnames of void-elements which cannot contain any
+ * @type {string[]}
+ */
+BootstrapEmail.voidElements = constants.voidElements;
+
+/**
+ * Doctype which will be used for parsed templates
+ * @type {string}
+ */
+BootstrapEmail.DOCTYPE = constants.DOCTYPE;
+
+module.exports = BootstrapEmail;
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+  </footer>
+
+    
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+  <script src="scripts/scrollbar.js"></script>
+  <script src="scripts/collapsible.js"></script>
+  <script src="scripts/jquery.selectric.min.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+  <script>
+      $(function () {
+          $('#menu-container').scrollbar();
+
+          
+      });
+    </script>
+</body>
+</html>
