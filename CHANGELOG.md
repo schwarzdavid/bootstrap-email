@@ -1,3 +1,8 @@
+# 1.1.1 (2020-06-09)
+
+- Bugfixes (Spacing-Utility-Classes & Containers)
+- DIV-Replacer updated. Divs with no custom styling/classes will be unwrapped 
+
 # 1.1.0 (2019-12-27)
 
 - **BREAKING CHANGES:** `.row-fluid`, `.row-fluid-lg` and `.row-inset` removed

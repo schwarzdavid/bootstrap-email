@@ -58,16 +58,21 @@ class ContentCompiler {
 
 		elements.each((i, _el) => {
 			const el = $(_el);
-			const {td, table} = this._createTable();
 
-			table.attr(el.attr());
-			const hasWidth = (el.attr('class') || '').split(' ').find(cls => cls.startsWith('w-'));
-			if (!hasWidth) {
-				table.addClass('w-100');
+			if (!el.attr('style') && !el.attr('class')) {
+				ElementHelper.unwrap(el);
+			} else {
+				const {td, table} = this._createTable();
+
+				table.attr(el.attr());
+				const hasWidth = (el.attr('class') || '').split(' ').find(cls => cls.startsWith('w-'));
+				if (!hasWidth) {
+					table.addClass('w-100');
+				}
+				td.html(el.html());
+
+				el.replaceWith(table);
 			}
-			td.html(el.html());
-
-			el.replaceWith(table);
 		});
 	}
 
@@ -134,7 +139,7 @@ class ContentCompiler {
 				ElementHelper.wrap(el, 'spacing', {
 					classes: appendClasses,
 					attributes: {'data-src': 'padding'}
-				}, false);
+				}, true);
 			} else {
 				ElementHelper.wrapContent(el, 'spacing', {
 					classes: appendClasses,

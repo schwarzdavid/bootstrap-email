@@ -91,6 +91,17 @@ class ElementHelper {
 	}
 
 	/**
+	 * Removes given element, but keeps child contents
+	 * @param {cheerio} el - Element to be replaced
+	 * @private
+	 */
+	static unwrap(el) {
+		const contents = el.html();
+		const parsedContents = cheerio(contents);
+		el.replaceWith(parsedContents);
+	}
+
+	/**
 	 * Adds class to element and sets data-attributes for debugging reasons
 	 * @param {cheerio} el
 	 * @param {string} classname

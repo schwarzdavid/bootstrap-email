@@ -127,7 +127,7 @@ describe('ContentCompiler', function () {
 
 		it('should replace all divs', function () {
 			expect($('div')).not.to.exist;
-			expect($('table')).to.have.lengthOf(2);
+			expect($('table')).to.have.lengthOf(1);
 
 			expect($('.one')).to.exist;
 			expect($('.one > tbody > tr > td')).to.exist;

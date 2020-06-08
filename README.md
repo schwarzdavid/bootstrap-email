@@ -117,10 +117,11 @@ multipleTemplates.compileAndSave('./out/');
 - [ ] Extract automatically CSS that cannot be inlined (`:hover`, `:focus`, ...)
 - [ ] Add option for output formatting (minimized, formatted, ...)
 - [ ] Write better docs & examples
-- [ ] Improve debug-logging
 - [ ] Write cli script
 
 # Known Bugs
 
 - Outlook 2013 on Windows 10 with 120DPI can't scale images properly
-- Badges don't have correct paddings on Outlook (Windows ofc)
+- Paddings don't work properly on Outlook (Windows ofc)
+- Auto-sized tables behave as if they would have width="100%" on Outlook 2003 (Windows ofc)
+- Outlook 2003 (Windows) is fucked up in general
