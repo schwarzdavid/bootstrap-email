@@ -69,12 +69,14 @@ class BootstrapEmail {
 	 * @param {string} [options.head] Path to .css or .scss file taht should be injected into header
 	 * @param {LOG_LEVEL} [options.logLevel] Defaults to LOG_LEVEL.INFO
 	 * @param {Object} [options.variables] Sets default SASS-Variables if not defined otherwise in SCSS-file
+	 * @param {cheerio.CheerioParserOptions} [options.cheerioOptions] Options given to cheerio.load when loading the template
 	 */
 	constructor(templates, {
 		style = __defaultConfig.style,
 		head = __defaultConfig.head,
 		logLevel = LOG_LEVEL.INFO,
-		variables = {}
+		variables = {},
+		cheerioOptions = {}
 	} = {}) {
 
 		/**
@@ -142,7 +144,7 @@ class BootstrapEmail {
 				try {
 					const data = fs.readFileSync(filePath, 'utf8');
 					this._templates.push({
-						$: cheerio.load(data),
+						$: cheerio.load(data, cheerioOptions),
 						name: path.basename(filePath)
 					});
 					this._logger.debug(filePath + ' successfully loaded');
