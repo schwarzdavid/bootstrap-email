@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ejs = require('ejs');
 const TemplateLoader = require('./TemplateLoader');
 

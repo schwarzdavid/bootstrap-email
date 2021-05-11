@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const sass = require('sass-extract');
 const postcss = require('postcss');
 const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');

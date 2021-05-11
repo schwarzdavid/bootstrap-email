@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ContentCompiler = require('../src/lib/ContentCompiler');
 const chai = require('chai');
 const ChaiThings = require('chai-things');
@@ -6,7 +6,7 @@ const ChaiCheerio = require('chai-cheerio');
 const Logger = require('bunyan');
 
 const expect = chai.expect;
-const whitespaceChar = '&#xA0;';
+const whitespaceChar = '&nbsp;';
 
 chai.use(ChaiThings);
 chai.use(ChaiCheerio);

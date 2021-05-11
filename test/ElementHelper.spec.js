@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ElementHelper = require('../src/lib/ElementHelper');
 const chai = require('chai');
 const ChaiThings = require('chai-things');
