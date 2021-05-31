@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ejs = require('ejs');
 const TemplateLoader = require('./TemplateLoader');
 
@@ -25,7 +25,7 @@ class ElementHelper {
 	 */
 	static replace(el, tplName, variables = {}) {
 		const content = el.html();
-		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {content, variables}));
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }));
 		template.attr(el.attr());
 		el.replaceWith(template);
 	}
@@ -40,12 +40,12 @@ class ElementHelper {
 	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
 	 * @private
 	 */
-	static wrapContent(el, tplName, {classes = [], attributes = {}, variables = {}} = {}) {
+	static wrapContent(el, tplName, { classes = [], attributes = {}, variables = {} } = {}) {
 		classes = ElementHelper._ensureArray(classes);
 		attributes = ElementHelper._concatAttributes(attributes);
 
 		const content = el.html();
-		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {variables, content}));
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { variables, content }));
 
 		template.attr(attributes);
 		template.addClass(classes.join(' '));
@@ -64,7 +64,7 @@ class ElementHelper {
 	 * @param {boolean} [transcludeClasses=true] - Should be classes moved from source element to template
 	 * @private
 	 */
-	static wrap(el, tplName, {classes = [], attributes = {}, variables = {}} = {}, transcludeClasses = true) {
+	static wrap(el, tplName, { classes = [], attributes = {}, variables = {} } = {}, transcludeClasses = true) {
 		classes = ElementHelper._ensureArray(classes);
 		attributes = ElementHelper._concatAttributes(attributes);
 
@@ -80,7 +80,7 @@ class ElementHelper {
 		}
 
 		const content = cheerio.html(el);
-		const template = cheerio(ejs.render(ElementHelper.templates[tplName], {content, variables}));
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }));
 
 		template.attr(attributes);
 		ElementHelper.addClass(template, classes.join(' '));
@@ -151,7 +151,7 @@ class ElementHelper {
 			let attr = el;
 
 			if (el.cheerio) {
-				attr = {...el.attr()};
+				attr = { ...el.attr() };
 			}
 
 			for (let i in attr) {

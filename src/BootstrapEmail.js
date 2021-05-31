@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const sass = require('sass-extract');
 const postcss = require('postcss');
 const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');
@@ -96,7 +96,7 @@ class BootstrapEmail {
 		 * @type {Object}
 		 * @private
 		 */
-		this._vars = {...__styleVariables, ...variables};
+		this._vars = { ...__styleVariables, ...variables };
 
 		/**
 		 * "Bunyan"-Instance for loggin
@@ -165,7 +165,7 @@ class BootstrapEmail {
 
 		// LOAD STYLES
 		//*****************************************
-		const {css, vars, queries} = this._processStyle(this._stylePath);
+		const { css, vars, queries } = this._processStyle(this._stylePath);
 		this._inlineStyles = css;
 		this._mobileStyles = queries;
 
@@ -359,7 +359,7 @@ class BootstrapEmail {
 		this._logger.debug('Extract not inlineable css from style');
 
 		const postcssPlugins = [
-			extractHeaderCss({output: css => headerCss = css})
+			extractHeaderCss({ output: css => headerCss = css })
 		];
 		const mainCss = postcss(postcssPlugins).process(style.css).css;
 
@@ -397,7 +397,7 @@ class BootstrapEmail {
 		} else {
 			const css = fs.readFileSync(stylePath, 'utf8');
 			this._logger.debug(stylePath + ' read successfully');
-			return {css};
+			return { css };
 		}
 	}
 }
