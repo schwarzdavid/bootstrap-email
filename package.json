@@ -33,7 +33,7 @@
 	"homepage": "https://github.com/schwarzdavid/bootstrap-email#readme",
 	"dependencies": {
 		"bunyan": "^1.8.12",
-		"cheerio": "^1.0.0-rc.3",
+		"cheerio": "0.22.0",
 		"ejs": "^2.6.1",
 		"juice": "^5.2.0",
 		"node-sass": "^4.14.1",
