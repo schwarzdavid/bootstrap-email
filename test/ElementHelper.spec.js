@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ElementHelper = require('../src/lib/ElementHelper');
 const chai = require('chai');
 const ChaiThings = require('chai-things');
@@ -149,7 +149,7 @@ describe('ElementHandler', function () {
 
 	describe('wrapContent', function () {
 		const dom = cheerio.load('<div class="container" data-test="hallo"><h1>Heading</h1><p class="lead">Hello World</p></div>')
-		ElementHelper.wrapContent(dom('.container'), 'table', {classes: ['table'], attributes: {'data-foo': 'bar'}});
+		ElementHelper.wrapContent(dom('.container'), 'table', { classes: ['table'], attributes: { 'data-foo': 'bar' } });
 		const el = dom('.container');
 
 		it('should keep parent element', function () {
@@ -176,7 +176,7 @@ describe('ElementHandler', function () {
 
 	describe('wrap', function () {
 		const dom = cheerio.load('<div class="container" data-origin>Hallo Welt</div>');
-		ElementHelper.wrap(dom('.container'), 'table', {classes: 'table'});
+		ElementHelper.wrap(dom('.container'), 'table', { classes: 'table' });
 		const el = dom('[data-origin]');
 
 		it('should keep original content', function () {
