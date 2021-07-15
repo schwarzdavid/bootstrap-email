@@ -97,7 +97,7 @@ class ElementHelper {
 	 */
 	static unwrap(el) {
 		const contents = el.html();
-		const parsedContents = cheerio(contents);
+		const parsedContents = cheerio(contents, null, false);
 		el.replaceWith(parsedContents);
 	}
 
