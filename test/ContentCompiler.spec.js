@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const ContentCompiler = require('../src/lib/ContentCompiler');
 const chai = require('chai');
 const ChaiThings = require('chai-things');
