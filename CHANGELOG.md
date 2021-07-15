@@ -1,3 +1,7 @@
+# 1.1.2 (2021-07-15)
+
+- Cheerio updated to latest version
+
 # 1.1.1 (2020-06-09)
 
 - Bugfixes (Spacing-Utility-Classes & Containers)
