@@ -37,7 +37,7 @@
 		"cheerio": "^1.0.0-rc.10",
 		"ejs": "^2.6.1",
 		"juice": "^5.2.0",
-		"node-sass": "^4.14.1",
+		"node-sass": "^7.0.0",
 		"postcss": "^7.0.25",
 		"sass-extract": "^2.1.0"
 	},
