@@ -27,7 +27,7 @@ a {
 @include mobile() {
 
 	// Width
-	/*@each $size, $percentage in $sizes {
+	@each $size, $percentage in $sizes {
 		.w-lg-#{$size} {
 			width: auto !important;
 			& > tbody > tr > td {
@@ -42,7 +42,7 @@ a {
 				width: $percentage !important;
 			}
 		}
-	}*/
+	}
 
 	// Text align
 	.text-sm-center {

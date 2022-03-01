@@ -1,3 +1,5 @@
+@use "sass:math";
+
 //*****************************************
 // TABLE OF CONTENTS
 //
@@ -146,7 +148,7 @@ $grid-columns: 12 !default;
 $grid-gutter-width: 30px !default;
 
 $container-max-width: 600px !default;
-$container-padding-x: $grid-gutter-width / 2 !default;
+$container-padding-x: math.div($grid-gutter-width, 2) !default;
 
 //*****************************************
 // 6. GENERAL SETTINGS

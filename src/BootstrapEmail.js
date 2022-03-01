@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
-const sass = require('sass-extract');
+const sass = require('sass');
+const sassExtract = require('sass-extract');
 const postcss = require('postcss');
 const extractHeaderCss = require('./lib/PostcssInlineStylesPlugin');
 const bunyan = require('bunyan');
@@ -373,19 +374,21 @@ class BootstrapEmail {
 	}
 
 	/**
-	 * Loads file from given sourcepath. If file is scss or sass, it will be compiled into css
+	 * Loads file from given sourcepath. If file is scss or sassExtract, it will be compiled into css
 	 * @static
 	 * @param stylePath
 	 * @return {{css: string, vars: Object}|{css: string}}
 	 * @private
 	 */
 	_loadStyle(stylePath) {
-		if (['.scss', '.sass'].includes(path.extname(stylePath))) {
-			this._logger.debug(stylePath + ' detected as sass-file');
+		if (['.scss', '.sassExtract'].includes(path.extname(stylePath))) {
+			this._logger.debug(stylePath + ' detected as sassExtract-file');
 
-			const rendered = sass.renderSync({
+			const rendered = sassExtract.renderSync({
 				file: stylePath,
 				outputStyle: 'compressed'
+			}, {
+				implementation: sass
 			});
 
 			this._logger.debug(stylePath + ' read and parsed successfully');
