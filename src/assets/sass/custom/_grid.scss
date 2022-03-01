@@ -1,3 +1,5 @@
+@use "sass:math";
+
 #{$bte-cls-grid} {
 	width: 100%;
 }
@@ -36,7 +38,7 @@
 		&-#{$i},
 		&-lg-#{$i} {
 			@extend #{$bte-cls-col};
-			width: 100% / $grid-columns * $i;
+			width: math.div(100%, $grid-columns * $i);
 		}
 	}
 }
@@ -44,5 +46,5 @@
 #{$bte-cls-col-separator} {
 	width: 2px;
 	font-size: 0;
-	padding: 0 ($grid-gutter-width / 2 - 1px);
+	padding: 0 (math.div($grid-gutter-width, 2) - 1px);
 }
