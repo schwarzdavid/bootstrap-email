@@ -38,7 +38,7 @@
 		&-#{$i},
 		&-lg-#{$i} {
 			@extend #{$bte-cls-col};
-			width: math.div(100%, $grid-columns * $i);
+			width: math.div(100%, $grid-columns) * $i;
 		}
 	}
 }
