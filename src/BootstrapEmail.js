@@ -384,11 +384,9 @@ class BootstrapEmail {
 		if (['.scss', '.sass'].includes(path.extname(stylePath))) {
 			this._logger.debug(stylePath + ' detected as sass-file');
 
-			const rendered = sassExtract.renderSync({
+			const rendered = sass.renderSync({
 				file: stylePath,
 				outputStyle: 'compressed'
-			}, {
-				implementation: sass
 			});
 
 			this._logger.debug(stylePath + ' read and parsed successfully');
