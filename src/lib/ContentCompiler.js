@@ -304,7 +304,7 @@ class ContentCompiler {
 	 */
 	_generateGrid(rowSrc, columns, isLG) {
 		const $ = this._$;
-		const regex = /col-(lg-)?(\d){1,2}/i;
+		const regex = /col-(lg-)?(\d{1,2})/i;
 
 		const gridBody = $('<tbody>');
 		const grid = $('<table>')
