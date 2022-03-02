@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-email",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "Convert a bootstrap-like template into email-compatible table layout",
 	"keywords": [
 		"email",
@@ -37,6 +37,7 @@
 		"cheerio": "^1.0.0-rc.10",
 		"ejs": "^2.6.1",
 		"juice": "^5.2.0",
+		"lodash": "^4.17.21",
 		"postcss": "^7.0.25",
 		"sass": "^1.49.9",
 		"sass-extract": "github:schwarzdavid/sass-extract#v2.2.1"
