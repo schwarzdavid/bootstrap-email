@@ -387,6 +387,8 @@ class BootstrapEmail {
 			const rendered = sassExtract.renderSync({
 				file: stylePath,
 				outputStyle: 'compressed'
+			}, {
+				implementation: sass
 			});
 
 			this._logger.debug(stylePath + ' read and parsed successfully');
