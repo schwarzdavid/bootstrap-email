@@ -14,7 +14,7 @@
 	//*****************************************
 	#{$bte-cls-spacing-container} {
 		@include generate_spacings($size, $length);
-		@include generate_xl_spacing($size, $length);
+		@include generate_xl_spacing($size, $length !important);
 	}
 
 	// RESET VALUES FOR SMALL DEVICES

@@ -191,6 +191,7 @@ class BootstrapEmail {
 		this._compileHtml();
 		this._inlineCss();
 		this._injectHead();
+		this._injectMSTags();
 
 		return this._output();
 	}
@@ -311,9 +312,35 @@ class BootstrapEmail {
 				'content': 'width=device-width, initial-scale=1'
 			});
 
+			const UACompatibility = template.$('<meta>').attr({
+				'http-equiv': 'X-UA-Compatible',
+				'content': 'IE=edge'
+			});
+
+			const dateFormatDetection = template.$('<meta>').attr({
+				'name': 'format-detection',
+				'content': 'date=no'
+			});
+
+			const telephoneFormatDetection = template.$('<meta>').attr({
+				'name': 'format-detection',
+				'content': 'telephone=no'
+			});
+
+			const msoComment = template.$('<!--[if gte mso 9]><xml>\n' +
+				'   <o:OfficeDocumentSettings>\n' +
+				'    <o:AllowPNG/>\n' +
+				'    <o:PixelsPerInch>96</o:PixelsPerInch>\n' +
+				'   </o:OfficeDocumentSettings>\n' +
+				'  </xml><![endif]-->');
+
 			const head = template.$('head')
+				.append(msoComment)
 				.append(charset)
 				.append(viewport)
+				.append(UACompatibility)
+				.append(dateFormatDetection)
+				.append(telephoneFormatDetection)
 				.append(headStyle);
 
 			if (this._mobileStyles) {
@@ -322,6 +349,17 @@ class BootstrapEmail {
 					.text(this._mobileStyles);
 				head.append(queryStyles);
 			}
+		}
+	}
+
+	_injectMSTags() {
+		for (let template of this._templates) {
+			template.$('html').attr({
+				'xmlns': 'http://www.w3.org/1999/xhtml',
+				'xmlns:v': 'urn:schemas-microsoft-com:vml',
+				'xmlns:o': 'urn:schemas-microsoft-com:office:office'
+			})
+			debugger;
 		}
 	}
 

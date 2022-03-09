@@ -24,6 +24,10 @@ a {
 	text-decoration: none;
 }
 
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
 @include mobile() {
 
 	// Width
