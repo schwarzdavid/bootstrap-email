@@ -80,7 +80,7 @@ class ElementHelper {
 		}
 
 		const content = cheerio.html(el);
-		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }));
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }), null);
 
 		template.attr(attributes);
 		ElementHelper.addClass(template, classes.join(' '));
