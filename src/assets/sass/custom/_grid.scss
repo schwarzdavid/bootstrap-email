@@ -9,17 +9,13 @@
 	mso-hide: all;
 
 	@include mobile() {
-		display: table !important;
+		display: block !important;
 	}
 }
 
 #{$bte-cls-grid--desktop} {
 	@include mobile() {
 		display: none !important;
-	}
-
-	@media print {
-		color: red;
 	}
 }
 
@@ -38,7 +34,7 @@
 		&-#{$i},
 		&-lg-#{$i} {
 			@extend #{$bte-cls-col};
-			width: math.div(100%, $grid-columns) * $i;
+			width: math.round(math.div(100%, $grid-columns) * $i);
 		}
 	}
 }
@@ -46,5 +42,5 @@
 #{$bte-cls-col-separator} {
 	width: 2px;
 	font-size: 0;
-	padding: 0 (math.div($grid-gutter-width, 2) - 1px);
+	padding: 0 math.round(math.div($grid-gutter-width, 2) - 1px);
 }
