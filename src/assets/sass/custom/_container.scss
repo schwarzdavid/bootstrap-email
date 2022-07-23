@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .container {
 	& > tbody > tr > td > table {
 		width: 100%;
@@ -22,6 +24,6 @@
 
 #{$bte-cls-container-content} {
 	width: 100%;
-	padding: 0 $grid-gutter-width / 2;
+	padding: 0 math.round(math.div($grid-gutter-width, 2));
 	text-align: left;
 }

@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      Bootstrap Email Api Reference - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link id="google-font" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Cutive+Mono|Roboto:300,400,700" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="styles/highlight-themes/current.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <link type="text/css" rel="stylesheet" href="styles/collapsible.css">
+  <link type="text/css" rel="stylesheet" href="styles/style-switcher.css">
+  <link type="text/css" rel="stylesheet" href="styles/selectric.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="https://embed.runkit.com"></script>
+  <style id="style-switcher-styles">
+    nav {
+        background: #282c34;
+    }
+    .hljs {
+        background: #1d2027;
+    }
+    .nav-container > ul > li.active a {
+        color: #dcdcdc;
+    }
+    .nav-container > ul > li.active a:hover {
+        color: #f78200;
+    }
+    .nav-container > ul > li.active ul {
+        border-color: #f78200;
+    }
+    h4.name {
+        color: #f78200;
+    }
+    .params > div > code, .params > div > em {
+        color: #f78200;
+    }
+    a, a:active {
+        color: #f78200;
+    }
+    .hljs-doctag, .hljs-keyword, .hljs-formula {
+        color: #f78200;
+    }
+    nav ul a:hover, nav ul a:active {
+        color: #f78200;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header-fixed">
+      <h1>
+        <a href="index.html" title="modernTemplate.title">
+            
+                <img alt="Bootstrap Email" src="https://github.com/schwarzdavid/bootstrap-email/raw/master/icon.png" />
+            
+            Bootstrap Email
+        </a>
+      </h1>
+      <div class="center-header">
+          <ul>
+            
+          </ul>
+      </div>
+      <div class="right-header">
+           
+                <a href="https://github.com/schwarzdavid/bootstrap-email/" title="View it on Github" style="">
+                    <i class="fab fa-github-alt"></i>
+                </a>
+           
+                <a href="https://www.npmjs.com/package/bootstrap-email" title="View it on NPM" style="font-size: 19px">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </a>
+           
+      </div>
+  </header>
+
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <nav>
+    <div id="menu-container" class="scrollbar-inner">
+        <div class="nav-container">
+            <h3>Classes</h3><ul><li id="BootstrapEmail-nav"><a href="BootstrapEmail.html">BootstrapEmail</a><ul class='methods'><li data-type="method" id="BootstrapEmail-_compileHtml-nav"><a href="BootstrapEmail.html#_compileHtml">_compileHtml</a></li><li data-type="method" id="BootstrapEmail-_injectHead-nav"><a href="BootstrapEmail.html#_injectHead">_injectHead</a></li><li data-type="method" id="BootstrapEmail-_inlineCss-nav"><a href="BootstrapEmail.html#_inlineCss">_inlineCss</a></li><li data-type="method" id="BootstrapEmail-_loadStyle-nav"><a href="BootstrapEmail.html#_loadStyle">_loadStyle</a></li><li data-type="method" id="BootstrapEmail-_output-nav"><a href="BootstrapEmail.html#_output">_output</a></li><li data-type="method" id="BootstrapEmail-_processStyle-nav"><a href="BootstrapEmail.html#_processStyle">_processStyle</a></li><li data-type="method" id="BootstrapEmail-compile-nav"><a href="BootstrapEmail.html#compile">compile</a></li><li data-type="method" id="BootstrapEmail-compileAndSave-nav"><a href="BootstrapEmail.html#compileAndSave">compileAndSave</a></li></ul></li><li id="ContentCompiler-nav"><a href="ContentCompiler.html">ContentCompiler</a><ul class='methods'><li data-type="method" id="ContentCompiler-_createTable-nav"><a href="ContentCompiler.html#_createTable">_createTable</a></li><li data-type="method" id="ContentCompiler-_generateGrid-nav"><a href="ContentCompiler.html#_generateGrid">_generateGrid</a></li><li data-type="method" id="ContentCompiler-align-nav"><a href="ContentCompiler.html#align">align</a></li><li data-type="method" id="ContentCompiler-body-nav"><a href="ContentCompiler.html#body">body</a></li><li data-type="method" id="ContentCompiler-component-nav"><a href="ContentCompiler.html#component">component</a></li><li data-type="method" id="ContentCompiler-container-nav"><a href="ContentCompiler.html#container">container</a></li><li data-type="method" id="ContentCompiler-div-nav"><a href="ContentCompiler.html#div">div</a></li><li data-type="method" id="ContentCompiler-grid-nav"><a href="ContentCompiler.html#grid">grid</a></li><li data-type="method" id="ContentCompiler-hr-nav"><a href="ContentCompiler.html#hr">hr</a></li><li data-type="method" id="ContentCompiler-margin-nav"><a href="ContentCompiler.html#margin">margin</a></li><li data-type="method" id="ContentCompiler-padding-nav"><a href="ContentCompiler.html#padding">padding</a></li><li data-type="method" id="ContentCompiler-preview-nav"><a href="ContentCompiler.html#preview">preview</a></li><li data-type="method" id="ContentCompiler-table-nav"><a href="ContentCompiler.html#table">table</a></li></ul></li><li id="ElementHelper-nav"><a href="ElementHelper.html">ElementHelper</a><ul class='methods'><li data-type="method" id="ElementHelper-_appendToAttribute-nav"><a href="ElementHelper.html#._appendToAttribute">_appendToAttribute</a></li><li data-type="method" id="ElementHelper-_concatAttributes-nav"><a href="ElementHelper.html#._concatAttributes">_concatAttributes</a></li><li data-type="method" id="ElementHelper-_ensureArray-nav"><a href="ElementHelper.html#._ensureArray">_ensureArray</a></li><li data-type="method" id="ElementHelper-addClass-nav"><a href="ElementHelper.html#.addClass">addClass</a></li><li data-type="method" id="ElementHelper-removeClass-nav"><a href="ElementHelper.html#.removeClass">removeClass</a></li><li data-type="method" id="ElementHelper-replace-nav"><a href="ElementHelper.html#.replace">replace</a></li><li data-type="method" id="ElementHelper-unwrap-nav"><a href="ElementHelper.html#.unwrap">unwrap</a></li><li data-type="method" id="ElementHelper-wrap-nav"><a href="ElementHelper.html#.wrap">wrap</a></li><li data-type="method" id="ElementHelper-wrapContent-nav"><a href="ElementHelper.html#.wrapContent">wrapContent</a></li></ul></li><li id="TemplateLoader-nav"><a href="TemplateLoader.html">TemplateLoader</a><ul class='methods'><li data-type="method" id="TemplateLoader-load-nav"><a href="TemplateLoader.html#.load">load</a></li></ul></li></ul>
+        </div>
+    </div>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        lib/ContentCompiler.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>const ElementHelper = require('./ElementHelper');
+const {VOID_ELEMENTS, BLOCK_ELEMENTS} = require('../constants');
+
+/**
+ * @enum {string}
+ * @readonly
+ * @memberOf ContentCompiler
+ */
+const ALIGNMENT = {
+	/** .float-left*/
+	LEFT: '.float-left',
+	/** .mx-auto */
+	CENTER: '.mx-auto',
+	/** .float-right*/
+	RIGHT: '.float-right'
+};
+
+/**
+ * Utilclass for compiling
+ */
+class ContentCompiler {
+
+	//*****************************************
+	// CONSTRUCTOR
+	//*****************************************
+
+	/**
+	 * @param {cheerio} $
+	 * @param {Logger} logger
+	 */
+	constructor($, logger) {
+
+		/**
+		 * @type {cheerio}
+		 * @private
+		 */
+		this._$ = $;
+
+		/**
+		 * @type {Logger}
+		 * @private
+		 */
+		this._logger = logger;
+	}
+
+
+	//*****************************************
+	// PUBLIC METHODS
+	//*****************************************
+
+	/**
+	 * Replaces all divs with tables
+	 * @private
+	 */
+	div() {
+		const $ = this._$;
+		const elements = $('div');
+
+		elements.each((i, _el) => {
+			const el = $(_el);
+
+			if (!el.attr('style') &amp;&amp; !el.attr('class')) {
+				ElementHelper.unwrap(el);
+			} else {
+				const {td, table} = this._createTable();
+
+				table.attr(el.attr());
+				const hasWidth = (el.attr('class') || '').split(' ').find(cls => cls.startsWith('w-'));
+				if (!hasWidth) {
+					table.addClass('w-100');
+				}
+				td.html(el.html());
+
+				el.replaceWith(table);
+			}
+		});
+	}
+
+	/**
+	 * Replaces all margin classes to equivalent spacer elements
+	 * @private
+	 */
+	margin() {
+		const $ = this._$;
+		const regex = /m[btylrx]?-(lg-)?(\d)/i;
+
+		while(true) {
+			const el = $('*[class*=m-], *[class*=my-], *[class*=mx-], *[class*=mt-], *[class*=mb-], *[class*=ml-], *[class*=mr-]').not('.mx-auto').first();
+			if(!el.length) {
+				break;
+			}
+			const cssDisplay = el.css('display');
+			const tagName = el.prop('tagName').toLowerCase();
+			if ((cssDisplay === undefined &amp;&amp; !BLOCK_ELEMENTS.includes(tagName)) || cssDisplay === 'inline') {
+				this._logger.warn('Inline-Elements does not support margins. Got ' + tagName);
+				break;
+			}
+
+			const marginClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
+
+			ElementHelper.removeClass(el, marginClasses.join(' '));
+
+			const appendClasses = marginClasses.map(classname => 's' + classname.substr(1));
+			appendClasses.push('w-100');
+
+			ElementHelper.wrap(el, 'spacing', {
+				classes: appendClasses,
+				attributes: { 'data-src': 'margin' }
+			}, false);
+		}
+	}
+
+	/**
+	 * Handles all padding classes. If padding-element is not a table, wrap a table around
+	 * @private
+	 */
+	padding() {
+		const $ = this._$;
+		const regex = /p[btylrx]?-(lg-)?(\d)/i;
+
+		while(true) {
+			const el = $('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]').first();
+			if(!el.length) {
+				break;
+			}
+			const paddingClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
+
+			ElementHelper.removeClass(el, paddingClasses.join(' '));
+
+			const cssDisplay = el.css('display');
+			const appendClasses = paddingClasses.map(classname => 's' + classname.substr(1));
+
+			const tagName = el.prop('tagName').toLowerCase();
+			if (
+				(BLOCK_ELEMENTS.includes(tagName) &amp;&amp; cssDisplay === undefined)
+				|| cssDisplay === 'block'
+				|| el.hasClass('d-block')
+				|| el.hasClass('btn-block')
+			) {
+				appendClasses.push('w-100');
+			}
+
+			if (VOID_ELEMENTS.includes(tagName)) {
+				ElementHelper.wrap(el, 'spacing', {
+					classes: appendClasses,
+					attributes: {'data-src': 'padding'}
+				}, true);
+			} else {
+				ElementHelper.wrapContent(el, 'spacing', {
+					classes: appendClasses,
+					attributes: {'data-src': 'padding'}
+				});
+			}
+		}
+	}
+
+	/**
+	 * Handles floats and centered elements
+	 * @param {ALIGNMENT} direction
+	 * @private
+	 */
+	align(direction) {
+		if (!(Object.values(ALIGNMENT).includes(direction))) {
+			this._logger.warn(`Unknown direction ${direction}. Will be ignored`);
+			return;
+		}
+
+		const $ = this._$;
+		$(direction).each((i, _el) => {
+			const el = $(_el);
+
+			if (direction === ALIGNMENT.CENTER) {
+				ElementHelper.wrap(el, 'center', {}, false);
+			} else {
+				const alignValue = Object.keys(ALIGNMENT).find(key => ALIGNMENT[key] === direction).toLowerCase();
+
+				if (_el.name === 'table') {
+					el.attr({
+						'align': alignValue,
+						'data-bte-added-attribute': 'align'
+					});
+				} else {
+					ElementHelper.wrap(el, 'table', {
+						attributes: {
+							align: alignValue,
+							'data-bte-added-attribute': 'align'
+						}
+					}, false);
+				}
+			}
+		});
+	}
+
+	/**
+	 * Adds border, cellspacing and cellpadding attributes to all table elements
+	 * @private
+	 */
+	table() {
+		const $ = this._$;
+		$('table').each((i, _el) => {
+			$(_el).attr({
+				border: 0,
+				cellpadding: 0,
+				cellspacing: 0
+			});
+		});
+	}
+
+	/**
+	 * Replaces preview tag with hidden div and extend content to 100 characters
+	 * @private
+	 */
+	preview() {
+		const $ = this._$;
+		const preview = $('preview');
+
+		if (preview.length > 0) {
+			const content = preview.html();
+			preview.html(content + '&amp;nbsp;'.repeat(Math.max(100 - content.length, 0)));
+			preview.addClass('preview');
+			preview[0].tagName = 'div';
+		}
+	}
+
+	/**
+	 * Replaces rows and columns to tables and set according separators
+	 * @param {number} columns - Amount of allowed columns in a row
+	 * @private
+	 */
+	grid(columns) {
+		const $ = this._$;
+		$('.row').each((rowIndex, _row) => {
+			const row = $(_row);
+
+			const desktopGrid = this._generateGrid(row.clone(), columns, true);
+			const mobileGrid = this._generateGrid(row, columns, false);
+
+			row.empty().append(desktopGrid).append(mobileGrid);
+
+			mobileGrid.before('&lt;!--[if !mso]>&lt;!-->').after('&lt;!--&lt;![endif]-->');
+		});
+	}
+
+	/**
+	 * Wraps and replaces container
+	 * @param {number} [width=630]
+	 */
+	container(width = 630) {
+		const $ = this._$;
+
+		$('.container, .container-fluid').each((i, _el) => {
+			const el = $(_el);
+			ElementHelper.wrap(el, 'container', {
+				variables: {
+					containerWidthFallback: !el.hasClass('container-fluid'),
+					width
+				}
+			});
+		});
+		$('[data-bte-removed-class="container"], [data-bte-removed-class="container-fluid"]').each((i, _el) => {
+			const el = $(_el);
+			ElementHelper.replace(el, 'container-inner');
+		});
+	}
+
+	/**
+	 * Wraps body-content
+	 */
+	body() {
+		ElementHelper.wrapContent(this._$('body'), 'body');
+	}
+
+	/**
+	 * Replaces all hr tags with the according hr-template
+	 */
+	hr() {
+		const $ = this._$;
+		$('hr').each((i, _el) => {
+			ElementHelper.replace($(_el), 'hr');
+		});
+	}
+
+	/**
+	 * Ensures that all components with given selector (class in most cases) are tables
+	 * @param {string} selector
+	 * @param {object} [addons] {@link ElementHelper.wrap}
+	 */
+	component(selector, addons) {
+		const $ = this._$;
+		$(selector).each((i, _el) => {
+			if (_el.name !== 'table') {
+				ElementHelper.wrap($(_el), 'table', addons);
+			}
+		});
+	}
+
+
+	//*****************************************
+	// PRIVATE METHODS
+	//*****************************************
+
+	/**
+	 * Generates markup for a grid
+	 * @param rowSrc
+	 * @param columns
+	 * @param isLG
+	 * @return {cheerio}
+	 * @private
+	 */
+	_generateGrid(rowSrc, columns, isLG) {
+		const $ = this._$;
+		const regex = /col-(lg-)?(\d{1,2})/i;
+
+		const gridBody = $('&lt;tbody>');
+		const grid = $('&lt;table>')
+			.addClass('bte-grid')
+			.addClass('bte-grid--' + (isLG ? 'desktop' : 'mobile'))
+			.append(gridBody);
+
+		const cols = rowSrc.children('*[class*="col"]');
+
+		for (let colIndex = 0; colIndex &lt; cols.length;) {
+			const row = $('&lt;tr>').addClass('row');
+			const rowBody = $('&lt;tbody>').append(row);
+			const rowTable = $('&lt;table>').addClass('bte-grid__inner').append(rowBody);
+			const gridCell = $('&lt;td>').append(rowTable);
+			const gridRow = $('&lt;tr>').append(gridCell);
+
+			for (let rowCols = 0; colIndex &lt; cols.length; colIndex++) {
+				const col = $(cols[colIndex]);
+
+				let colSize = 0;
+
+				(col.attr('class') || '').split(' ').forEach(classname => {
+					const match = classname.match(regex);
+
+					if (match) {
+						const size = parseInt(match.pop());
+						const isColLG = !!match.pop();
+
+						if (isNaN(size)) {
+							this._logger.warn('Malformed column name. Ignored');
+						} else if (isColLG === isLG || (isLG &amp;&amp; !colSize)) {
+							colSize = size;
+						}
+					}
+				});
+
+				if (!colSize) {
+					colSize = columns;
+				}
+
+				rowCols += colSize;
+
+				if (rowCols > columns) {
+					break;
+				}
+
+				if (rowCols > colSize &amp;&amp; !rowSrc.hasClass('no-gutters')) {
+					row.append('&lt;td class="bte-col-separator">&amp;nbsp;&lt;/td>');
+				}
+
+				const cell = $('&lt;td>')
+					.addClass(`bte-col-${colSize}`)
+					.append(col);
+
+				col.attr('class').split(' ').forEach(classname => {
+					if (regex.test(classname)) {
+						ElementHelper.removeClass(col, classname);
+					}
+				});
+
+				row.append(cell).attr('data-cols', rowCols);
+			}
+
+			const colOffset = columns - parseInt(row.attr('data-cols'));
+			if (colOffset > 0) {
+				const cell = $('&lt;td>').addClass('col-' + colOffset);
+				row.append(cell);
+			}
+
+			gridBody.append(gridRow);
+		}
+
+		ElementHelper.removeClass(rowSrc, 'row');
+
+		return grid;
+	}
+
+	/**
+	 * Creates a table with all required childs
+	 * @return {{td: cheerio, tbody: cheerio, table: cheerio, tr: cheerio}}
+	 * @private
+	 */
+	_createTable() {
+		const $ = this._$;
+
+		const td = $('&lt;td>');
+		const tr = $('&lt;tr>').append(td);
+		const tbody = $('&lt;tbody>').append(tr);
+		const table = $('&lt;table>').append(tbody);
+
+		return {
+			table,
+			tbody,
+			tr,
+			td
+		};
+	}
+}
+
+ContentCompiler.ALIGNMENT = ALIGNMENT;
+
+module.exports = ContentCompiler;
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+  </footer>
+
+    
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+  <script src="scripts/scrollbar.js"></script>
+  <script src="scripts/collapsible.js"></script>
+  <script src="scripts/jquery.selectric.min.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+  <script>
+      $(function () {
+          $('#menu-container').scrollbar();
+
+          
+      });
+    </script>
+</body>
+</html>

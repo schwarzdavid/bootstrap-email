@@ -82,16 +82,18 @@ class ContentCompiler {
 	 */
 	margin() {
 		const $ = this._$;
-		const elements = $('*[class*=m-], *[class*=my-], *[class*=mx-], *[class*=mt-], *[class*=mb-], *[class*=ml-], *[class*=mr-]').not('.mx-auto');
 		const regex = /m[btylrx]?-(lg-)?(\d)/i;
 
-		elements.each((i, _el) => {
-			const el = $(_el);
+		while(true) {
+			const el = $('*[class*=m-], *[class*=my-], *[class*=mx-], *[class*=mt-], *[class*=mb-], *[class*=ml-], *[class*=mr-]').not('.mx-auto').first();
+			if(!el.length) {
+				break;
+			}
 			const cssDisplay = el.css('display');
-
-			if ((cssDisplay === undefined && !BLOCK_ELEMENTS.includes(_el.name)) || cssDisplay === 'inline') {
-				this._logger.warn('Inline-Elements does not support margins. Got ' + _el.name);
-				return;
+			const tagName = el.prop('tagName').toLowerCase();
+			if ((cssDisplay === undefined && !BLOCK_ELEMENTS.includes(tagName)) || cssDisplay === 'inline') {
+				this._logger.warn('Inline-Elements does not support margins. Got ' + tagName);
+				break;
 			}
 
 			const marginClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
@@ -103,9 +105,9 @@ class ContentCompiler {
 
 			ElementHelper.wrap(el, 'spacing', {
 				classes: appendClasses,
-				attributes: {'data-src': 'margin'}
+				attributes: { 'data-src': 'margin' }
 			}, false);
-		});
+		}
 	}
 
 	/**
@@ -114,11 +116,13 @@ class ContentCompiler {
 	 */
 	padding() {
 		const $ = this._$;
-		const elements = $('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]');
 		const regex = /p[btylrx]?-(lg-)?(\d)/i;
 
-		elements.each((i, _el) => {
-			const el = $(_el);
+		while(true) {
+			const el = $('*[class*=p-], *[class*=pt-], *[class*=pr-], *[class*=pb-], *[class*=pl-], *[class*=px-], *[class*=py-]').first();
+			if(!el.length) {
+				break;
+			}
 			const paddingClasses = el.attr('class').split(' ').filter(classname => classname.match(regex));
 
 			ElementHelper.removeClass(el, paddingClasses.join(' '));
@@ -126,8 +130,9 @@ class ContentCompiler {
 			const cssDisplay = el.css('display');
 			const appendClasses = paddingClasses.map(classname => 's' + classname.substr(1));
 
+			const tagName = el.prop('tagName').toLowerCase();
 			if (
-				(BLOCK_ELEMENTS.includes(_el.name) && cssDisplay === undefined)
+				(BLOCK_ELEMENTS.includes(tagName) && cssDisplay === undefined)
 				|| cssDisplay === 'block'
 				|| el.hasClass('d-block')
 				|| el.hasClass('btn-block')
@@ -135,7 +140,7 @@ class ContentCompiler {
 				appendClasses.push('w-100');
 			}
 
-			if (VOID_ELEMENTS.includes(_el.tagName)) {
+			if (VOID_ELEMENTS.includes(tagName)) {
 				ElementHelper.wrap(el, 'spacing', {
 					classes: appendClasses,
 					attributes: {'data-src': 'padding'}
@@ -146,7 +151,7 @@ class ContentCompiler {
 					attributes: {'data-src': 'padding'}
 				});
 			}
-		});
+		}
 	}
 
 	/**
@@ -304,7 +309,7 @@ class ContentCompiler {
 	 */
 	_generateGrid(rowSrc, columns, isLG) {
 		const $ = this._$;
-		const regex = /col-(lg-)?(\d){1,2}/i;
+		const regex = /col-(lg-)?(\d{1,2})/i;
 
 		const gridBody = $('<tbody>');
 		const grid = $('<table>')

@@ -5,11 +5,11 @@
 		<td align="center">
 
 			<% if(variables.containerWidthFallback) { %>
-				<!--[if (gte mso 9)|(IE)]>
-				<table align="center" border="0" cellpadding="0" cellspacing="0">
+				<!--[if gte mso 9]>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed !important;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;" width="<%= variables.width %>">
 					<tbody>
 					<tr>
-						<td width="<%= variables.width %>">
+						<td width="<%= variables.width %>" style="width:<%= variables.width %>px;max-width:<%= variables.width %>px">
 				<![endif]-->
 			<% } %>
 
@@ -18,7 +18,7 @@
 			<!-- / OUTER CONTAINER CONTENT -->
 
 			<% if(variables.containerWidthFallback) { %>
-				<!--[if (gte mso 9)|(IE)]>
+				<!--[if gte mso 9]>
 				</td>
 				</tr>
 				</tbody>

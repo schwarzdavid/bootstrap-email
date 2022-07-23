@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      Bootstrap Email Api Reference - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link id="google-font" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Cutive+Mono|Roboto:300,400,700" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="styles/highlight-themes/current.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <link type="text/css" rel="stylesheet" href="styles/collapsible.css">
+  <link type="text/css" rel="stylesheet" href="styles/style-switcher.css">
+  <link type="text/css" rel="stylesheet" href="styles/selectric.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="https://embed.runkit.com"></script>
+  <style id="style-switcher-styles">
+    nav {
+        background: #282c34;
+    }
+    .hljs {
+        background: #1d2027;
+    }
+    .nav-container > ul > li.active a {
+        color: #dcdcdc;
+    }
+    .nav-container > ul > li.active a:hover {
+        color: #f78200;
+    }
+    .nav-container > ul > li.active ul {
+        border-color: #f78200;
+    }
+    h4.name {
+        color: #f78200;
+    }
+    .params > div > code, .params > div > em {
+        color: #f78200;
+    }
+    a, a:active {
+        color: #f78200;
+    }
+    .hljs-doctag, .hljs-keyword, .hljs-formula {
+        color: #f78200;
+    }
+    nav ul a:hover, nav ul a:active {
+        color: #f78200;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header-fixed">
+      <h1>
+        <a href="index.html" title="modernTemplate.title">
+            
+                <img alt="Bootstrap Email" src="https://github.com/schwarzdavid/bootstrap-email/raw/master/icon.png" />
+            
+            Bootstrap Email
+        </a>
+      </h1>
+      <div class="center-header">
+          <ul>
+            
+          </ul>
+      </div>
+      <div class="right-header">
+           
+                <a href="https://github.com/schwarzdavid/bootstrap-email/" title="View it on Github" style="">
+                    <i class="fab fa-github-alt"></i>
+                </a>
+           
+                <a href="https://www.npmjs.com/package/bootstrap-email" title="View it on NPM" style="font-size: 19px">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </a>
+           
+      </div>
+  </header>
+
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <nav>
+    <div id="menu-container" class="scrollbar-inner">
+        <div class="nav-container">
+            <h3>Classes</h3><ul><li id="BootstrapEmail-nav"><a href="BootstrapEmail.html">BootstrapEmail</a><ul class='methods'><li data-type="method" id="BootstrapEmail-_compileHtml-nav"><a href="BootstrapEmail.html#_compileHtml">_compileHtml</a></li><li data-type="method" id="BootstrapEmail-_injectHead-nav"><a href="BootstrapEmail.html#_injectHead">_injectHead</a></li><li data-type="method" id="BootstrapEmail-_inlineCss-nav"><a href="BootstrapEmail.html#_inlineCss">_inlineCss</a></li><li data-type="method" id="BootstrapEmail-_loadStyle-nav"><a href="BootstrapEmail.html#_loadStyle">_loadStyle</a></li><li data-type="method" id="BootstrapEmail-_output-nav"><a href="BootstrapEmail.html#_output">_output</a></li><li data-type="method" id="BootstrapEmail-_processStyle-nav"><a href="BootstrapEmail.html#_processStyle">_processStyle</a></li><li data-type="method" id="BootstrapEmail-compile-nav"><a href="BootstrapEmail.html#compile">compile</a></li><li data-type="method" id="BootstrapEmail-compileAndSave-nav"><a href="BootstrapEmail.html#compileAndSave">compileAndSave</a></li></ul></li><li id="ContentCompiler-nav"><a href="ContentCompiler.html">ContentCompiler</a><ul class='methods'><li data-type="method" id="ContentCompiler-_createTable-nav"><a href="ContentCompiler.html#_createTable">_createTable</a></li><li data-type="method" id="ContentCompiler-_generateGrid-nav"><a href="ContentCompiler.html#_generateGrid">_generateGrid</a></li><li data-type="method" id="ContentCompiler-align-nav"><a href="ContentCompiler.html#align">align</a></li><li data-type="method" id="ContentCompiler-body-nav"><a href="ContentCompiler.html#body">body</a></li><li data-type="method" id="ContentCompiler-component-nav"><a href="ContentCompiler.html#component">component</a></li><li data-type="method" id="ContentCompiler-container-nav"><a href="ContentCompiler.html#container">container</a></li><li data-type="method" id="ContentCompiler-div-nav"><a href="ContentCompiler.html#div">div</a></li><li data-type="method" id="ContentCompiler-grid-nav"><a href="ContentCompiler.html#grid">grid</a></li><li data-type="method" id="ContentCompiler-hr-nav"><a href="ContentCompiler.html#hr">hr</a></li><li data-type="method" id="ContentCompiler-margin-nav"><a href="ContentCompiler.html#margin">margin</a></li><li data-type="method" id="ContentCompiler-padding-nav"><a href="ContentCompiler.html#padding">padding</a></li><li data-type="method" id="ContentCompiler-preview-nav"><a href="ContentCompiler.html#preview">preview</a></li><li data-type="method" id="ContentCompiler-table-nav"><a href="ContentCompiler.html#table">table</a></li></ul></li><li id="ElementHelper-nav"><a href="ElementHelper.html">ElementHelper</a><ul class='methods'><li data-type="method" id="ElementHelper-_appendToAttribute-nav"><a href="ElementHelper.html#._appendToAttribute">_appendToAttribute</a></li><li data-type="method" id="ElementHelper-_concatAttributes-nav"><a href="ElementHelper.html#._concatAttributes">_concatAttributes</a></li><li data-type="method" id="ElementHelper-_ensureArray-nav"><a href="ElementHelper.html#._ensureArray">_ensureArray</a></li><li data-type="method" id="ElementHelper-addClass-nav"><a href="ElementHelper.html#.addClass">addClass</a></li><li data-type="method" id="ElementHelper-removeClass-nav"><a href="ElementHelper.html#.removeClass">removeClass</a></li><li data-type="method" id="ElementHelper-replace-nav"><a href="ElementHelper.html#.replace">replace</a></li><li data-type="method" id="ElementHelper-unwrap-nav"><a href="ElementHelper.html#.unwrap">unwrap</a></li><li data-type="method" id="ElementHelper-wrap-nav"><a href="ElementHelper.html#.wrap">wrap</a></li><li data-type="method" id="ElementHelper-wrapContent-nav"><a href="ElementHelper.html#.wrapContent">wrapContent</a></li></ul></li><li id="TemplateLoader-nav"><a href="TemplateLoader.html">TemplateLoader</a><ul class='methods'><li data-type="method" id="TemplateLoader-load-nav"><a href="TemplateLoader.html#.load">load</a></li></ul></li></ul>
+        </div>
+    </div>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        lib/ElementHelper.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>const cheerio = require('cheerio').default;
+const ejs = require('ejs');
+const TemplateLoader = require('./TemplateLoader');
+
+const DEBUG_ATTRIBUTES = {
+	CLASS_ADDED: 'data-bte-added-class',
+	CLASS_REMOVED: 'data-bte-removed-class'
+};
+
+/**
+ * @static
+ */
+class ElementHelper {
+
+	//*****************************************
+	// PUBLIC STATIC METHODS
+	//*****************************************
+
+	/**
+	 * Replaces one element with given template
+	 * @param {cheerio} el - Element to be replaced
+	 * @param {string} tplName - Name of the template to use
+	 * @param {object} [variables] - Additional variables which will be passed to the template
+	 * @private
+	 */
+	static replace(el, tplName, variables = {}) {
+		const content = el.html();
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }));
+		template.attr(el.attr());
+		el.replaceWith(template);
+	}
+
+	/**
+	 * Wraps the content of given element with given template
+	 * @param {cheerio} el - Element to be replaced
+	 * @param {string} tplName - Name of the template to use
+	 * @param {object} [assets] - Additional options for replacing elements
+	 * @param {string | string[]} [assets.classes] - Add additional classes to template
+	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
+	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
+	 * @private
+	 */
+	static wrapContent(el, tplName, { classes = [], attributes = {}, variables = {} } = {}) {
+		classes = ElementHelper._ensureArray(classes);
+		attributes = ElementHelper._concatAttributes(attributes);
+
+		const content = el.html();
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { variables, content }));
+
+		template.attr(attributes);
+		template.addClass(classes.join(' '));
+
+		el.html(template);
+	}
+
+	/**
+	 * Wraps given element with given template
+	 * @param {cheerio} el - Element to be replaced
+	 * @param {string} tplName - Name of the template to use
+	 * @param {object} [assets] - Additional options for replacing elements
+	 * @param {string | string[]} [assets.classes] - Add additional classes to append to the template root element
+	 * @param {object} [assets.attributes] - Add additional attributes which will be added to template
+	 * @param {object} [assets.variables] - Additional variables which will be passed to the template
+	 * @param {boolean} [transcludeClasses=true] - Should be classes moved from source element to template
+	 * @private
+	 */
+	static wrap(el, tplName, { classes = [], attributes = {}, variables = {} } = {}, transcludeClasses = true) {
+		classes = ElementHelper._ensureArray(classes);
+		attributes = ElementHelper._concatAttributes(attributes);
+
+		if (attributes.class) {
+			classes.push(...attributes.class.split(' '));
+			delete attributes.class;
+		}
+
+		if (transcludeClasses) {
+			const srcClassString = el.attr('class');
+			classes.push(...srcClassString.split(' '));
+			ElementHelper.removeClass(el, srcClassString);
+		}
+
+		const content = cheerio.html(el);
+		const template = cheerio(ejs.render(ElementHelper.templates[tplName], { content, variables }), null);
+
+		template.attr(attributes);
+		ElementHelper.addClass(template, classes.join(' '));
+
+		el.replaceWith(template);
+
+		return el;
+	}
+
+	/**
+	 * Removes given element, but keeps child contents
+	 * @param {cheerio} el - Element to be replaced
+	 * @private
+	 */
+	static unwrap(el) {
+		const contents = el.html();
+		const parsedContents = cheerio(contents, null, false);
+		el.replaceWith(parsedContents);
+	}
+
+	/**
+	 * Adds class to element and sets data-attributes for debugging reasons
+	 * @param {cheerio} el
+	 * @param {string} classname
+	 */
+	static addClass(el, classname) {
+		this._appendToAttribute(el, DEBUG_ATTRIBUTES.CLASS_ADDED, classname).addClass(classname);
+	}
+
+	/**
+	 * Removes class to element and sets data-attributes for debugging reasons
+	 * @param {cheerio} el
+	 * @param {string} classname
+	 */
+	static removeClass(el, classname) {
+		this._appendToAttribute(el, DEBUG_ATTRIBUTES.CLASS_REMOVED, classname).removeClass(classname);
+	}
+
+
+	//*****************************************
+	// PRIVATE METHODS
+	//*****************************************
+
+	/**
+	 * Appends value to attribute
+	 * @param {cheerio} el
+	 * @param {string} attr
+	 * @param {any} val
+	 * @return {string}
+	 * @private
+	 */
+	static _appendToAttribute(el, attr, val) {
+		const currVal = el.attr(attr) || '';
+		const newVal = (currVal + ' ' + val).trim();
+
+		return el.attr(attr, newVal);
+	}
+
+	/**
+	 * @param {...object | cheerio} attributes - Attribute sources which should be concatenated
+	 * @return {object} The concatenated attributes
+	 * @private
+	 */
+	static _concatAttributes(...attributes) {
+		let output = {};
+
+		attributes.forEach(el => {
+			let attr = el;
+
+			if (el.cheerio) {
+				attr = { ...el.attr() };
+			}
+
+			for (let i in attr) {
+				if (attr.hasOwnProperty(i)) {
+					output[i] = attr[i];
+				}
+			}
+		});
+
+		return output;
+	}
+
+	/**
+	 * Makes sure, given variable is an array. If not, it will be splitted into an array
+	 * @param {string | string[]} arr
+	 * @return {string[]}
+	 * @private
+	 */
+	static _ensureArray(arr) {
+		if (['string', 'number'].includes(typeof arr)) {
+			arr = arr.toString().split(' ');
+		}
+		if (!Array.isArray(arr)) {
+			arr = [];
+		}
+
+		return arr;
+	}
+}
+
+/**
+ * Contains loaded templates
+ * @type {Object}
+ * @see TemplateLoader.load
+ * @readonly
+ * @private
+ */
+ElementHelper.templates = Object.freeze(TemplateLoader.load());
+
+ElementHelper.DEBUG_ATTRIBUTES = DEBUG_ATTRIBUTES;
+
+module.exports = ElementHelper;
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+  </footer>
+
+    
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+  <script src="scripts/scrollbar.js"></script>
+  <script src="scripts/collapsible.js"></script>
+  <script src="scripts/jquery.selectric.min.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+  <script>
+      $(function () {
+          $('#menu-container').scrollbar();
+
+          
+      });
+    </script>
+</body>
+</html>

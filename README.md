@@ -50,16 +50,16 @@ To compile a default template:
 ```javascript
 const BootstrapEmail = require('bootstrap-email');
 
-const template = new BootstrapEmail('<path-to-template>.html');
+const template = new BootstrapEmail('<absolute-path-to-template>.html');
 
 // const template = new BootstrapEmail([
-//     '<path-to-first-template>.html',
-//     '<path-to-second-template>.html',
+//     '<absolute-path-to-first-template>.html',
+//     '<absolute-path-to-second-template>.html',
 // ]);
 //
 // const template = new BootstrapEmail('<div class="container">...</div>'); 
 
-template.compileAndSave('<path-to-output>.html');
+template.compileAndSave('<absolute-path-to-output>.html');
 ```
 
 Alternatively use the [Gulp plugin](https://github.com/schwarzdavid/gulp-bootstrap-email) to integrate Bootstrap Email into your templating workflow.
@@ -82,15 +82,15 @@ Performs a full compile and returns compiled document(s).
 If only one template is about to compile, returns the compiled template, otherwise an array containing objects with the path of the input-file and the compiled document.
 
 ```javascript
-const singleTemplate = new BootstrapEmail('<path-to-template>.html');
+const singleTemplate = new BootstrapEmail('<absolute-path-to-template>.html');
 
 // returns string
 singleTemplate.compile();
 
 
-const multipleTemplates = new BootstrapEmail(['<path>', ...]);
+const multipleTemplates = new BootstrapEmail(['<absolute-path>', ...]);
 
-// returns [{path:'<path-to-source>', document: '...'}, ...]
+// returns [{path:'<absolute-path-to-source>', document: '...'}, ...]
 multipleTemplates.compile();
 ```
 
@@ -101,12 +101,12 @@ Performs a full compile and saves compiled files into given path.
 If only one template is given, pass a full path including filename and extension. Otherwise pass only a directory name. The filenames will be used from the source files.
 
 ```javascript
-const singleTemplate = new BootstrapEmail('<path-to-template>.html');
-singleTemplate.compileAndSave('./out/compiled.html');
+const singleTemplate = new BootstrapEmail('<absolute-path-to-template>.html');
+singleTemplate.compileAndSave('<absolute-out-compiled>.html');
 
 
-const multipleTemplates = new BootstrapEmail(['<path>', ...]);
-multipleTemplates.compileAndSave('./out/');
+const multipleTemplates = new BootstrapEmail(['<absolute-path>', ...]);
+multipleTemplates.compileAndSave('<absolute-out>');
 ```
 
 ## Todos

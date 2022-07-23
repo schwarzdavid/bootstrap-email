@@ -48,7 +48,7 @@
 
 		// SET PROPER PADDING ON SMALL DEVICES
 		//*****************************************
-		#{$bte-cls-spacing-container}#{$bte-cls-spacing-container--important} {
+		/*#{$bte-cls-spacing-container}#{$bte-cls-spacing-container--important} {
 			&.s-#{$size} > tbody > tr > td {
 				&#{$bte-cls-space-left},
 				&#{$bte-cls-space-right} {
@@ -88,6 +88,6 @@
 					width: $length !important;
 				}
 			}
-		}
+		}*/
 	}
 }

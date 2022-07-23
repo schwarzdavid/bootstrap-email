@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const BootstrapEmail = require('../src/BootstrapEmail');
-const cheerio = require('cheerio');
+const cheerio = require('cheerio').default;
 const chai = require('chai');
 const chaiThings = require('chai-things');
 
